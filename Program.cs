@@ -1,4 +1,4 @@
-namespace TP2_tuberculose
+namespace TP2
 {
     public class Program
     {

@@ -1,4 +1,4 @@
-namespace TP2_tuberculose.Models
+namespace TP2.Models
 {
     public class ErrorViewModel
     {

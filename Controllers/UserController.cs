@@ -1,16 +1,33 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using TP2_tuberculose.Models;
+using TP2.Models;
 
-namespace TP2_tuberculose.Controllers
+namespace TP2.Controllers
 {
-    public class HomeController : Controller
+    public class UserController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<UserController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
+        }
+
+
+
+        public IActionResult Catalogue()
+        {
+            return View();
+        }
+
+        public IActionResult Favoris()
+        {
+            return View();
+        }
+
+        public IActionResult Fiche()
+        {
+            return View();
         }
 
         public IActionResult Index()
@@ -18,10 +35,6 @@ namespace TP2_tuberculose.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
