@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using TP2.Models;
+using TP2_final.Models;
 
-namespace TP2.Controllers
+namespace TP2_final.Controllers
 {
     public class NonConnecteController : Controller
     {

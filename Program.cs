@@ -1,4 +1,4 @@
-namespace TP2
+namespace TP2_final
 {
     public class Program
     {
@@ -14,7 +14,7 @@ namespace TP2
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/NonConnecte/Error");
             }
             app.UseStaticFiles();
 
@@ -24,7 +24,7 @@ namespace TP2
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=NonConnecte}/{action=Index}/{id?}");
 
             app.Run();
         }

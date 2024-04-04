@@ -11,9 +11,4 @@
     <None Remove="Views\User\NewFile.txt" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="NUnit" Version="4.1.0" />
-  </ItemGroup>
-
 </Project>
