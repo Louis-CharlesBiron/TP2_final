@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace S_tp1 {
+namespace TP2_final {
     public class Favoris {//
 
         private string userId;

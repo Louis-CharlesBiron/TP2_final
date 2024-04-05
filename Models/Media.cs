@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 using Newtonsoft.Json;
-using static S_tp1.Types;
+using static TP2_final.Types;
 
-namespace S_tp1
+namespace TP2_final
 {
     public class Media
     {

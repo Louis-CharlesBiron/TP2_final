@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace S_tp1
+namespace TP2_final
 {
     public enum Role
     {

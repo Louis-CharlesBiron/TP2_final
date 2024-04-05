@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace S_tp1
+namespace TP2_final
 {
     /*
      * Regroupe les Médias et s'occupe de la sérialisation de l'objet catalogue

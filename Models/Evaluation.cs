@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace S_tp1 {
+namespace TP2_final {
     public class Evaluation {//
 
         private string userId;
