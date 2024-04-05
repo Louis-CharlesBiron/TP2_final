@@ -8,11 +8,10 @@ html {
   }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  margin-bottom: 60px;
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    user-select: none;
+    overflow: hidden;
 }

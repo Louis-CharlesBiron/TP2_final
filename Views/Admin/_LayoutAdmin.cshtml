@@ -3,35 +3,53 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - TP2_ADMINLAYOUT</title>
+    <title>@ViewData["Title"] - Tubercule Tune</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/admin.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TP2_final.styles.css" asp-append-version="true"/>
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-beige border-bottom box-shadow mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" asp-area="" asp-controller="Admin" asp-action="Index">TP2_final</a>
+            <div class="logo_top">
+                   <img src="~/images/logo.png" class="m-2" width="75" height="47.5">
+                    <a class="navbar-brand fs-2 fw-bold" asp-area="" asp-controller="Admin" asp-action="Index">Tubercule Tune</a>
+            </div>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
+                <ul class="navbar-nav flex-grow-1 justify-content-evenly">
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Home</a>
+                        <button>
+                                <a class="nav-link text-dark btn" asp-area="" asp-controller="Admin" asp-action="GestionUtilisateurs">Liste Utilisateurs</a>
+                        </button>
+                    </li>
+                    <li class="nav-item">
+                        <button>
+                            <a class="nav-link text-dark btn" asp-area="" asp-controller="Admin" asp-action="Catalogue">Catalogue</a>
+                        </button>
                     </li>
                 </ul>
+                <div class="deconnexion_parent">
+                    <button>
+                            <a class="nav-link text-dark btn" asp-area="" asp-controller="Admin" asp-action="Deconnexion">Déconnexion : @ViewData["username"]</a>
+                    </button>
+                    <img src="~/images/admin.png" class="img-fluid" width="48px" height="48px">
+                </div>
             </div>
         </div>
     </nav>
 </header>
-<div class="container">
-    <main role="main" class="pb-3">
+<div class="container container-fluid h-75">
+    <main role="main" class="pb-3 h-100">
         @RenderBody()
     </main>
 </div>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
