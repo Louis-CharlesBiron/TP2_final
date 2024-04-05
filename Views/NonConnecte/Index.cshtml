@@ -3,5 +3,35 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Index non connecté</h1>
+    <form id="connForm">
+        <div class="conn">
+            <label for="connPseudo">Pseudo</label>
+            <input type="text" class="conn-control" id="connPseudo" placeholder="Pseudo">
+        </div>
+        <div class="conn">
+            <label for="connMdp">Password</label>
+            <input type="password" class="conn-control" id="connMdp" placeholder="Mot de passe">
+        </div>
+        <button type="submit" class="btn btn-primary" id="btnConn">Connexion</button>
+    </form>
+    <form id="insForm">
+        <div class="ins">
+            <label for="insPrenom">Prénom</label>
+            <input type="text" class="ins-control" id="insPrenom" placeholder="Prénom">
+        </div>
+        <div class="ins">
+            <label for="insNomFamille">Nom de famille</label>
+            <input type="text" class="ins-control" id="insNomFamille" placeholder="Nom de famille">
+        </div>
+        <div class="ins">
+            <label for="insPseudo">Pseudo</label>
+            <input type="text" class="ins-control" id="insPseudo" placeholder="Pseudo">
+        </div>
+        <div class="ins">
+            <label for="insMdp">Password</label>
+            <input type="password" class="ins-control" id="insMdp" placeholder="Mot de passe">
+        </div>
+        <button type="submit" class="btn btn-primary" id="btnIns">S'inscrire</button>
+    </form>
+    
 </div>
