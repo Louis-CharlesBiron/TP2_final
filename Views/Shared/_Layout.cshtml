@@ -6,23 +6,21 @@
     <title>@ViewData["Title"] - Tubercule Tune</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/nonConnecte.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/TP2_final.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <div class="align-content-center test">
-            <h1>Tubercule Tune</h1>
-            <span>TP2</span>
-            <span>Musiques</span>
-            <span>Visualiseur de médias</span>
-        </div>
-    </header>
+    <div id="textAccueil">
+        <h1>Tubercule Tune</h1>
+        <p>TP2</p>
+        <p>Musiques</p>
+        <p>Visualiseur de médias</p>
+    </div>
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-            <img src="~/images/bg_img.png" alt="POURQUOI LE BACKGROUND Y LOAD PAS !?!?!?!? D: D: :C :O :("></img>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
