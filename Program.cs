@@ -24,7 +24,7 @@ namespace TP2_final
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=NonConnecte}/{action=Index}/{id?}");
+                pattern: "{controller=User}/{action=Index}/{id?}");
 
             app.Run();
         }
