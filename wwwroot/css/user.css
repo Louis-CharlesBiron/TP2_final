@@ -1,0 +1,19 @@
+.dc-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.btn-patate {
+    background-color: #7A5743;
+    border-color: black;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: space-evenly;
+}
