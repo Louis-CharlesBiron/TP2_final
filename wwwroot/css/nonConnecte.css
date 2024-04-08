@@ -11,9 +11,26 @@ form {
     display: inline-block;
 }
 
-#textAccueil, h1, p, label {
+h1, p, label {
     justify-content: center;
     display: flex;
     align-items: center;
     color: white;
+}
+
+form {
+    border: 2px solid white;
+}
+
+h1{
+    margin-top: 10%;
+    font-size: 400%;
+}
+
+p{
+    font-size: 24px;
+}
+
+#connForm{
+    height: 100%;
 }
