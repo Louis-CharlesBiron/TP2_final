@@ -9,7 +9,6 @@
 
         @foreach (Media media in Model.GetCatalogue())
         {
-            Console.WriteLine(media.Nom);
             <a class="media" asp-controller="User" asp-action="Fiche?@media.Nom">
                 <img src="@media.Image" alt="Image @media.Nom"></img>
                 <span>@media.Nom</span>
