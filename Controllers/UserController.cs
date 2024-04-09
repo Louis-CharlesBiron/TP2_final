@@ -8,7 +8,7 @@ namespace TP2_final.Controllers
     {
         private readonly ILogger<UserController> _logger;
         private const string pathMedias = "s_medias.json", pathUtilisateurs = "s_utilisateurs.json", pathEvaluations = "s_evalutations.json", pathFavoris = "s_favoris.json";
-        private static string pathDossierSerial = @$"{Directory.GetParent(Environment.CurrentDirectory).FullName}\TP2_final\Donnees";
+        private static string pathDossierSerial = @$"{Environment.CurrentDirectory}\Donnees";
 
         private Catalogue catalogue;
         private CatalogueUtilisateur catalogueUtilisateur;

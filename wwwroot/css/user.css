@@ -17,3 +17,26 @@
     list-style: none;
     justify-content: space-evenly;
 }
+
+.media {
+    background-color: #ebdfce;
+    border: 2px solid #9b8355;
+    padding: 1% 1.5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: unset;
+    color: black;
+    font-size: 1.1em;
+}
+
+.container {
+    height: 90%;
+}
+
+.top_catalogue {
+    height: 92%;
+    overflow: hidden;
+    overflow-y: scroll;
+}

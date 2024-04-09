@@ -1,8 +1,9 @@
-﻿@{
+﻿@using static TP2_final.Utilitaire;
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
+<div class="text-center h-100">
     <!--Todo -> faut afficher les medias-->
     <h1 class="display-4">Catalogue</h1>
     <div class="top_catalogue">
@@ -11,16 +12,18 @@
         {
             <a class="media" asp-controller="User" asp-action="Fiche?@media.Nom">
                 <img src="@media.Image" alt="Image @media.Nom"></img>
-                <span>@media.Nom</span>
+                <span class="fw-bold">@media.Nom</span>
                 <span>@media.Auteur</span>
-                <span>@media.Duree</span> <!-- voir pour classe utilitaire jar, formatDurree() -->
+                <span>@getDureeFormat(media.Duree)</span> <!-- voir pour classe utilitaire jar, formatDurree() -->
             </a>
-            
-            
+           
+        
             
         }
 
     </div>
 
-    @*<a asp-controller="User" asp-action="Fiche">Fiche</a>*@
 </div>
+@section css {
+    <link rel="stylesheet" href="~/css/user.css" asp-append-version="true" />
+}
