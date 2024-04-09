@@ -10,7 +10,7 @@
     <div class="top_catalogue">
         @foreach (Media media in Model.GetCatalogue())
         {
-            <a class="media" asp-controller="User" asp-action="Fiche?">
+            <a class="media" asp-controller="User" asp-action="Fiche?@media.Nom">
 
             </a>
             
