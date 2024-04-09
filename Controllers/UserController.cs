@@ -7,17 +7,23 @@ namespace TP2_final.Controllers
     public class UserController : Controller
     {
         private readonly ILogger<UserController> _logger;
+        private Catalogue catalogue;
 
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
+
+            catalogue = new Catalogue();
+
+
+
         }
 
 
 
         public IActionResult Catalogue()
         {
-            return View();
+            return View(catalogue);
         }
 
         public IActionResult Favoris()
