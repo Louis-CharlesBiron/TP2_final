@@ -14,6 +14,7 @@ namespace TP2_final.Controllers
         private CatalogueUtilisateur catalogueUtilisateur;
         private CatalogueEvaluation catalogueEvaluation;
         private CatalogueFavoris catalogueFavoris;
+        private FavorisMediaViewModel favMed;
 
         public UserController(ILogger<UserController> logger)
         {
@@ -28,6 +29,10 @@ namespace TP2_final.Controllers
             catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
             catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
             catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+
+            favMed = new FavorisMediaViewModel();
+            favMed.Favoris = catalogueFavoris.GetCatalogue();
+            favMed.Medias = catalogue.GetCatalogue();
         }
 
 
@@ -40,7 +45,7 @@ namespace TP2_final.Controllers
         public IActionResult Favoris()
         {
 
-            return View(catalogueFavoris);
+            return View(favMed);
         }
 
         public IActionResult Fiche()

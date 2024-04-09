@@ -8,14 +8,29 @@
     <div>
 
         <!--Placeholder class pour l'instant-->
-        @foreach (Favoris fav in Model.GetCatalogue())
+        @foreach (Favoris fav in Model.Favoris)
         {
+            <!--Le user est hardcodé, il faudrait pas-->
             @if (fav.UserId == "CRAZY3")
             {
                 <div class="media">
-                    <div class="media-element">@fav.MediaId</div>
+                    <div class="media-element">
+                        <a asp-controller="User" asp-action="Fiche?@fav.MediaId">@fav.MediaId</a>
+                    </div>
                 </div>
             }
         }
     </div>
+
+    @*
+    <div>
+    @foreach (Media item in Model.Medias)
+    {
+    <div>
+    @item.Nom
+    </div>
+    }
+    </div>
+    *@
+
 </div>
