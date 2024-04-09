@@ -11,7 +11,7 @@
         {
             <a class="media" asp-controller="User" asp-action="Fiche?@media.Nom">
                 <img src="@media.Image" alt="Image @media.Nom"></img>
-                <span>@media.Nom</span>
+                <span class="fw-bold">@media.Nom</span>
                 <span>@media.Auteur</span>
                 <span>@media.Duree</span> <!-- voir pour classe utilitaire jar, formatDurree() -->
             </a>
@@ -22,5 +22,4 @@
 
     </div>
 
-    @*<a asp-controller="User" asp-action="Fiche">Fiche</a>*@
 </div>
