@@ -39,7 +39,8 @@ namespace TP2_final.Controllers
 
         public IActionResult Favoris()
         {
-            return View();
+
+            return View(catalogueFavoris);
         }
 
         public IActionResult Fiche()

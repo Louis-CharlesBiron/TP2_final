@@ -1,7 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Mes Favoris";
 }
-@model TP2_final.Models.CatalogueFavoris
 
 <div class="text-center">
 
@@ -9,21 +8,14 @@
     <div>
 
         <!--Placeholder class pour l'instant-->
-        <div class="media">
-            Ici on met les media
-            @*
-            @foreach (Favoris fav in Model.GetCatalogue())
+        @foreach (Favoris fav in Model.GetCatalogue())
+        {
+            @if (fav.UserId == "CRAZY3")
             {
-            <div>fav.UserId</div>
-            <div>fav.MediaId</div>
+                <div class="media">
+                    <div class="media-element">@fav.MediaId</div>
+                </div>
             }
-            *@
-            <div class="media-element">
-                Ici on met le premier media genre
-            </div>
-            <div class="media-element">
-                Ici on met le deuxieme media
-            </div>
-        </div>
+        }
     </div>
 </div>
