@@ -28,6 +28,7 @@ namespace TP2_final.Controllers
             catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
             catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
             catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+            Console.WriteLine(catalogueUtilisateur.GetCatalogue().Count);
         }
 
         public IActionResult Index()
@@ -37,7 +38,7 @@ namespace TP2_final.Controllers
 
         public IActionResult GestionUtilisateurs()
         {
-            return View();
+            return View(catalogueUtilisateur);
         }
 
         public IActionResult Catalogue()
