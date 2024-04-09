@@ -8,14 +8,13 @@ namespace TP2_final.Controllers
     {
         private readonly ILogger<UserController> _logger;
         private Catalogue catalogue;
+        private CatalogueFavoris fav = new CatalogueFavoris();
 
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
 
             catalogue = new Catalogue();
-
-
 
         }
 
