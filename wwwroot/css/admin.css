@@ -30,4 +30,17 @@ body {
     justify-content: center;
 }
 
-#
+#supprimer{
+    border: 2px solid black;
+}
+
+.user {
+    border: 2px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+p{
+    margin-left: 5px;
+}

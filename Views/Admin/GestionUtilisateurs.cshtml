@@ -1,16 +1,23 @@
 ﻿@{
     ViewData["Title"] = "Liste utilisateurs";
     ViewData["username"] = "TEMP TEST";
-    ViewData["UserPseudo"] = "PseudoUserTemp";
-    ViewData["UserRole"] = "RoleUserTemp";
-    ViewData["UserPrenom"] = "PrenomUserTemp";
-    ViewData["UserNom"] = "NomUserTemp";
+    ViewData["UserPseudo"] = "Xx_pseudo_xX";
+    ViewData["UserRole"] = "Utilisateur";
+    ViewData["UserPrenom"] = "Kevin";
+    ViewData["UserNom"] = "Tremblay";
 }
 
 <div class="text-center">
     <h1 class="display-4">Liste Utilisateurs</h1>
     <div id="supprimer">
         <p>Voulez-vous bel et bien supprimer l'utilisateur @ViewData["UserPseudo"]</p>
-        <button>Confirmation Supprimmer</button>
+        <button>Confirmation Supprimmer</button>   
+    </div>
+    <div class="user">
+        <p>Pseudo: @ViewData["UserPseudo"]</p>
+        <p>Role: @ViewData["UserRole"]</p>
+        <p>Prénom: @ViewData["UserPrenom"]</p>
+        <p>Nom: @ViewData["UserNom"]</p>
+        <button class="btnSupprimer">Supprimmer</button>
     </div>
 </div>
