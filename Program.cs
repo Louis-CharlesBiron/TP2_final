@@ -14,7 +14,7 @@ namespace TP2_final
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/NonConnecte/Error");
+                app.UseExceptionHandler("/NonConnecteTODO/Error");
             }
             app.UseStaticFiles();
 
@@ -24,7 +24,7 @@ namespace TP2_final
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=NonConnecte}/{action=Index}/{id?}");
+                pattern: "{controller=User}/{action=Index}/{id?}");
 
             app.Run();
         }
