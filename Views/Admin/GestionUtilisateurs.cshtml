@@ -1,8 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Liste utilisateurs";
+    ViewData["username"] = "TEMP TEST";
+    ViewData["UserPseudo"] = "PseudoUserTemp";
+    ViewData["UserRole"] = "RoleUserTemp";
+    ViewData["UserPrenom"] = "PrenomUserTemp";
+    ViewData["UserNom"] = "NomUserTemp";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Liste Utilisateurs</h1>
+    <div id="supprimer">
+        <p>Voulez-vous bel et bien supprimer l'utilisateur @ViewData["UserPseudo"]</p>
+        <button>Confirmation Supprimmer</button>
+    </div>
 </div>
