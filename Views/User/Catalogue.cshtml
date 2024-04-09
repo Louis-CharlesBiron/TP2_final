@@ -7,9 +7,14 @@
 <div class="text-center">
     <!--Todo -> faut afficher les medias-->
     <h1 class="display-4">Catalogue</h1>
-    <div class="container-fluid">
+    <div class="top_catalogue">
         @foreach (Media media in Model.GetCatalogue())
         {
+            <a class="media" asp-controller="User" asp-action="Fiche?">
+
+            </a>
+            
+            
             
         }
 
