@@ -13,4 +13,6 @@
     border: solid black 1px;
     padding: 0.5%;
     background-color: sandybrown;
+    display: flex;
+    flex-direction: row;
 }
