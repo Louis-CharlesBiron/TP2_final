@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace TP2_final {
+namespace TP2_final.Models {
     public class Favoris {//
 
         private string userId;

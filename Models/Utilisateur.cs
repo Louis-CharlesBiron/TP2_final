@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 
-namespace TP2_final
+namespace TP2_final.Models
 {
     public class Utilisateur
     {

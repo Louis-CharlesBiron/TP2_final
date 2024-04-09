@@ -3,7 +3,7 @@ using System.Text.RegularExpressions;
 using Newtonsoft.Json;
 using static TP2_final.Types;
 
-namespace TP2_final
+namespace TP2_final.Models
 {
     public class Media
     {

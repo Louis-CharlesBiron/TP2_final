@@ -1,8 +1,6 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using TP2_final;
 
-namespace TP2_Models_Tests
+namespace TP2_final.Models
 {
     public class CatalogueEvaluation
     {
