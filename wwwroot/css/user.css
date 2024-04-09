@@ -30,3 +30,13 @@
     color: black;
     font-size: 1.1em;
 }
+
+.container {
+    height: 90%;
+}
+
+.top_catalogue {
+    height: 92%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
