@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TP2_final {
+namespace TP2_final.Models {
     public class Evaluation {//
 
         private string userId;

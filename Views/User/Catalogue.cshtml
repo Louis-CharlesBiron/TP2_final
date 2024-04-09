@@ -2,10 +2,23 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model TP2_final.Models.Catalogue
 
 <div class="text-center">
     <!--Todo -> faut afficher les medias-->
     <h1 class="display-4">Catalogue</h1>
+    <div class="top_catalogue">
+        @foreach (Media media in Model.GetCatalogue())
+        {
+            <a class="media" asp-controller="User" asp-action="Fiche?@media.Nom">
 
-    <a asp-controller="User" asp-action="Fiche">Fiche</a>
+            </a>
+            
+            
+            
+        }
+
+    </div>
+
+    @*<a asp-controller="User" asp-action="Fiche">Fiche</a>*@
 </div>

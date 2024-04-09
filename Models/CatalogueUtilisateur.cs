@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json.Serialization;
 
-namespace TP2_final
+namespace TP2_final.Models
 {
     public class CatalogueUtilisateur
     {

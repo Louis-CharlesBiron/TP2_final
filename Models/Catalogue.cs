@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TP2_final
+namespace TP2_final.Models
 {
     /*
      * Regroupe les Médias et s'occupe de la sérialisation de l'objet catalogue
@@ -107,7 +107,7 @@ namespace TP2_final
         }
 
 
-        public List<Media>? GetCatalogue() { return catalogue; }
+        public List<Media> GetCatalogue() { return catalogue; }
 
 
 
