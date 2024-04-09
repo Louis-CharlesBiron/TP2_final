@@ -1,6 +1,6 @@
 [
   {
-    " Nom ": "Megalodon",
+    "Nom": "Megalodon",
     "Type": 7,
     "DateRealisation": 1533787200000,
     "Duree": 1137,
@@ -11,7 +11,7 @@
     "Image": "~ressources/images/Megalodon.png"
   },
   {
-    " Nom ": "You Will Find Your Way Home Safely",
+    "Nom": "You Will Find Your Way Home Safely",
     "Type": 8,
     "DateRealisation": 1694404800000,
     "Duree": 1303,
@@ -22,7 +22,7 @@
     "Image": "~ressources/images/You Will Find Your Way Home Safely.png"
   },
   {
-    " Nom ": "Soulless 5",
+    "Nom": "Soulless 5",
     "Type": 11,
     "DateRealisation": 1532404800000,
     "Duree": 1020,
@@ -33,7 +33,7 @@
     "Image": "~ressources/images/Soulless 5.png"
   },
   {
-    " Nom ": "Apricot Special",
+    "Nom": "Apricot Special",
     "Type": 8,
     "DateRealisation": 1571284800000,
     "Duree": 296,
@@ -44,7 +44,7 @@
     "Image": "~ressources/images/Apricot Special.png"
   },
   {
-    "Nom": "…",
+    "Nom": "...",
     "Type": 8,
     "DateRealisation": 1601956800000,
     "Duree": 1200,
@@ -56,7 +56,7 @@
   },
 
   {
-    " Nom ": "Sphere",
+    "Nom": "Sphere",
     "Type": 4,
     "DateRealisation": 1492401600000,
     "Duree": 240,
@@ -64,11 +64,10 @@
     "Producteur": " Creo",
     "Extrait": "~ressources/extraits/Sphere.mp3",
     "Complet": "~ressources/complets/Sphere.mp3",
-    "Image": "~ressources/images/Sphere.png",
-    "
+    "Image": "~ressources/images/Sphere.png"
   },
   {
-    " Nom ": "Moonligth Sonata",
+    "Nom": "Moonligth Sonata",
     "Type": 10,
     "DateRealisation": -5316259348000,
     "Duree": 900,
@@ -79,7 +78,7 @@
     "Image": "~ressources/images/Moonlight Sonata.png"
   },
   {
-    " Nom ": "Crow Song",
+    "Nom": "Crow Song",
     "Type": 8,
     "DateRealisation": 1612674000000,
     "Duree": 300,
@@ -87,11 +86,10 @@
     "Producteur": "Sanguinarius",
     "Extrait": "~ressources/extraits/Crow Song.mp3",
     "Complet": "~ressources/complets/Crow Song.mp3",
-    "Image": "~ressources/images/Crow Song.png",
-    "
+    "Image": "~ressources/images/Crow Song.png"
   },
   {
-    " Nom ": "Shiver",
+    "Nom": "Shiver",
     "Type": 4,
     "DateRealisation": 1527393600000,
     "Duree": 277,
@@ -99,11 +97,10 @@
     "Producteur": "False Noise",
     "Extrait": "~ressources/extraits/Shiver.mp3",
     "Complet": "~ressources/complets/Shiver.mp3",
-    "Image": "~ressources/images/Shiver.png",
-    "
+    "Image": "~ressources/images/Shiver.png"
   },
   {
-    " Nom ": "Unconsciousness",
+    "Nom": "Unconsciousness",
     "Type": 7,
     "DateRealisation": 1525060800000,
     "Duree": 1200,

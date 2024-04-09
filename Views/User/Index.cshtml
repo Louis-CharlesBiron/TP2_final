@@ -3,6 +3,25 @@
 }
 
 <div class="text-center">
-    <!--Todo -> change utilisateur pour username-->
-    <h1 class="display-4">Bienvenu Utilisateur</h1>
+    <!--Todo -> faut afficher les medias-->
+    <h1 class="display-4">Catalogue</h1>
+    <div class="top_catalogue">
+
+        @foreach (Media media in Model.GetCatalogue())
+        {
+            Console.WriteLine(media.Nom);
+            <a class="media" asp-controller="User" asp-action="Fiche?@media.Nom">
+                <img src="@media.Image" alt="Image @media.Nom"></img>
+                <span>@media.Nom</span>
+                <span>@media.Auteur</span>
+                <span>@media.Duree</span> <!-- voir pour classe utilitaire jar, formatDurree() -->
+            </a>
+            
+            
+            
+        }
+
+    </div>
+
+    @*<a asp-controller="User" asp-action="Fiche">Fiche</a>*@
 </div>

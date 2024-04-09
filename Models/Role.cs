@@ -9,7 +9,6 @@ namespace TP2_final
     public enum Role
     {
         UTILISATEUR,
-        TECHNICIEN,
         ADMIN
     }
 }

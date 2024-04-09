@@ -29,11 +29,14 @@ namespace TP2_final.Controllers
             catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
             catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
 
+            Console.WriteLine($"USERCONTROLLERUSERCONTROLLERUSERCONTROLLER");
+            Console.WriteLine($"medias:{catalogue.GetCatalogue().Count}, users:{catalogueUtilisateur.GetCatalogue().Count}, evals:{catalogueEvaluation.GetCatalogue().Count}, favs:{catalogueFavoris.GetCatalogue().Count}");
+
         }
 
 
 
-        public IActionResult Catalogue()
+        public IActionResult Index()
         {
             return View(catalogue);
         }
@@ -44,11 +47,6 @@ namespace TP2_final.Controllers
         }
 
         public IActionResult Fiche()
-        {
-            return View();
-        }
-
-        public IActionResult Index()
         {
             return View();
         }

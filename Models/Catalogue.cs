@@ -107,7 +107,7 @@ namespace TP2_final.Models
         }
 
 
-        public List<Media> GetCatalogue() { return catalogue; }
+        public List<Media>? GetCatalogue() { return catalogue; }
 
 
 

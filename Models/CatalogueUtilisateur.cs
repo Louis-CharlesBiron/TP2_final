@@ -41,7 +41,7 @@ namespace TP2_final.Models
             {
                 listeUtilisateurs = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
             }
-            catch (Exception err)
+            catch (Exception e)
             {
                 ok = false;
             }
