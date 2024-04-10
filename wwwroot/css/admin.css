@@ -32,6 +32,7 @@ body {
 
 #supprimer{
     border: 2px solid black;
+    display: none;
 }
 
 .utilisateur {

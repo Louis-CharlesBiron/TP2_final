@@ -21,8 +21,11 @@
                 <p>Role: @utilisateur.Role</p>
                 <p>Prénom: @utilisateur.Prenom</p>
                 <p>Nom: @utilisateur.Nom</p>
-                <button>Supprimer</button>
+                <button id="">Supprimer</button>
             </div>
         }
     </div>
 </div>
+@section adminScript{
+    <script src="~/js/admin.js" async="true" asp-append-version="true"></script>
+}
