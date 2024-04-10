@@ -10,8 +10,9 @@
 <div class="text-center">
     <h1 class="display-4">Liste Utilisateurs</h1>
     <div id="supprimer">
-        <p>Voulez-vous bel et bien supprimer l'utilisateur @ViewData["UserPseudo"]</p>
-        <button>Confirmation Supprimmer</button>   
+        <p id="textConfirmation"></p>
+        <button id="annule" onclick="annule()">Annuler</button>
+        <button id="confirmationPositive" onclick="">Confirmation Supprimmer</button>
     </div>
     <div id="users">
         @foreach (Utilisateur utilisateur in Model.GetCatalogue())
@@ -21,7 +22,7 @@
                 <p>Role: @utilisateur.Role</p>
                 <p>Prénom: @utilisateur.Prenom</p>
                 <p>Nom: @utilisateur.Nom</p>
-                <button id="">Supprimer</button>
+                <button id="btnSupprimer_@utilisateur.Pseudo" onclick="confirmation()">Supprimer</button>
             </div>
         }
     </div>
