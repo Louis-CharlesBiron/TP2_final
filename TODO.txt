@@ -1,14 +1,14 @@
 
 - Non Connecte -
 pouvoir se connecter jar
-affichage
+affichage (persque fini)
 
 
 - User -
 affichage
 pouvoir ajouter favoris
 pouvoir enlever favoris 
-fiches completes
+fiches completes (presque fini)
 
 
 - Admin -
