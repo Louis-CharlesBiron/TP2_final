@@ -15,14 +15,14 @@ namespace TP2_final.Controllers
         private static CatalogueEvaluation catalogueEvaluation;
         private static CatalogueFavoris catalogueFavoris;
         private static FavorisMediaViewModel favMed; // brise peut-être ?? TOCHECK
-        private static bool FUCK_YOU = true;
+        private static bool chekCereal = true;
 
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
 
-            if (FUCK_YOU) {
-                FUCK_YOU = false;
+            if (chekCereal) {
+                chekCereal = false;
                 catalogue = new Catalogue();
                 catalogueUtilisateur = new CatalogueUtilisateur();
                 catalogueEvaluation = new CatalogueEvaluation();
