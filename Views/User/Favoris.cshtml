@@ -1,30 +1,31 @@
 ﻿@{
     ViewData["Title"] = "Mes Favoris";
 }
-@model TP2_final.Models.CatalogueFavoris
 
 <div class="text-center">
 
     <h1 class="display-4">Favoris</h1>
-    <div>
 
-        <!--Placeholder class pour l'instant-->
-        <div class="media">
-            Ici on met les media
-            @*
-            @foreach (Favoris fav in Model.GetCatalogue())
+    <div id="Test" class="media">
+        @foreach (Favoris fav in Model.Favoris)
+        {
+            if (fav.UserId == "CRAZY3")
             {
-            <div>fav.UserId</div>
-            <div>fav.MediaId</div>
+                foreach (Media item in Model.Medias)
+                {
+                    if (item.Nom == fav.MediaId)
+                    {
+                        <div class="media-element">
+                            @*TODO -> ajouter l'image en genre thumbnail*@
+                            <div class="p-2">Media: @item.Nom</div>
+                            <div class="p-2">Auteur: @item.Auteur</div>
+                            <div class="p-2">Durée: @item.Duree</div>
+                        </div>
+
+                    }
+                }
             }
-            *@
-            <div class="media-element">
-                Ici on met le premier media genre
-            </div>
-            <div class="media-element">
-                Ici on met le deuxieme media
-            </div>
-        </div>
+        }
     </div>
 </div>
 

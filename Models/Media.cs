@@ -64,7 +64,6 @@ namespace TP2_final.Models
             this.Nom = nom;
         }
 
-        //{NOM_DEFAULT}_{nombreIncremente}", 
         public Media() : this($"nom default", TYPE_DEFAULT, DATE_DEFAULT, DUREE_DEFAULT, AUTEUR_DEFAULT, PRODUCTEUR_DEFAULT, EXTRAIT_DEFAULT, COMPLET_DEFAULT, IMAGE_DEFAULT)
         {
 
@@ -151,15 +150,6 @@ namespace TP2_final.Models
             set { this.image = value.IndexOf(".png") >= 0 ? value : IMAGE_DEFAULT;}
         }
 
-
-        /// <summary>
-        /// Calcule la cote (moyenne) à partir des évaluations associées à cet objet (this) média
-        /// </summary>
-        /// <returns>La cote calculée à partir des évaluations</returns>
-        /*public byte GetCote()
-        {
-            return evaluations.Count > 0 ? (byte)Math.Round((double)(evaluations.Select(x => x.Cote).Aggregate((a, b) => a += b) / evaluations.Count)) : (byte)0;
-        }*/
 
         /// <summary>
         /// Récupère le nom de l'objet média à partir de son identifiant unique
