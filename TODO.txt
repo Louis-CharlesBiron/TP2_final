@@ -1,17 +1,20 @@
 - Non Connecte -
 pouvoir se connecter jar
 
+
 - User -
 affichage
 pouvoir ajouter favoris
 pouvoir enlever favoris 
 fiches completes (presque fini)
 
+
 - Admin -
 affichage (des ptitres retouches minimes)
 bouton supprimer marche, reste bouton confirmer
 backend supprimer utilisateur
 mettre le psedo de l'utilsateur qu'on supprime dans la confirmation
+
 
 - Autre - 
 les sessions
