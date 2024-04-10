@@ -34,13 +34,17 @@ body {
     border: 2px solid black;
 }
 
-.user {
+.utilisateur {
     border: 2px solid black;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    background-color: #ffedd4;
 }
 
-span{
-    margin-left: 5px;
+.user {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

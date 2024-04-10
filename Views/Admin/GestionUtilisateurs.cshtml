@@ -13,17 +13,16 @@
         <p>Voulez-vous bel et bien supprimer l'utilisateur @ViewData["UserPseudo"]</p>
         <button>Confirmation Supprimmer</button>   
     </div>
-    <div class="user">
-
+    <div id="users">
         @foreach (Utilisateur utilisateur in Model.GetCatalogue())
         {
-            <a class="user" asp-controller="Admin" asp-action="Fiche?@utilisateur.Pseudo">
-                <span>Pseudo: @utilisateur.Pseudo</span>
-                <span>Role: @utilisateur.Role</span>
-                <span>Prénom: @utilisateur.Prenom</span>
-                <span>Nom: @utilisateur.Nom</span>
+            <div class="utilisateur">
+                <p>Pseudo: @utilisateur.Pseudo</p>
+                <p>Role: @utilisateur.Role</p>
+                <p>Prénom: @utilisateur.Prenom</p>
+                <p>Nom: @utilisateur.Nom</p>
                 <button>Supprimer</button>
-            </a>
+            </div>
         }
     </div>
 </div>
