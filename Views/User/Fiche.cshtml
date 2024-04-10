@@ -1,14 +1,17 @@
 ﻿@using static TP2_final.Utilitaire;
 @{
-    Media media = Model.GetMedia(ViewData["nomMedia"].ToString());
-    ViewData["Title"] = "Fiche " + media.Nom;
+    String? id = ViewData["nomMedia"]?.ToString()??"";
+    Media? media = null;
+    if (!String.IsNullOrEmpty(id)) media = Model.GetMedia(id);
+    ViewData["Title"] = "Fiche " + media?.Nom??"Invalide";
 }
 
 <div class="text-center">
+    @if (!(media is null)) {
     <h1 class="display-4">Fiche complète de "@media.Nom"</h1>
     <div class="fiche">
         <div class="fiche_header">
-            <img src="TODO" alt="Miniature de @media.Nom" />
+                <img src="@media.Image" alt="Miniature de @media.Nom" />
             <div>
                 <span>Nom:</span>
                 <h2>@media.Nom</h2>
@@ -36,7 +39,11 @@
                 <span>@media.Producteur</span>
             </div>
         </div>
-    </div>
+        </div>
+    } else
+    {
+        <h1 class="display-4">Impossible d'afficher la fiche complète, veuillez réessayer.</h1>
+    }
 
 </div>
 

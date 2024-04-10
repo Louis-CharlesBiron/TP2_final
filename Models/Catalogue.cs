@@ -119,9 +119,6 @@ namespace TP2_final.Models
         public Media? GetMedia(string id)
         {
             List<Media> list = catalogue.Where(x => x.getId() == id).ToList();
-            Console.WriteLine(id);
-            Console.WriteLine(catalogue.Count);
-            catalogue.ForEach(x => { Console.WriteLine(x.getId()); });
             return list.Count > 0 ? list[0] : null;
         }
 

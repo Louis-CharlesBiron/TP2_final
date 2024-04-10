@@ -61,3 +61,8 @@
 *::-webkit-scrollbar-thumb:hover {
     background: rgb(60 110 104 / 40%);
 }
+
+.miniatureCatalogue {
+    width: 11%;
+    
+}

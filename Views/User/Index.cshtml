@@ -11,7 +11,7 @@
         @foreach (Media media in Model.GetCatalogue())
         {
             <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@media.getId()">
-                <img src="@media.Image" alt="Image @media.Nom"></img>
+                <img src="@media.Image" alt="Image @media.Nom" class="miniatureCatalogue"></img>
                 <span class="fw-bold">@media.Nom</span>
                 <span>@media.Auteur</span>
                 <span>@getDureeFormat(media.Duree)</span>

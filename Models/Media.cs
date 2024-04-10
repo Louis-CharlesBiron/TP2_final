@@ -71,7 +71,7 @@ namespace TP2_final.Models
 
 
         //overrides
-        public override bool Equals(Object obj)
+        public override bool Equals(Object? obj)
         {
             if (obj == null || !(obj is Media))
                 return false;

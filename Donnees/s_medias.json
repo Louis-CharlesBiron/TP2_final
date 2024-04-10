@@ -6,9 +6,9 @@
     "Duree": 1137,
     "Auteur": "Jarvis9999",
     "Producteur": "Jarvis9999",
-    "Extrait": "~ressources/extraits/Megalodon.mp3",
-    "Complet": "~ressources/complets/Megalodon.mp3",
-    "Image": "~ressources/images/Megalodon.png"
+    "Extrait": "ressources/extraits/Megalodon.mp3",
+    "Complet": "ressources/complets/Megalodon.mp3",
+    "Image": "ressources/imagesMedia/Megalodon.png"
   },
   {
     "Nom": "You Will Find Your Way Home Safely",
@@ -17,9 +17,9 @@
     "Duree": 1303,
     "Auteur": "Cacola",
     "Producteur": " Cacola",
-    "Extrait": "~ressources/extraits/You Will Find Your Way Home Safely.mp3",
-    "Complet": "~ressources/complets/You Will Find Your Way Home Safely.mp3",
-    "Image": "~ressources/images/You Will Find Your Way Home Safely.png"
+    "Extrait": "ressources/extraits/You Will Find Your Way Home Safely.mp3",
+    "Complet": "ressources/complets/You Will Find Your Way Home Safely.mp3",
+    "Image": "ressources/imagesMedia/You Will Find Your Way Home Safely.png"
   },
   {
     "Nom": "Soulless 5",
@@ -28,9 +28,9 @@
     "Duree": 1020,
     "Auteur": "ExileLord",
     "Producteur": "ExileLord",
-    "Extrait": "~ressources/extraits/Soulless 5.mp3",
-    "Complet": "~ressources/complets/Soulless 5.mp3",
-    "Image": "~ressources/images/Soulless 5.png"
+    "Extrait": "ressources/extraits/Soulless 5.mp3",
+    "Complet": "ressources/complets/Soulless 5.mp3",
+    "Image": "ressources/imagesMedia/Soulless 5.png"
   },
   {
     "Nom": "Apricot Special",
@@ -39,9 +39,9 @@
     "Duree": 296,
     "Auteur": "rkz",
     "Producteur": " rkz",
-    "Extrait": "~ressources/extraits/Apricot Special.mp3",
-    "Complet": "~ressources/complets/Apricot Special.mp3",
-    "Image": "~ressources/images/Apricot Special.png"
+    "Extrait": "ressources/extraits/Apricot Special.mp3",
+    "Complet": "ressources/complets/Apricot Special.mp3",
+    "Image": "ressources/imagesMedia/Apricot Special.png"
   },
   {
     "Nom": "...",
@@ -50,9 +50,9 @@
     "Duree": 1200,
     "Auteur": "Cacola",
     "Producteur": "Cacola",
-    "Extrait": "~ressources/extraits/....mp3",
-    "Complet": "~ressources/complets/....mp3",
-    "Image": "~ressources/images/....png"
+    "Extrait": "ressources/extraits/....mp3",
+    "Complet": "ressources/complets/....mp3",
+    "Image": "ressources/imagesMedia/....png"
   },
 
   {
@@ -62,9 +62,9 @@
     "Duree": 240,
     "Auteur": "Creo",
     "Producteur": " Creo",
-    "Extrait": "~ressources/extraits/Sphere.mp3",
-    "Complet": "~ressources/complets/Sphere.mp3",
-    "Image": "~ressources/images/Sphere.png"
+    "Extrait": "ressources/extraits/Sphere.mp3",
+    "Complet": "ressources/complets/Sphere.mp3",
+    "Image": "ressources/imagesMedia/Sphere.png"
   },
   {
     "Nom": "Moonligth Sonata",
@@ -73,9 +73,9 @@
     "Duree": 900,
     "Auteur": "Beethoven",
     "Producteur": " Beethoven",
-    "Extrait": "~ressources/extraits/Moonlight Sonata.mp3",
-    "Complet": "~ressources/complets/Moonlight Sonata.mp3",
-    "Image": "~ressources/images/Moonlight Sonata.png"
+    "Extrait": "ressources/extraits/Moonlight Sonata.mp3",
+    "Complet": "ressources/complets/Moonlight Sonata.mp3",
+    "Image": "ressources/imagesMedia/Moonlight Sonata.png"
   },
   {
     "Nom": "Crow Song",
@@ -84,9 +84,9 @@
     "Duree": 300,
     "Auteur": "Sanguinarius",
     "Producteur": "Sanguinarius",
-    "Extrait": "~ressources/extraits/Crow Song.mp3",
-    "Complet": "~ressources/complets/Crow Song.mp3",
-    "Image": "~ressources/images/Crow Song.png"
+    "Extrait": "ressources/extraits/Crow Song.mp3",
+    "Complet": "ressources/complets/Crow Song.mp3",
+    "Image": "ressources/imagesMedia/Crow Song.png"
   },
   {
     "Nom": "Shiver",
@@ -95,9 +95,9 @@
     "Duree": 277,
     "Auteur": "False Noise",
     "Producteur": "False Noise",
-    "Extrait": "~ressources/extraits/Shiver.mp3",
-    "Complet": "~ressources/complets/Shiver.mp3",
-    "Image": "~ressources/images/Shiver.png"
+    "Extrait": "ressources/extraits/Shiver.mp3",
+    "Complet": "ressources/complets/Shiver.mp3",
+    "Image": "ressources/imagesMedia/Shiver.png"
   },
   {
     "Nom": "Unconsciousness",
@@ -106,9 +106,9 @@
     "Duree": 1200,
     "Auteur": "Jarvis9999",
     "Producteur": "Jarvis9999",
-    "Extrait": "~ressources/extraits/Unconsciousness.mp3",
-    "Complet": "~ressources/complets/Unconsciousness.mp3",
-    "Image": "~ressources/images/Unconsciousness.png"
+    "Extrait": "ressources/extraits/Unconsciousness.mp3",
+    "Complet": "ressources/complets/Unconsciousness.mp3",
+    "Image": "ressources/imagesMedia/Unconsciousness.png"
   }
 
 ]
