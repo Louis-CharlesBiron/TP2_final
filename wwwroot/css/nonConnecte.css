@@ -18,11 +18,10 @@ h1, p, label {
     color: white;
 }
 
-/*
+
 form {
     border: 2px solid white;
 }
-*/
 
 
 h1{
@@ -31,9 +30,29 @@ h1{
 }
 
 p{
-    font-size: 24px;
+    font-size: 16px;
 }
 
-#connForm{
+#connForm {
+    justify-content: space-evenly;
+    align-items: center;
+    display: flex;
     height: 100%;
+    flex-direction: column;
+}
+
+#formulaires {
+    height: 30%;
+}
+
+.container{
+    height: 100%;
+}
+
+.main{
+    height: 30%;
+}
+
+.form2{
+    height: 50%;
 }
