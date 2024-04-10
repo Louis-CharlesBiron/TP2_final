@@ -1,20 +1,15 @@
-
 - Non Connecte -
 pouvoir se connecter jar
-affichage
-
 
 - User -
 affichage
 pouvoir ajouter favoris
 pouvoir enlever favoris 
-fiches completes
-
+fiches completes (presque fini)
 
 - Admin -
 affichage
 gestion des utilisateurs et la validation pis toute
-
 
 - Autre - 
 les sessions
