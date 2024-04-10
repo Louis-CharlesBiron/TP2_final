@@ -18,6 +18,7 @@ namespace TP2_final.Controllers
 
         public NonConnecteController(ILogger<NonConnecteController> logger)
         {
+            Console.WriteLine("Controller: NonConnecte");
             _logger = logger;
             catalogue = new Catalogue();
             catalogueUtilisateur = new CatalogueUtilisateur();

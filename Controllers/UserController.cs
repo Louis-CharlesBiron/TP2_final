@@ -10,29 +10,34 @@ namespace TP2_final.Controllers
         private const string pathMedias = "s_medias.json", pathUtilisateurs = "s_utilisateurs.json", pathEvaluations = "s_evalutations.json", pathFavoris = "s_favoris.json";
         private static string pathDossierSerial = @$"{Environment.CurrentDirectory}\Donnees";
 
-        private Catalogue catalogue;
-        private CatalogueUtilisateur catalogueUtilisateur;
-        private CatalogueEvaluation catalogueEvaluation;
-        private CatalogueFavoris catalogueFavoris;
-        private FavorisMediaViewModel favMed;
+        private static Catalogue catalogue;
+        private static CatalogueUtilisateur catalogueUtilisateur;
+        private static CatalogueEvaluation catalogueEvaluation;
+        private static CatalogueFavoris catalogueFavoris;
+        private static FavorisMediaViewModel favMed; // brise peut-être ?? TOCHECK
+        private static bool FUCK_YOU = true;
 
         public UserController(ILogger<UserController> logger)
         {
+            Console.WriteLine("Controller: user");
             _logger = logger;
 
-            catalogue = new Catalogue();
-            catalogueUtilisateur = new CatalogueUtilisateur();
-            catalogueEvaluation = new CatalogueEvaluation();
-            catalogueFavoris = new CatalogueFavoris();
+            if (FUCK_YOU) {
+                FUCK_YOU = false;
+                catalogue = new Catalogue();
+                catalogueUtilisateur = new CatalogueUtilisateur();
+                catalogueEvaluation = new CatalogueEvaluation();
+                catalogueFavoris = new CatalogueFavoris();
 
-            catalogue.Ajouter(pathMedias, pathDossierSerial);
-            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
-            catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+                catalogue.Ajouter(pathMedias, pathDossierSerial);
+                catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
+                catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
+                catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
 
-            favMed = new FavorisMediaViewModel();
-            favMed.Favoris = catalogueFavoris.GetCatalogue();
-            favMed.Medias = catalogue.GetCatalogue();
+                favMed = new FavorisMediaViewModel();
+                favMed.Favoris = catalogueFavoris.GetCatalogue();
+                favMed.Medias = catalogue.GetCatalogue();
+            }
         }
 
 
@@ -48,9 +53,10 @@ namespace TP2_final.Controllers
             return View(favMed);
         }
 
-        public IActionResult Fiche()
+        public IActionResult Fiche(string nom)
         {
-            return View();
+            ViewData["nomMedia"] = nom;
+            return View(catalogue);
         }
 
 
