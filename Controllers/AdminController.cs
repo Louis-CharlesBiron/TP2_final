@@ -18,7 +18,8 @@ namespace TP2_final.Controllers
         public AdminController(ILogger<AdminController> logger)
         {
             _logger = logger;
-            Console.WriteLine(pathDossierSerial);
+            Console.WriteLine("Controller: admin");
+
             catalogue = new Catalogue();
             catalogueUtilisateur = new CatalogueUtilisateur();
             catalogueEvaluation = new CatalogueEvaluation();
