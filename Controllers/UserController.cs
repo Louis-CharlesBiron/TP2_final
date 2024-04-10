@@ -19,7 +19,6 @@ namespace TP2_final.Controllers
 
         public UserController(ILogger<UserController> logger)
         {
-            Console.WriteLine("Controller: user");
             _logger = logger;
 
             if (FUCK_YOU) {
