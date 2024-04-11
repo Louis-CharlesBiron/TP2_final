@@ -4,11 +4,6 @@
     align-items: center;
 }
 
-.btn-patate {
-    background-color: #7A5743;
-    border-color: black;
-}
-
 .navbar-nav {
     display: flex;
     flex-direction: row;
