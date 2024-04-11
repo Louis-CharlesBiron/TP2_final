@@ -11,6 +11,10 @@ a {
   color: #0077cc;
 }
 
+.btn-patate {
+    background-color: #7A5743;
+    border-color: black;
+}
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: #fff;
