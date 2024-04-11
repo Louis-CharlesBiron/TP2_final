@@ -14,7 +14,7 @@ namespace TP2_final.Models
         [JsonIgnore]
         public const string PRENOM_DEFAULT = "prenomDefaut";
         [JsonIgnore]
-        public const Role ROLE_DEFAULT = Role.UTILISATEUR;
+        public const Role ROLE_DEFAULT = Role.USER;
 
         [JsonIgnore]
         private static int nombreIncremente = 0;

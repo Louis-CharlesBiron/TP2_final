@@ -12,25 +12,22 @@ namespace TP2_final.Controllers
 
         private static Catalogue catalogue;
         private static CatalogueUtilisateur catalogueUtilisateur;
-        private static CatalogueEvaluation catalogueEvaluation;
         private static CatalogueFavoris catalogueFavoris;
-        private static FavorisMediaViewModel favMed; // brise peut-être ?? TOCHECK
-        private static bool chekCereal = true;
+        private static FavorisMediaViewModel favMed;
+        private static bool isSerializationToDo = true;
 
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
 
-            if (chekCereal) {
-                chekCereal = false;
+            if (isSerializationToDo) {
+                isSerializationToDo = false;
                 catalogue = new Catalogue();
                 catalogueUtilisateur = new CatalogueUtilisateur();
-                catalogueEvaluation = new CatalogueEvaluation();
                 catalogueFavoris = new CatalogueFavoris();
 
                 catalogue.Ajouter(pathMedias, pathDossierSerial);
                 catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-                catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
                 catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
 
                 favMed = new FavorisMediaViewModel();

@@ -10,24 +10,18 @@ namespace TP2_final.Controllers
         private const string pathMedias = "s_medias.json", pathUtilisateurs = "s_utilisateurs.json", pathEvaluations = "s_evalutations.json", pathFavoris = "s_favoris.json";
         private static string pathDossierSerial = @$"{Environment.CurrentDirectory}\Donnees";
 
-        private Catalogue catalogue;
         private CatalogueUtilisateur catalogueUtilisateur;
-        private CatalogueEvaluation catalogueEvaluation;
-        private CatalogueFavoris catalogueFavoris;
+        private bool isSerializationToDo;
 
         public AdminController(ILogger<AdminController> logger)
         {
             _logger = logger;
+            if (isSerializationToDo) {
+                isSerializationToDo = false;
+                catalogueUtilisateur = new CatalogueUtilisateur();
 
-            catalogue = new Catalogue();
-            catalogueUtilisateur = new CatalogueUtilisateur();
-            catalogueEvaluation = new CatalogueEvaluation();
-            catalogueFavoris = new CatalogueFavoris();
-
-            catalogue.Ajouter(pathMedias, pathDossierSerial);
-            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
-            catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+                catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
+            }
         }
 
         public IActionResult Index()
@@ -56,6 +50,11 @@ namespace TP2_final.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+
+        public void confirmationSupprimer(String idk)
+        {
+            Console.WriteLine("fonction confirmationSupprimer appelé " + idk);
         }
     }
 }
