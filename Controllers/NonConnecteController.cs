@@ -11,29 +11,51 @@ namespace TP2_final.Controllers
         private const string pathMedias = "s_medias.json", pathUtilisateurs = "s_utilisateurs.json", pathEvaluations = "s_evalutations.json", pathFavoris = "s_favoris.json";
         private static string pathDossierSerial = @$"{Environment.CurrentDirectory}\Donnees";
 
-        private Catalogue catalogue;
         private CatalogueUtilisateur catalogueUtilisateur;
-        private CatalogueEvaluation catalogueEvaluation;
-        private CatalogueFavoris catalogueFavoris;
+        private bool isSerializationToDo = true;
 
         public NonConnecteController(ILogger<NonConnecteController> logger)
         {
             _logger = logger;
-            catalogue = new Catalogue();
-            catalogueUtilisateur = new CatalogueUtilisateur();
-            catalogueEvaluation = new CatalogueEvaluation();
-            catalogueFavoris = new CatalogueFavoris();
+            if (isSerializationToDo) {
+                isSerializationToDo = false;
+                catalogueUtilisateur = new CatalogueUtilisateur();
 
-            catalogue.Ajouter(pathMedias, pathDossierSerial);
-            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            catalogueEvaluation.Ajouter(pathEvaluations, pathDossierSerial);
-            catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+                catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
+            }
         }
 
         public IActionResult Index()
         {
             return View();
         }
+
+        [HttpPost]
+        public IActionResult Connecte() {
+            String pseudo =  Request.Form["connPseudo"];
+            String mdp = Request.Form["connMdp"];
+
+            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
+            if (user is null || user.MotDePasse != mdp) {
+                Console.WriteLine($"ERREUR DE CONN, user is null:{user is null} | mauvais pw: {(user?.MotDePasse != mdp)}");
+                return View("MARCHE PAS, JAR SA EXPLOSE C SUR");
+            } else
+            {
+                Console.WriteLine($"CONN pseudo:{pseudo}, mdp:{mdp}, id:{user.getId()}");
+                TempData.Clear();
+                TempData["user_id"] = user.getId();
+                TempData["username"] = user.Pseudo;
+                TempData.Keep();
+
+                return RedirectToAction("Index", user.Role.ToString().ToLower(), catalogueUtilisateur);
+            }
+        }
+
+        /*[HttpPost]
+        public IActionResult Inscrire()
+        {
+
+        }*/
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

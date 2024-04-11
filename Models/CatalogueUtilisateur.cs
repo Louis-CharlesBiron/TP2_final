@@ -102,7 +102,13 @@ namespace TP2_final.Models
             List<Utilisateur> list = listeUtilisateurs.Where(x => x.getId() == id).ToList();
             return list.Count > 0 ? list[0] : null;
         }
-        
+
+        public Utilisateur? GetUtilisateurByPseudo(string pseudo)
+        {
+            List<Utilisateur> list = listeUtilisateurs.Where(x => x.Pseudo == pseudo).ToList();
+            return list.Count > 0 ? list[0] : null;
+        }
+
 
     }
 }

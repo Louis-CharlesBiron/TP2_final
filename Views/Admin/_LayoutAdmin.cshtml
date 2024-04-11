@@ -36,7 +36,7 @@
                 </ul>
                 <div class="deconnexion_parent">
                     <button>
-                            <a class="nav-link text-dark btn" asp-area="" asp-controller="NonConnecte" asp-action="Index">Déconnexion : @ViewData["username"]</a>
+                            <a class="nav-link text-dark btn" asp-area="" asp-controller="NonConnecte" asp-action="Index">Déconnexion : @TempData["username"]</a>
                     </button>
                     <img src="~/images/admin.png" class="img-fluid" width="48px" height="48px">
                 </div>

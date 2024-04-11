@@ -1,6 +1,6 @@
 - Non Connecte -
 pouvoir se connecter jar
-
+messages d'erreur de connection
 
 - User -
 affichage
@@ -20,4 +20,5 @@ mettre le psedo de l'utilsateur qu'on supprime dans la confirmation
 les sessions
 faire en sorte qu'un user puissent pas aller dans Admin
 trouver un fix pour images fiche complete
-fix les controller (jar la deserial)
+pouvoir se déconnecter
+fix les images
