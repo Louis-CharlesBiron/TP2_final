@@ -54,7 +54,7 @@ namespace TP2_final.Controllers
         [HttpPost]
         public IActionResult Inscrire() {
             // TODO CHECK IF ALL INPUTS ARE GOOD
-            // TODO CHECK IF 
+            // TODO CHECK IF USER ALREADY EXISTS
 
 
             return RedirectToAction("Index", "user", catalogueUtilisateur);
