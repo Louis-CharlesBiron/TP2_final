@@ -37,7 +37,7 @@ namespace TP2_final.Controllers
 
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
             if (user is null || user.MotDePasse != mdp) {
-                Console.WriteLine($"ERREUR DE CONN, user is null:{user is null} | mauvais pw: {(user?.MotDePasse != mdp)}");
+                Console.WriteLine($"ERREUR DE CONN, user existe pas:{user is null} | mauvais pw: {(user?.MotDePasse != mdp)}");
                 return View("MARCHE PAS, JAR SA EXPLOSE C SUR");
             } else
             {
@@ -55,9 +55,23 @@ namespace TP2_final.Controllers
         public IActionResult Inscrire() {
             // TODO CHECK IF ALL INPUTS ARE GOOD
             // TODO CHECK IF USER ALREADY EXISTS
+            if (false/*TODO*/)
+            {
+                Console.WriteLine($"TODO, ERREUR INSCRIPTION, inputs invalides:{"'TODO'"}, user existe deja:{"'TODO'"}");
+            }
+            else {
+                Utilisateur newUser = new Utilisateur(Request.Form["insPseudo"], Request.Form["insMdp"], Request.Form["insNomFamille"], Request.Form["insPrenom"], Utilisateur.ROLE_DEFAULT);
+                // TODO SERIALISATION
+                //TODO CHECK IF DESERIALISATION EST PAS CHIÉE PAR LES STATICS _x
+                Console.WriteLine($"no verification, New user: {newUser.ToString()}");
 
+                TempData.Clear();
+                TempData["user_id"] = newUser.getId();
+                TempData["username"] = newUser.Pseudo;
+                TempData.Keep();
 
-            return RedirectToAction("Index", "user", catalogueUtilisateur);
+                return RedirectToAction("Index", newUser.Role.ToString().ToLower(), catalogueUtilisateur);
+            }
         }
 
 
