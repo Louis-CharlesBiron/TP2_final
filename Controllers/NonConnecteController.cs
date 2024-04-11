@@ -51,11 +51,13 @@ namespace TP2_final.Controllers
             }
         }
 
-        /*[HttpPost]
-        public IActionResult Inscrire()
-        {
+        [HttpPost]
+        public IActionResult Inscrire() {
 
-        }*/
+
+
+            return RedirectToAction("Index", "user", catalogueUtilisateur);
+        }
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
