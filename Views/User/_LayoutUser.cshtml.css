@@ -11,6 +11,42 @@ a {
   color: #0077cc;
 }
 
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.dc-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+::selection {
+    background-color: rgb(0 128 128 / 45%);
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+    background: rgb(60 110 104 / 30%);
+    border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background: rgb(60 110 104 / 40%);
+}
+
 .btn-patate {
     background-color: #7A5743;
     border-color: black;
