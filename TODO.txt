@@ -10,8 +10,8 @@ fiches completes (presque fini)
 
 
 - Admin -
-affichage (des ptitres retouches minimes)
-bouton supprimer marche, reste bouton confirmer
+affichage (des ptites retouches minimes)
+bouton supprimer marche (en js), reste bouton confirmer
 backend supprimer utilisateur
 mettre le psedo de l'utilsateur qu'on supprime dans la confirmation
 
