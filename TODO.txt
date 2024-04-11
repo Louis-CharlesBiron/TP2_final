@@ -10,14 +10,14 @@ pouvoir enlever favoris
 
 
 - Admin -
-affichage (des ptites retouches minimes)
-
+affichage
 backend supprimer user
 confirmation supprimer user
 
 
-- Autre - 
+- Autres - 
+faire en sorte qu'un user puissent pas aller dans Admin ??
+
 les sessions, faire en sorte que le TempData reste
-faire en sorte qu'un user puissent pas aller dans Admin
 pouvoir se déconnecter
 fix les images
