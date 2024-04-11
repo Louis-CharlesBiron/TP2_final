@@ -1,46 +1,48 @@
 ﻿@using static TP2_final.Utilitaire;
 @{
-    String? id = ViewData["nomMedia"]?.ToString()??"";
+    String? id = ViewData["nomMedia"]?.ToString() ?? "";
     Media? media = null;
     if (!String.IsNullOrEmpty(id)) media = Model.GetMedia(id);
-    ViewData["Title"] = "Fiche " + media?.Nom??"Invalide";
+    ViewData["Title"] = "Fiche " + media?.Nom ?? "Invalide";
 }
 
 <div class="text-center">
-    @if (!(media is null)) {
-    <h1 class="display-4">Fiche complète de "@media.Nom"</h1>
-    <div class="fiche">
-        <div class="fiche_header">
-                <img src="@media.Image" alt="Miniature de @media.Nom" />
-            <div>
-                <span>Nom:</span>
-                <h2>@media.Nom</h2>
+    @if (!(media is null))
+    {
+        <h1 class="display-4">Fiche complète de "@media.Nom"</h1>
+        <div class="fiche">
+            <div class="fiche_header">
+                <img src="@Url.Content("~/"+media.Image)" alt="Miniature de @media.Nom" />
+                <div>
+                    <span>Nom:</span>
+                    <h2>@media.Nom</h2>
+                </div>
+            </div>
+            <div class="fiche_infos">
+                <div>
+                    <span>Type:</span>
+                    <span>@media.Type</span>
+                </div>
+                <div>
+                    <span>Date:</span>
+                    <span>@getDateFormat(media.DateRealisation)</span>
+                </div>
+                <div>
+                    <span>Durée:</span>
+                    <span>@getDureeFormat(media.Duree)</span>
+                </div>
+                <div>
+                    <span>Auteur:</span>
+                    <span>@media.Auteur</span>
+                </div>
+                <div>
+                    <span>Producteur:</span>
+                    <span>@media.Producteur</span>
+                </div>
             </div>
         </div>
-        <div class="fiche_infos">
-            <div>
-                <span>Type:</span>
-                <span>@media.Type</span>
-            </div>
-            <div>
-                <span>Date:</span>
-                <span>@getDateFormat(media.DateRealisation)</span>
-            </div>
-            <div>
-                <span>Durée:</span>
-                <span>@getDureeFormat(media.Duree)</span>
-            </div>
-            <div>
-                <span>Auteur:</span>
-                <span>@media.Auteur</span>
-            </div>
-            <div>
-                <span>Producteur:</span>
-                <span>@media.Producteur</span>
-            </div>
-        </div>
-        </div>
-    } else
+    }
+    else
     {
         <h1 class="display-4">Impossible d'afficher la fiche complète, veuillez réessayer.</h1>
     }

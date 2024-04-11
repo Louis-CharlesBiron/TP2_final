@@ -19,5 +19,4 @@ mettre le psedo de l'utilsateur qu'on supprime dans la confirmation
 - Autre - 
 les sessions
 faire en sorte qu'un user puissent pas aller dans Admin
-trouver un fix pour images fiche complete
 fix les controller (jar la deserial)
