@@ -9,19 +9,20 @@
     <div id="Test" class="media">
         @foreach (Favoris fav in Model.Favoris)
         {
+            @*TODO: -> remplacer par user connexion genre tempData*@
             if (fav.UserId == "CRAZY3")
             {
                 foreach (Media item in Model.Medias)
                 {
                     if (item.Nom == fav.MediaId)
                     {
-                        <div class="media-element">
-                            @*TODO -> ajouter l'image en genre thumbnail*@
+                        <a class="media-element" asp-controller="User" asp-action="Fiche" asp-route-nom="@item.getId()">
+                            @*FIXME: -> image s'affiche pas*@
+                            <img src="@item.Image" alt="Image @item.Nom" class="miniatureCatalogue p-2"></img>
                             <div class="p-2">Media: @item.Nom</div>
                             <div class="p-2">Auteur: @item.Auteur</div>
                             <div class="p-2">Durée: @item.Duree</div>
-                        </div>
-
+                        </a>
                     }
                 }
             }
