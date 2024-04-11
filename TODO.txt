@@ -1,6 +1,7 @@
 - Non Connecte -
 pouvoir se connecter jar
 messages d'erreur de connection
+messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
 
 - User -
 affichage

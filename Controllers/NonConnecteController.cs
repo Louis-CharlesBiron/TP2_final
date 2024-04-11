@@ -53,7 +53,8 @@ namespace TP2_final.Controllers
 
         [HttpPost]
         public IActionResult Inscrire() {
-
+            // TODO CHECK IF ALL INPUTS ARE GOOD
+            // TODO CHECK IF 
 
 
             return RedirectToAction("Index", "user", catalogueUtilisateur);
