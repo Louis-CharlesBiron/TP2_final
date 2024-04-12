@@ -2,22 +2,17 @@
 trouver moyen de faire afficher les erreur
 messages d'erreur de connection
 messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
-pouvoir se connecter en tant qu'Admin
 
 - User -
 affichage
 pouvoir ajouter favoris
 pouvoir enlever favoris 
 
-
 - Admin -
-affichage
 backend supprimer user
 confirmation supprimer user
 
-
 - Autres - 
-faire en sorte qu'un user puissent pas aller dans Admin ??
-
+faire en sorte qu'un user puissent pas aller dans Admin ?? (trouver une solution)
 les sessions, faire en sorte que le TempData reste
 pouvoir se d�connecter

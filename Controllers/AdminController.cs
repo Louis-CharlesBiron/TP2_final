@@ -52,10 +52,10 @@ namespace TP2_final.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public void confirmationSupprimer(String idk)
+        public IActionResult confirmationSupprimer(String idk)
         {
             Console.WriteLine("fonction confirmationSupprimer appelé " + idk);
-
+            return View();
         }
     }
 }
