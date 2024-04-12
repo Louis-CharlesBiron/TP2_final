@@ -17,8 +17,8 @@
                     if (item.Nom == fav.MediaId)
                     {
                         <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@item.getId()">
-                            @*FIXME: -> image s'affiche pas*@
-                            <img src="@item.Image" alt="Image @item.Nom" class="miniatureCatalogue p-2"></img>
+                            @*FIXME: -> image s'affiche pas -> should be done!*@
+                            <img src="@Url.Content("~/" + item.Image)" alt="Image @item.Nom" class="miniatureCatalogue"></img>
                             <span class="fw-bold">@item.Nom</span>
                             <span>@item.Auteur</span>
                             <span>@item.Duree</span>

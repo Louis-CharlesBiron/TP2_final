@@ -1,5 +1,5 @@
 - Non Connecte -
-pouvoir se connecter jar
+trouver moyen de faire afficher les erreur
 messages d'erreur de connection
 messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
 
@@ -7,19 +7,16 @@ messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
 affichage
 pouvoir ajouter favoris
 pouvoir enlever favoris 
-fiches completes (presque fini)
 
 
 - Admin -
-affichage (des ptites retouches minimes)
-bouton supprimer marche (en js), reste bouton confirmer
-backend supprimer utilisateur
-mettre le psedo de l'utilsateur qu'on supprime dans la confirmation
+affichage
+backend supprimer user
+confirmation supprimer user
 
 
-- Autre - 
-les sessions
-faire en sorte qu'un user puissent pas aller dans Admin
-trouver un fix pour images fiche complete
-pouvoir se déconnecter
-fix les images
+- Autres - 
+faire en sorte qu'un user puissent pas aller dans Admin ??
+
+les sessions, faire en sorte que le TempData reste
+pouvoir se dï¿½connecter
