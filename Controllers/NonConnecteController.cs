@@ -34,8 +34,8 @@ namespace TP2_final.Controllers
         [HttpPost]
         public IActionResult Connecte()
         {
-            String pseudo = Request.Form["connPseudo"];
-            String mdp = Request.Form["connMdp"];
+            string pseudo = Request.Form["connPseudo"];
+            string mdp = Request.Form["connMdp"];
 
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
             if (user is null || user.MotDePasse != mdp)
@@ -74,7 +74,7 @@ namespace TP2_final.Controllers
                 if (user is not null)
                 {
                     Console.WriteLine($"ERREUR DE CONN, user existe déjà:{user is not null}");
-                    return VuePartielleErreur();
+                    return View("Index");
                 }
                 else
                 {

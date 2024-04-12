@@ -30,9 +30,11 @@ namespace TP2_final.Controllers
                 catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
                 catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
 
-                favMed = new FavorisMediaViewModel();
-                favMed.Favoris = catalogueFavoris.GetCatalogue();
-                favMed.Medias = catalogue.GetCatalogue();
+                favMed = new FavorisMediaViewModel
+                {
+                    Favoris = catalogueFavoris.GetCatalogue(),
+                    Medias = catalogue.GetCatalogue()
+                };
             }
         }
 
