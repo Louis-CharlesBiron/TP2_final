@@ -38,20 +38,30 @@ namespace TP2_final.Controllers
             }
         }
 
-
+        public IActionResult Deco()
+        {
+            TempData.Clear();
+            return RedirectToAction("Index", "NonConnecte");
+        }
 
         public IActionResult Index()
         {
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             return View(catalogue);
         }
 
         public IActionResult Favoris()
         {
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             return View(favMed);
         }
 
         public IActionResult Fiche(string nom)
         {
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             ViewData["nomMedia"] = nom;
             return View(catalogue);
         }

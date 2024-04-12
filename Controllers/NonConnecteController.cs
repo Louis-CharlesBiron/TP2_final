@@ -74,7 +74,7 @@ namespace TP2_final.Controllers
                 TempData["username"] = user.Pseudo;
                 TempData.Keep();
 
-                return RedirectToAction("Index", user.Role.ToString().ToLower(), catalogueUtilisateur);
+                return RedirectToAction("Index", user.Role.ToString().ToLower()/*, catalogueUtilisateur*/);
             }
         }
 
@@ -108,7 +108,8 @@ namespace TP2_final.Controllers
                     TempData.Clear();
                     TempData["user_id"] = newUser.getId();
                     TempData["username"] = newUser.Pseudo;
-                    TempData.Keep();
+                    TempData.Keep("user_id");
+                    TempData.Keep("username");
 
                     return RedirectToAction("Index", newUser.Role.ToString().ToLower(), catalogueUtilisateur);
                 }
