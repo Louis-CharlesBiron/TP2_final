@@ -7,7 +7,7 @@
 <div class="formTop h-100">
     <div class="text-center formsTop">
         <form id="connForm" class="form2" asp-action="Connecte">
-            <div class="inputs">
+            <div>
                 <div>
                     <label for="connPseudo">Pseudo</label>
                     <input type="text" class="conn-control" id="connPseudo" name="connPseudo" placeholder="Pseudo"
@@ -45,9 +45,9 @@
             <button type="submit" class="btn btn-primary">S'inscrire</button>
         </form>
     </div>
-    <div class="container-fluid errorDiz">
-        <span id="errorHeader"></span>
-        <span id="errors"></span>
+    <div class="container-fluid errorDiv">
+       <span id="errorHeader"></span>
+       <ul id="errors"></span>
     </div>
     <div class="" id="">
         @{
