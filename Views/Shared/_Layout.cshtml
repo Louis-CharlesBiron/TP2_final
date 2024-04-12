@@ -10,16 +10,18 @@
     <link rel="stylesheet" href="~/TP2_final.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <h1>Tubercule Tune</h1>
-    <p>Nous devons faire une application qui permet de créer et/ou se connecter à un compte soit utilisateur ou administrateur pour ensuite pouvoir visualiser les données de certaines musiques et aussi pouvoir ajouter des musiques aux favoris</p>
-    <div class="container">
-        <main role="main" class="pb-3 main">
+    <div class="container-fluid h-25 top">
+        <h1>Tubercule Tune</h1>
+        <p>Nous devons faire une application qui permet de créer et/ou se connecter à un compte soit utilisateur ou administrateur pour ensuite pouvoir visualiser les données de certaines musiques et aussi pouvoir ajouter des musiques aux favoris</p>
+    </div>
+    <div class="container h-75">
+        <main role="main" class="pb-3 h-100">
             @RenderBody()
         </main>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("validationScript", required: false)
 </body>
 </html>
