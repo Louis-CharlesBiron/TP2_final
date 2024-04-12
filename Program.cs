@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 namespace TP2_final
 {
     public class Program
@@ -14,7 +16,7 @@ namespace TP2_final
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
-                app.UseExceptionHandler("/NonConnecteTODO/Error");
+                app.UseExceptionHandler("/NonConnecte/Error");
             }
             app.UseStaticFiles();
 
@@ -23,8 +25,28 @@ namespace TP2_final
             app.UseAuthorization();
 
             app.MapControllerRoute(
+                name: "admin",
+                pattern: "administrateur/{action=Catalogue}/{controller=Admin}",
+                constraints: new { controller = "^Admin$" }
+            );
+
+            app.MapControllerRoute(
+                name: "user",
+                pattern: "{action=Index}/utilisateur/{controller=User}",
+                constraints: new { controller = "^User$" }
+            );
+
+            app.MapControllerRoute(
+                name: "nonconnecte",
+                pattern: "{action=Index}/{controller=NonConnected}/notLogged",
+                constraints: new { controller = "^NonConnecte$" }
+            );
+
+            app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=NonConnecte}/{action=Index}/{id?}");
+                pattern: "{controller=NonConnecte}/{action=Index}/{id?}"
+                //constraints: new {controller = "^(NonConnecte)$"}
+            );
 
             app.Run();
         }

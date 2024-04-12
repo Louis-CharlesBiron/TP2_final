@@ -2,7 +2,6 @@
 trouver moyen de faire afficher les erreur
 messages d'erreur de connection
 messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
-pouvoir se connecter en tant qu'Admin
 
 - User -
 affichage
@@ -21,3 +20,4 @@ faire en sorte qu'un user puissent pas aller dans Admin ??
 les sessions, faire en sorte que le TempData reste
 pouvoir se d�connecter
 faire une vue partielle quelque part la dedans tse en men donne
+routes
