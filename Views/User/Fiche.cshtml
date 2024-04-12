@@ -40,6 +40,10 @@
                     <span>@media.Producteur</span>
                 </div>
             </div>
+            <div>
+                <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-idUser="CRAZY3"
+                    asp-route-idMedia="@media.getId()">Ajouter comme favoris ❤</a>
+            </div>
         </div>
     }
     else
