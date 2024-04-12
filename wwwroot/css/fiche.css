@@ -1,0 +1,29 @@
+.img-fiche {
+    /*Todo: -> check dimensions img*/
+    width: 100px;
+    height: 100px;
+}
+
+.fiche {
+    /*Todo: -> check dimensions fiche media*/
+    height: 70%;
+    background-color: #ffedd4;
+    border: 2px solid black;
+    padding: 1%;
+}
+
+.fiche-header {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.header-nom {
+    padding-top: 5%;
+}
+
+.fiche-element {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-left: 5%;
+}

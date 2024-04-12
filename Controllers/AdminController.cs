@@ -26,22 +26,29 @@ namespace TP2_final.Controllers
 
         public IActionResult Index()
         {
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             return View();
         }
 
         public IActionResult GestionUtilisateurs()
         {
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             return View(catalogueUtilisateur);
         }
 
         public IActionResult Catalogue()
         {
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             return View();
         }
 
-        public IActionResult Fiche()
+        public IActionResult Deco()
         {
-            return View();
+            TempData.Clear();
+            return RedirectToAction("Index", "NonConnecte");
         }
 
 

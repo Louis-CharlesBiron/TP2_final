@@ -20,7 +20,8 @@ namespace TP2_final.Controllers
         {
             _logger = logger;
 
-            if (isSerializationToDo) {
+            if (isSerializationToDo)
+            {
                 isSerializationToDo = false;
                 catalogue = new Catalogue();
                 catalogueUtilisateur = new CatalogueUtilisateur();
@@ -38,25 +39,45 @@ namespace TP2_final.Controllers
             }
         }
 
-
+        public IActionResult Deco()
+        {
+            TempData.Clear();
+            return RedirectToAction("Index", "NonConnecte");
+        }
 
         public IActionResult Index()
         {
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             return View(catalogue);
         }
 
         public IActionResult Favoris()
         {
-
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             return View(favMed);
         }
 
         public IActionResult Fiche(string nom)
         {
+            TempData.Keep("user_id");
+            TempData.Keep("username");
             ViewData["nomMedia"] = nom;
             return View(catalogue);
         }
 
+
+        public IActionResult AjouterFavoris(string idUser, string idMedia)
+        {
+            ViewData["idUser"] = idUser;
+            ViewData["idMedia"] = idMedia;
+            Favoris fav = new Favoris(idUser, idMedia);
+            catalogueFavoris.Ajouter(fav);
+            catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
+            return RedirectToAction("Favoris");
+            //return NoContent();
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
