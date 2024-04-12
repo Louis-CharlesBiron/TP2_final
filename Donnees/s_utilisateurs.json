@@ -26,5 +26,12 @@
     "Nom": "Istrator",
     "Prenom": "Admin",
     "Role": 1
+  },
+  {
+    "Pseudo": "Utilisateur1",
+    "MotDePasse": "!Soleil01",
+    "Nom": "supprimeMoi",
+    "Prenom": "supprimeMoi",
+    "Role": 0
   }
 ]

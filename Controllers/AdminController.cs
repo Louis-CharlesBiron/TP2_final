@@ -55,7 +55,17 @@ namespace TP2_final.Controllers
         public IActionResult confirmationSupprimer(String idk)
         {
             Console.WriteLine("fonction confirmationSupprimer appelé " + idk);
-            return View();
+            return GestionUtilisateurs();
+        }
+
+        public ActionResult supprimer(String pseudo)
+        {
+            Utilisateur user = new Utilisateur();
+            /*
+             * catalogueUtilisateur.Supprimer(user);
+             */
+            Console.WriteLine("\nUtilisateur: " + user.Pseudo + "; supprimé\n");
+            return RedirectToAction("GestionUtilisateurs");
         }
     }
 }
