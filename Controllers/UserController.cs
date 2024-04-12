@@ -71,7 +71,7 @@ namespace TP2_final.Controllers
         public IActionResult AjouterFavoris(string idMedia)
         {
             ViewData["idMedia"] = idMedia;
-            Favoris fav = new Favoris((string)TempData["user_id"], idMedia);
+            Favoris fav = new Favoris(catalogueUtilisateur.GetUtilisateur((string)TempData["user_id"]), catalogue.GetMedia(idMedia));
             catalogueFavoris.Ajouter(fav);
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             return RedirectToAction("Favoris");
