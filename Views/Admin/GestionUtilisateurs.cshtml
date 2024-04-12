@@ -17,7 +17,10 @@
                 <p>Role: @utilisateur.Role</p>
                 <p>Prénom: @utilisateur.Prenom</p>
                 <p>Nom: @utilisateur.Nom</p>
-                <a class="btn" asp-action="confirmationSupprimer" asp-route-idk="@utilisateur.Pseudo" asp-controller="Admin">Supprimer</a>
+                <button id="btnSupprimer_@utilisateur.Pseudo" onclick="confirmation()">Supprimer</button>
+                <!--
+                    <a class="btn" asp-action="confirmationSupprimer" asp-route-idk="@utilisateur.Pseudo" asp-controller="Admin">Supprimer</a>
+                -->
             </div>
         }
     </div>

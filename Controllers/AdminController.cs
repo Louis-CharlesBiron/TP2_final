@@ -55,6 +55,7 @@ namespace TP2_final.Controllers
         public void confirmationSupprimer(String idk)
         {
             Console.WriteLine("fonction confirmationSupprimer appelé " + idk);
+
         }
     }
 }
