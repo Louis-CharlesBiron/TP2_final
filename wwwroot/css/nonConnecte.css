@@ -7,8 +7,14 @@
     background-size: cover;
 }
 
-form {
-    display: inline-block;
+.errorDiv {
+    height: 25%;
+    display: flex;
+    white-space: pre-line;
+    color: red;
+    font-weight: bold;
+    font-size: 1.7em;
+    overflow: scroll;
 }
 
 h1, p, label {
@@ -18,54 +24,45 @@ h1, p, label {
     color: white;
 }
 
-h1{
-    margin-top: 10%;
+h1 {
     font-size: 400%;
 }
 
-p{
-    font-size: 16px;
+p {
+    font-size: 20px;
 }
 
-#connForm, #insForm {
-    justify-content: space-evenly;
-    align-items: center;
+.form2 {
+    height: 80%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
-#connForm {
-    justify-content: space-between;
-}
-
-#insForm {
-    justify-content: space-evenly;
-}
-
-#formulaires {
-    height: 100%;
-    display: flex;
-    justify-content: space-evenly;
-
-}
-
-.container{
-    height: 100%;
-}
-
-.main{
-    height: 100%;
-}
-
-.form2{
-    height: 46%;
-}
-
-label, input{
+label, input {
     font-size: 165%
 }
 
 .btn {
     padding: 4.5% !important;
     font-size: 1.3em !important;
+    margin-top: 15%;
+}
+
+.formsTop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 70%;
+    height: 70%;
+}
+
+.formTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 85%;
 }
