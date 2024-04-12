@@ -74,7 +74,7 @@ namespace TP2_final.Controllers
                 if (user is not null)
                 {
                     Console.WriteLine($"ERREUR DE CONN, user existe déjà:{user is not null}");
-                    return View("Dude ton user existe déjà... choisi un pseudo original");
+                    return VuePartielleErreur();
                 }
                 else
                 {
