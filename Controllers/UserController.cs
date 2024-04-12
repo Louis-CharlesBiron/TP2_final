@@ -68,11 +68,10 @@ namespace TP2_final.Controllers
         }
 
 
-        public IActionResult AjouterFavoris(string idUser, string idMedia)
+        public IActionResult AjouterFavoris(string idMedia)
         {
-            ViewData["idUser"] = idUser;
             ViewData["idMedia"] = idMedia;
-            Favoris fav = new Favoris(idUser, idMedia);
+            Favoris fav = new Favoris((string)TempData["user_id"], idMedia);
             catalogueFavoris.Ajouter(fav);
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             return RedirectToAction("Favoris");
