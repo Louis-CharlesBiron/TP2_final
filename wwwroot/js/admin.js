@@ -1,11 +1,16 @@
-function confirmation() {
+function confirmation(pseudo) {
     supprimer.style.display = "flex";
     supprimer.style.justifyContent = "space-between";
-    let pseudo = this.id;
+    console.log(pseudo);
 
     textConfirmation.textContent = "Voulez-vous bel et bien supprimer l'utilisateur : " + pseudo;
 }
 
 function annule() {
     supprimer.style.display = "none";
+}
+
+function supprimerUser() {
+    supprimer.style.display = "none";
+    console.log("user supprimé");
 }
