@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Index";
+    ViewData["error"] = "erreure lors de la connexion ou inscription";
 }
 
 <div class="text-center" id="formulaires">
@@ -36,5 +37,8 @@
         </div>
         <button type="submit" class="btn btn-primary" id="btnIns">S'inscrire</button>
     </form>
-    
+    <div id="Erreurs">
+        <p id="error">Erreur: @ViewData["error"]</p>
+    </div>
+
 </div>
