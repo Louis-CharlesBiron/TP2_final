@@ -19,5 +19,12 @@
     "Nom": "Lorman",
     "Prenom": "Maëk",
     "Role": 0
+  },
+  {
+    "Pseudo": "Admin1",
+    "MotDePasse": "Abcde!1",
+    "Nom": "Istrator",
+    "Prenom": "Admin",
+    "Role": 1
   }
 ]
