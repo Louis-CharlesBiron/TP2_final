@@ -68,6 +68,7 @@ namespace TP2_final.Controllers
         public ActionResult supprimer(String pseudo)
         {
             Utilisateur user = new Utilisateur();
+
             /*
              * catalogueUtilisateur.Supprimer(user);
              */
