@@ -61,16 +61,28 @@ namespace TP2_final.Controllers
             }
             else {
                 Utilisateur newUser = new Utilisateur(Request.Form["insPseudo"], Request.Form["insMdp"], Request.Form["insNomFamille"], Request.Form["insPrenom"], Utilisateur.ROLE_DEFAULT);
-                // TODO SERIALISATION
-                //TODO CHECK IF DESERIALISATION EST PAS CHIÉE PAR LES STATICS _x
-                Console.WriteLine($"no verification, New user: {newUser.ToString()}");
+                //chek si le user existe pas
+                String pseudo = Request.Form["insPseudo"];
 
-                TempData.Clear();
-                TempData["user_id"] = newUser.getId();
-                TempData["username"] = newUser.Pseudo;
-                TempData.Keep();
+                Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
+                if (user is not null)
+                {
+                    Console.WriteLine($"ERREUR DE CONN, user existe déjà:{user is not null}");
+                    return View("Dude ton user existe déjà... choisi un pseudo original");
+                }
+                else
+                {
+                    // TODO SERIALISATION
+                    //TODO CHECK IF DESERIALISATION EST PAS CHIÉE PAR LES STATICS _x
+                    Console.WriteLine($"no verification, New user: {newUser.ToString()}");
 
-                return RedirectToAction("Index", newUser.Role.ToString().ToLower(), catalogueUtilisateur);
+                    TempData.Clear();
+                    TempData["user_id"] = newUser.getId();
+                    TempData["username"] = newUser.Pseudo;
+                    TempData.Keep();
+
+                    return RedirectToAction("Index", newUser.Role.ToString().ToLower(), catalogueUtilisateur);
+                }
             }
         }
 
