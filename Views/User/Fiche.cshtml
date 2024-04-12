@@ -11,31 +11,31 @@
     {
         <h1 class="display-4">Fiche complète de "@media.Nom"</h1>
         <div class="fiche">
-            <div class="fiche_header">
-                <img src="@Url.Content("~/"+media.Image)" alt="Miniature de @media.Nom" />
-                <div>
+            <div class="fiche-header">
+                <img src="@Url.Content("~/"+media.Image)" alt="Miniature de @media.Nom" class="img-fiche" />
+                <div class="header-nom">
                     <span>Nom:</span>
                     <h2>@media.Nom</h2>
                 </div>
             </div>
-            <div class="fiche_infos">
-                <div>
+            <div class="fiche-infos">
+                <div class="fiche-element">
                     <span>Type:</span>
                     <span>@media.Type</span>
                 </div>
-                <div>
+                <div class="fiche-element">
                     <span>Date:</span>
                     <span>@getDateFormat(media.DateRealisation)</span>
                 </div>
-                <div>
+                <div class="fiche-element">
                     <span>Durée:</span>
                     <span>@getDureeFormat(media.Duree)</span>
                 </div>
-                <div>
+                <div class="fiche-element">
                     <span>Auteur:</span>
                     <span>@media.Auteur</span>
                 </div>
-                <div>
+                <div class="fiche-element">
                     <span>Producteur:</span>
                     <span>@media.Producteur</span>
                 </div>
@@ -47,4 +47,7 @@
         <h1 class="display-4">Impossible d'afficher la fiche complète, veuillez réessayer.</h1>
     }
 
+    @section Css {
+        <link href="~/css/fiche.css" rel="stylesheet" type="text/css" />
+    }
 </div>

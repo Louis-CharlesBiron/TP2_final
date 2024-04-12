@@ -115,11 +115,12 @@ namespace TP2_final.Controllers
             }
         }
 
-        public IActionResult VuePartielleErreur()
-        {
-            return View("VuePartielleErreur");
-        }
-
+        /* Todo: -> à enlever
+                public IActionResult VuePartielleErreur()
+                {
+                    return View("VuePartielleErreur");
+                }
+        */
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
