@@ -1,43 +1,43 @@
 ﻿using System;
 using System.Globalization;
+using System.Text.Json.Serialization;
 
 namespace TP2_final.Models {
     public class Favoris {//
 
-        private string userId;
-        private string mediaId;
+        [JsonIgnore]
+        private Utilisateur user;
+        [JsonIgnore]
+        private Media media;
 
+        private string userName;
+        private string mediaName;
 
-        public Favoris(string idUser, string idMedia) {
-            UserId = idUser;
-            MediaId = idMedia;
+        public Favoris(Utilisateur user2, Media media2)
+        {
+            UserName = (user=user2).Nom;
+            MediaName = (media=media2).Nom;
         }
 
-        public Favoris(Utilisateur user, Media media)
-        {
-            UserId = user.getId();
-            MediaId = media.getId();
-        }
-
-        public Favoris() : this($"defautUser", "defautMedia")
+        public Favoris() : this(new Utilisateur(), new Media())
         {
 
         }
 
-        public string UserId
+        public string UserName
         {
-            get { return userId; }
-            set {userId = value;}
+            get { return userName; }
+            set {userName = value;}
         }
 
-        public string MediaId
+        public string MediaName
         {
-            get { return mediaId; }
-            set {mediaId = value;}
+            get { return mediaName; }
+            set {mediaName = value;}
         }
 
         public override string ToString() {
-            return $"evaluation: {UserId}, mediaId: {MediaId}";
+            return $"evaluation: {UserName}, mediaId: {MediaName}";
         }
 
     }
