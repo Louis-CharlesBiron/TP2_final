@@ -10,12 +10,11 @@
             <div>
                 <div>
                     <label for="connPseudo">Pseudo</label>
-                    <input type="text" class="conn-control" id="connPseudo" name="connPseudo" placeholder="Pseudo"
-                        maxlength="50" />
+                    <input type="text" class="conn-control" id="connPseudo" name="connPseudo" placeholder="Pseudo" maxlength="50"/>
                 </div>
                 <div>
                     <label for="connMdp">Password</label>
-                    <input type="password" class="conn-control" name="connMdp" id="connMdp" placeholder="Mot de passe">
+                    <input type="password" class="conn-control" name="connMdp" id="connMdp" placeholder="Mot de passe" maxlength="100">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">Connexion</button>
@@ -26,20 +25,19 @@
             <div>
                 <div>
                     <label for="insPrenom">Prénom</label>
-                    <input type="text" class="ins-control" id="insPrenom" name="insPrenom" placeholder="Prénom">
+                    <input type="text" class="ins-control" id="insPrenom" name="insPrenom" placeholder="Prénom" maxlength="50">
                 </div>
                 <div>
                     <label for="insNomFamille">Nom de famille</label>
-                    <input type="text" class="ins-control" id="insNomFamille" name="insNomFamille"
-                        placeholder="Nom de famille">
+                    <input type="text" class="ins-control" id="insNomFamille" name="insNomFamille" placeholder="Nom de famille" maxlength="50">
                 </div>
                 <div>
                     <label for="insPseudo">Pseudo</label>
-                    <input type="text" class="ins-control" id="insPseudo" name="insPseudo" placeholder="Pseudo">
+                    <input type="text" class="ins-control" id="insPseudo" name="insPseudo" placeholder="Pseudo" maxlength="50">
                 </div>
                 <div>
                     <label for="insMdp">Password</label>
-                    <input type="password" class="ins-control" id="insMdp" name="insMdp" placeholder="Mot de passe">
+                    <input type="password" class="ins-control" id="insMdp" name="insMdp" placeholder="Mot de passe" maxlength="100">
                 </div>
             </div>
             <button type="submit" class="btn btn-primary">S'inscrire</button>
@@ -49,7 +47,7 @@
        <span id="errorHeader"></span>
        <ul id="errors"></span>
     </div>
-    <div class="" id="">
+    <div class="">
         @{
             await Html.RenderPartialAsync("VuePartielleErreur");
         }

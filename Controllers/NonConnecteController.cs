@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using TP2_final.Models;
+using System.Text.RegularExpressions;
 
 namespace TP2_final.Controllers
 {
@@ -31,11 +32,33 @@ namespace TP2_final.Controllers
             return View();
         }
 
+        private static string validationPseudo(String pseudo) {//TODO
+            if (pseudo.Length >= 5 && pseudo.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(pseudo) && new Regex("[0-9]+").IsMatch(pseudo) && !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo))
+            return pseudo;
+            else throw new Exception("hi");
+
+        }
+
+        private static string validationPassword(String pw) {//TODO
+
+            return pw;   
+        }
+
+        private static string validationPrenom(String prenom) {//TODO
+
+            return prenom;
+        }
+
+        private static string validationNom(String nom) {//TODO
+
+            return nom; 
+        }
+
         [HttpPost]
         public IActionResult Connecte()
         {
-            string pseudo = Request.Form["connPseudo"];
-            string mdp = Request.Form["connMdp"];
+            string pseudo = validationPseudo(Request.Form["connPseudo"]);
+            string mdp = validationPassword(Request.Form["connMdp"]);
 
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
             if (user is null || user.MotDePasse != mdp)
@@ -51,7 +74,7 @@ namespace TP2_final.Controllers
                 TempData["username"] = user.Pseudo;
                 TempData.Keep();
 
-                return RedirectToAction("Index", user.Role.ToString().ToLower(), catalogueUtilisateur);
+                return RedirectToAction("Index", user.Role.ToString().ToLower()/*, catalogueUtilisateur*/);
             }
         }
 
@@ -85,7 +108,8 @@ namespace TP2_final.Controllers
                     TempData.Clear();
                     TempData["user_id"] = newUser.getId();
                     TempData["username"] = newUser.Pseudo;
-                    TempData.Keep();
+                    TempData.Keep("user_id");
+                    TempData.Keep("username");
 
                     return RedirectToAction("Index", newUser.Role.ToString().ToLower(), catalogueUtilisateur);
                 }
