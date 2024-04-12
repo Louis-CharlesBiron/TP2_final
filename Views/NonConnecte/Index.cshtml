@@ -3,42 +3,59 @@
     ViewData["error"] = "erreure lors de la connexion ou inscription";
 }
 
-<div class="text-center" id="formulaires">
-    <form id="connForm" class="form2" asp-action="Connecte">
-        <div class="conn">
-            <label for="connPseudo">Pseudo</label>
-            <input type="text" class="conn-control" id="connPseudo" name="connPseudo" placeholder="Pseudo">
-        </div>
-        <div class="conn">
-            <label for="connMdp">Password</label>
-            <input type="password" class="conn-control" name="connMdp" id="connMdp" placeholder="Mot de passe">
-        </div>
-        <button type="submit" class="btn btn-primary" id="btnConn">Connexion</button>
-    </form>
+
+<div class="formTop h-100">
+    <div class="text-center formsTop">
+        <form id="connForm" class="form2" asp-action="Connecte">
+            <div>
+                <div>
+                    <label for="connPseudo">Pseudo</label>
+                    <input type="text" class="conn-control" id="connPseudo" name="connPseudo" placeholder="Pseudo"
+                        maxlength="50" />
+                </div>
+                <div>
+                    <label for="connMdp">Password</label>
+                    <input type="password" class="conn-control" name="connMdp" id="connMdp" placeholder="Mot de passe">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Connexion</button>
+        </form>
 
 
-
-    <form id="insForm" class="form2" asp-action="Inscrire">
-        <div class="ins">
-            <label for="insPrenom">Prénom</label>
-            <input type="text" class="ins-control" id="insPrenom" name="insPrenom" placeholder="Prénom">
-        </div>
-        <div class="ins">
-            <label for="insNomFamille">Nom de famille</label>
-            <input type="text" class="ins-control" id="insNomFamille" name="insNomFamille" placeholder="Nom de famille">
-        </div>
-        <div class="ins">
-            <label for="insPseudo">Pseudo</label>
-            <input type="text" class="ins-control" id="insPseudo" name="insPseudo" placeholder="Pseudo">
-        </div>
-        <div class="ins">
-            <label for="insMdp">Password</label>
-            <input type="password" class="ins-control" id="insMdp" name="insMdp" placeholder="Mot de passe">
-        </div>
-        <button type="submit" class="btn btn-primary" id="btnIns">S'inscrire</button>
-    </form>
-    <div id="Erreurs">
-        <p id="error">Erreur: @ViewData["error"]</p>
+        <form id="insForm" class="form2" asp-action="Inscrire">
+            <div>
+                <div>
+                    <label for="insPrenom">Prénom</label>
+                    <input type="text" class="ins-control" id="insPrenom" name="insPrenom" placeholder="Prénom">
+                </div>
+                <div>
+                    <label for="insNomFamille">Nom de famille</label>
+                    <input type="text" class="ins-control" id="insNomFamille" name="insNomFamille"
+                        placeholder="Nom de famille">
+                </div>
+                <div>
+                    <label for="insPseudo">Pseudo</label>
+                    <input type="text" class="ins-control" id="insPseudo" name="insPseudo" placeholder="Pseudo">
+                </div>
+                <div>
+                    <label for="insMdp">Password</label>
+                    <input type="password" class="ins-control" id="insMdp" name="insMdp" placeholder="Mot de passe">
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">S'inscrire</button>
+        </form>
     </div>
-
+    <div class="container-fluid errorDiv">
+       <span id="errorHeader"></span>
+       <ul id="errors"></span>
+    </div>
+    <div class="" id="">
+        @{
+            await Html.RenderPartialAsync("VuePartielleErreur");
+        }
+    </div>
 </div>
+
+@section validationScript {
+    <script async src="~/js/validationNonConnecte.js"></script>
+}

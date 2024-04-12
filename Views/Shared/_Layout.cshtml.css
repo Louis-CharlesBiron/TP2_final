@@ -1,22 +1,165 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+﻿/* _content/TP2_final/Views/Admin/_LayoutAdmin.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-tjtf56wozl] {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+[b-tjtf56wozl]::selection {
+    background-color: rgb(0 128 128 / 45%);
+}
+
+*[b-tjtf56wozl]::-webkit-scrollbar {
+    width: 8px;
+}
+
+*[b-tjtf56wozl]::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*[b-tjtf56wozl]::-webkit-scrollbar-thumb {
+    background: rgb(60 110 104 / 30%);
+    border-radius: 10px;
+}
+
+a[b-tjtf56wozl] {
+    color: #0077cc;
+}
+
+.btn-primary[b-tjtf56wozl] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-tjtf56wozl], .nav-pills .show > .nav-link[b-tjtf56wozl] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.border-top[b-tjtf56wozl] {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom[b-tjtf56wozl] {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-tjtf56wozl] {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-tjtf56wozl] {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.footer[b-tjtf56wozl] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+/* _content/TP2_final/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
 
+a.navbar-brand[b-9lk8tekzoy] {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+}
+
+.btn-primary[b-9lk8tekzoy] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+[b-9lk8tekzoy]::selection {
+    background-color: rgb(0 128 128 / 45%);
+}
+
+*[b-9lk8tekzoy]::-webkit-scrollbar {
+    width: 8px;
+}
+
+*[b-9lk8tekzoy]::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+*[b-9lk8tekzoy]::-webkit-scrollbar-thumb {
+    background: rgb(60 110 104 / 30%);
+    border-radius: 10px;
+}
+
+.nav-pills .nav-link.active[b-9lk8tekzoy], .nav-pills .show > .nav-link[b-9lk8tekzoy] {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.border-top[b-9lk8tekzoy] {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom[b-9lk8tekzoy] {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-9lk8tekzoy] {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-9lk8tekzoy] {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+.footer[b-9lk8tekzoy] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
+body[b-9lk8tekzoy] {
+    background-color: black;
+}
+/* _content/TP2_final/Views/User/_LayoutUser.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 a {
-  color: #0077cc;
-  color: red;
+    color: #0077cc;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: space-evenly;
+}
+
+.dc-parent {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 ::selection {
@@ -36,36 +179,35 @@ a {
     border-radius: 10px;
 }
 
+    *::-webkit-scrollbar-thumb:hover {
+        background: rgb(60 110 104 / 40%);
+    }
+
+.btn-patate {
+    background-color: #7A5743;
+    border-color: black;
+}
+
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    font-size: 1rem;
+    line-height: inherit;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
-}
-
-body {
-    background-color: black;
-}
