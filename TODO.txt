@@ -7,11 +7,9 @@ messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
 pouvoir ajouter favoris
 pouvoir enlever favoris 
 
-
 - Admin -
 backend supprimer user
 confirmation supprimer user
-
 
 - Autres - 
 faire en sorte qu'un user puissent pas aller dans Admin ??

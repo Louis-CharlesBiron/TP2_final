@@ -1,5 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Liste utilisateurs";
+    ViewData["pseudo"] = "pseudoASupprimer";
 }
 
 <div class="text-center">
@@ -7,11 +8,16 @@
     <div id="supprimer">
         <p id="textConfirmation"></p>
         <button id="annule" onclick="annule()">Annuler</button>
-        <button id="confirmationPositive" onclick="">Confirmation Supprimmer</button>
+        <a class="btn" asp-action="supprimer" asp-route-pseudo="@ViewData["pseudo"]" asp-controller="Admin">Supprimer</a>
+        <!--
+            <button id="confirmationPositive" onclick="supprimerUser()">Confirmation Supprimmer</button>
+        -->
+        
     </div>
     <div id="users">
         @foreach (Utilisateur utilisateur in Model.GetCatalogue())
         {
+            
             <div class="utilisateur">
                 <p>Pseudo: @utilisateur.Pseudo</p>
                 <p>Role: @utilisateur.Role</p>
@@ -19,7 +25,8 @@
                 <p>Nom: @utilisateur.Nom</p>
                 <button id="btnSupprimer_@utilisateur.Pseudo" onclick="confirmation()">Supprimer</button>
                 <!--
-                    <a class="btn" asp-action="confirmationSupprimer" asp-route-idk="utilisateur.Pseudo" asp-controller="Admin">Supprimer</a>
+                    
+                    <a class="btn" asp-action="confirmationSupprimer" asp-route-idk="@utilisateur.Pseudo" asp-controller="Admin">Supprimer</a>
                 -->
             </div>
         }
