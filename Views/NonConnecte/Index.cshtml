@@ -10,7 +10,8 @@
             <div class="inputs">
                 <div>
                     <label for="connPseudo">Pseudo</label>
-                    <input type="text" class="conn-control" id="connPseudo" name="connPseudo" placeholder="Pseudo" maxlength="50" />
+                    <input type="text" class="conn-control" id="connPseudo" name="connPseudo" placeholder="Pseudo"
+                        maxlength="50" />
                 </div>
                 <div>
                     <label for="connMdp">Password</label>
@@ -29,7 +30,8 @@
                 </div>
                 <div>
                     <label for="insNomFamille">Nom de famille</label>
-                    <input type="text" class="ins-control" id="insNomFamille" name="insNomFamille" placeholder="Nom de famille">
+                    <input type="text" class="ins-control" id="insNomFamille" name="insNomFamille"
+                        placeholder="Nom de famille">
                 </div>
                 <div>
                     <label for="insPseudo">Pseudo</label>
@@ -44,8 +46,13 @@
         </form>
     </div>
     <div class="container-fluid errorDiz">
-       <span id="errorHeader"></span>
-       <span id="errors"></span>
+        <span id="errorHeader"></span>
+        <span id="errors"></span>
+    </div>
+    <div class="" id="">
+        @{
+            await Html.RenderPartialAsync("VuePartielleErreur");
+        }
     </div>
 </div>
 
