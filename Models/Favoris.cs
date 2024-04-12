@@ -36,6 +36,14 @@ namespace TP2_final.Models {
             set {mediaName = value;}
         }
 
+        public string getMediaId() {
+            return media.getId();
+        }
+
+        public string getUserId() {
+            return user.getId();
+        }
+
         public override string ToString() {
             return $"evaluation: {UserName}, mediaId: {MediaName}";
         }

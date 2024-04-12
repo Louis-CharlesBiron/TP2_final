@@ -88,13 +88,13 @@ namespace TP2_final.Models
 
         public List<Favoris> GetFavoris(Media media)
         {
-            return listeFav.Where(x => x.MediaId == media.getId()).ToList();
+            return listeFav.Where(x => x.getMediaId() == media.getId()).ToList();
         }
 
 
         public List<Favoris> GetFavoris(Utilisateur user)
         {
-            return listeFav.Where(x => x.UserId == user.getId()).ToList();
+            return listeFav.Where(x => x.getUserId() == user.getId()).ToList();
         }
     }
 }

@@ -11,11 +11,11 @@
         @foreach (Favoris fav in Model.Favoris)
         {
             @*TODO: -> remplacer par user connexion genre tempData*@
-            if (fav.UserId == "CRAZY3")
+            if (fav.UserName == "CRAZY3")
             {
                 foreach (Media item in Model.Medias)
                 {
-                    if (item.Nom == fav.MediaId)
+                    if (item.Nom == fav.MediaName)
                     {
                         <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@item.getId()">
                             <img src="@Url.Content("~/" + item.Image)" alt="Image @item.Nom" class="miniatureCatalogue"></img>
