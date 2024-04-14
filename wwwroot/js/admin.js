@@ -9,8 +9,3 @@ function confirmation(pseudo) {
 function annule() {
     supprimer.style.display = "none";
 }
-
-function supprimerUser() {
-    supprimer.style.display = "none";
-    console.log("user supprimé");
-}

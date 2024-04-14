@@ -71,12 +71,14 @@ namespace TP2_final.Controllers
 
         public ActionResult supprimer(String pseudo)
         {
-            Utilisateur user = new Utilisateur();
-
+            Utilisateur user = catalogueUtilisateur.GetUtilisateur(pseudo);
             /*
-             * catalogueUtilisateur.Supprimer(user);
+             *catalogueUtilisateur.Supprimer(user); 
              */
+
+
             Console.WriteLine("\nUtilisateur: " + user.Pseudo + "; supprimé\n");
+
             return RedirectToAction("GestionUtilisateurs");
         }
     }
