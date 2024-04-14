@@ -11,17 +11,12 @@ namespace TP2_final.Controllers
         private static string pathDossierSerial = @$"{Environment.CurrentDirectory}\Donnees";
 
         private CatalogueUtilisateur catalogueUtilisateur;
-        private bool isSerializationToDo = true;
 
         public AdminController(ILogger<AdminController> logger)
         {
             _logger = logger;
-            if (isSerializationToDo) {
-                isSerializationToDo = false;
-                catalogueUtilisateur = new CatalogueUtilisateur();
-
-                catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            }
+            catalogueUtilisateur = new CatalogueUtilisateur();
+            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
         }
 
         public IActionResult Index()

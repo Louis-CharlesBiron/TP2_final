@@ -14,29 +14,24 @@ namespace TP2_final.Controllers
         private static CatalogueUtilisateur catalogueUtilisateur;
         private static CatalogueFavoris catalogueFavoris;
         private static FavorisMediaViewModel favMed;
-        private bool isSerializationToDo = true;
 
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
+            Console.WriteLine("b");
+            catalogue = new Catalogue();
+            catalogueUtilisateur = new CatalogueUtilisateur();
+            catalogueFavoris = new CatalogueFavoris();
 
-            if (isSerializationToDo)
+            catalogue.Ajouter(pathMedias, pathDossierSerial);
+            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
+            catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+
+            favMed = new FavorisMediaViewModel
             {
-                isSerializationToDo = false;
-                catalogue = new Catalogue();
-                catalogueUtilisateur = new CatalogueUtilisateur();
-                catalogueFavoris = new CatalogueFavoris();
-
-                catalogue.Ajouter(pathMedias, pathDossierSerial);
-                catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-                catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
-
-                favMed = new FavorisMediaViewModel
-                {
-                    Favoris = catalogueFavoris.GetCatalogue(),
-                    Medias = catalogue.GetCatalogue()
-                };
-            }
+                Favoris = catalogueFavoris.GetCatalogue(),
+                Medias = catalogue.GetCatalogue()
+            };
         }
 
         public IActionResult Deco()

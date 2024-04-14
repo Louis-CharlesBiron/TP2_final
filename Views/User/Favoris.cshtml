@@ -8,6 +8,7 @@
     <h1 class="display-4">Favoris</h1>
 
     <div id="Test">
+        @* @Model.Favoris *@
         @foreach (Favoris fav in Model.Favoris)
         {
             @*TODO: -> remplacer par user connexion genre tempData*@
@@ -17,7 +18,7 @@
                 {
                     if (item.Nom == fav.MediaName)
                     {
-                        <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@item.getId()">
+                        <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nomMedia="@item.Nom">
                             <img src="@Url.Content("~/" + item.Image)" alt="Image @item.Nom" class="miniatureCatalogue"></img>
                             <span class="fw-bold">@item.Nom</span>
                             <span>@item.Auteur</span>
