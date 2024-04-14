@@ -14,7 +14,7 @@ namespace TP2_final.Controllers
         private static CatalogueUtilisateur catalogueUtilisateur;
         private static CatalogueFavoris catalogueFavoris;
         private static FavorisMediaViewModel favMed;
-        private static bool isSerializationToDo = true;
+        private bool isSerializationToDo = true;
 
         public UserController(ILogger<UserController> logger)
         {
@@ -49,14 +49,14 @@ namespace TP2_final.Controllers
         {
             TempData.Keep("user_id");
             TempData.Keep("username");
-            return View(catalogue);
+            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);
         }
 
         public IActionResult Favoris()
         {
             TempData.Keep("user_id");
             TempData.Keep("username");
-            return View(favMed);
+            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed);
         }
 
         public IActionResult Fiche(string nom)
@@ -64,7 +64,7 @@ namespace TP2_final.Controllers
             TempData.Keep("user_id");
             TempData.Keep("username");
             ViewData["nomMedia"] = nom;
-            return View(catalogue);
+            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);;
         }
 
 
