@@ -21,7 +21,6 @@ namespace TP2_final.Controllers
 
         public IActionResult Index()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
@@ -30,7 +29,6 @@ namespace TP2_final.Controllers
 
         public IActionResult GestionUtilisateurs()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
             return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
@@ -38,7 +36,6 @@ namespace TP2_final.Controllers
 
         public IActionResult Catalogue()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
             return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();

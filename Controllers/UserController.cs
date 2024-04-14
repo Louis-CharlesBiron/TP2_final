@@ -18,7 +18,6 @@ namespace TP2_final.Controllers
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
-            Console.WriteLine("b");
             catalogue = new Catalogue();
             catalogueUtilisateur = new CatalogueUtilisateur();
             catalogueFavoris = new CatalogueFavoris();
@@ -42,21 +41,18 @@ namespace TP2_final.Controllers
 
         public IActionResult Index()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);
         }
 
         public IActionResult Favoris()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed);
         }
 
         public IActionResult Fiche(string nom)
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             ViewData["nomMedia"] = nom;
             return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);;
