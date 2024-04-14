@@ -1,8 +1,8 @@
 ﻿@using static TP2_final.Utilitaire;
 @{
-    String? id = ViewData["nomMedia"]?.ToString() ?? "";
+    String? nom = ViewData["nomMedia"]?.ToString() ?? "";
     Media? media = null;
-    if (!String.IsNullOrEmpty(id)) media = Model.GetMedia(id);
+    if (!String.IsNullOrEmpty(nom)) media = Model.GetMediaByNom(nom);
     ViewData["Title"] = "Fiche " + media?.Nom ?? "Invalide";
 }
 
