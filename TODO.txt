@@ -1,17 +1,17 @@
+1=free / 10=silent 
+
 - Non Connecte -
-trouver moyen de faire afficher les erreur
-messages d'erreur de connection
-messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
-fix l'affichage jar ++ responsive++ la
+messages d'erreur de connection (5)
+messages d'erreur d'inscription (5)
+affiche plus responsive (6)
 
 - User -
-pouvoir enlever favoris 
+pouvoir enlever favoris (2)
 
 - Admin -
-backend supprimer user
-confirmation supprimer user
-bon, la, idéalament faudrait quon puissenmt oas s'auto delete jar man gros big la dud la
-YOOOOOOOOOOOOOOOO SA  AMMMMMMMMMMMMMARCHE y reste juste l'affichage!
+empêcher l'admin de s'auto delete (3)
+l'affichage (1)
 
 - Autres - 
-faire une vue partielle quelque part la dedans tse en men donne
+TEST UNITAIRES (4-6)
+peut-être pas fuck les id???? (mais peut-être que oui aussi) (9.5)
