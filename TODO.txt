@@ -1,15 +1,15 @@
 1=free / 10=silent 
 
 - Non Connecte -
-messages d'erreur de connection (5)
-messages d'erreur d'inscription (5)
+    messages d'erreur de connection (5)
+    messages d'erreur d'inscription (5)
 affiche plus responsive (6)
 
 - User -
-pouvoir enlever favoris (2)
+    pouvoir enlever favoris (2)
 
 - Admin -
-empêcher l'admin de s'auto delete (3)
+    empêcher l'admin de s'auto delete (3)
 l'affichage (1)
 
 - Autres - 
