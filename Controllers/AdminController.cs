@@ -31,7 +31,7 @@ namespace TP2_final.Controllers
         {
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
-            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
+            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View(catalogueUtilisateur);
         }
 
         public IActionResult Catalogue()
@@ -47,31 +47,27 @@ namespace TP2_final.Controllers
             return RedirectToAction("Index", "NonConnecte");
         }
 
-
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult confirmationSupprimer(String idk)
-        {
-            Console.WriteLine("fonction confirmationSupprimer appelé " + idk);
-            return GestionUtilisateurs();
+        public IActionResult ConfirmerDelete(string username) {
+            //afficher message confirmation
+
+            TempData["isConfirmation"] = "true";
+            TempData["usernameToDelete"] = username;
+
+            return RedirectToAction("gestionUtilisateurs", "admin");
         }
 
-        public ActionResult supprimer(String pseudo)
-        {
-            Utilisateur user = catalogueUtilisateur.GetUtilisateur(pseudo);
-            /*
-             *catalogueUtilisateur.Supprimer(user); 
-             */
+        public IActionResult DeleteUser(string username) {
+            catalogueUtilisateur.Supprimer(catalogueUtilisateur.GetUtilisateurByPseudo(username));
+            catalogueUtilisateur.Sauvegarder(pathUtilisateurs, pathDossierSerial);
 
-
-            Console.WriteLine("\nUtilisateur: " + user.Pseudo + "; supprimé\n");
-
-            return RedirectToAction("GestionUtilisateurs");
+            return RedirectToAction("gestionUtilisateurs", "admin");
         }
+
     }
 }

@@ -2,6 +2,7 @@
 trouver moyen de faire afficher les erreur
 messages d'erreur de connection
 messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
+fix l'affichage jar ++ responsive++ la
 
 - User -
 pouvoir enlever favoris 
@@ -9,6 +10,8 @@ pouvoir enlever favoris
 - Admin -
 backend supprimer user
 confirmation supprimer user
+bon, la, idéalament faudrait quon puissenmt oas s'auto delete jar man gros big la dud la
+YOOOOOOOOOOOOOOOO SA  AMMMMMMMMMMMMMARCHE y reste juste l'affichage!
 
 - Autres - 
 faire une vue partielle quelque part la dedans tse en men donne

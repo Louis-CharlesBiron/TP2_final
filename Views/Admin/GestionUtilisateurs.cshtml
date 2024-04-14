@@ -3,25 +3,21 @@
 }
 
 <div class="text-center">
+    @if ((string)TempData["isConfirmation"] == "true") {
+        <partial name="VuePartielleConfirmation"/> //Html.RenderPartialAsync("VuePartielleConfirmation");
+    }
+        
     <h1 class="display-4">Liste Utilisateurs</h1>
-    <div id="supprimer">
-        <p id="textConfirmation"></p>
-        <button id="annule" onclick="annule()">Annuler</button>
-        <a class="btn" asp-action="supprimer" asp-route-pseudo="Utilisateur1" asp-controller="Admin">Confirmer</a>
-    </div>
     <div id="users">
-        @foreach (Utilisateur utilisateur in Model.GetCatalogue())
-        {
+        @foreach (Utilisateur utilisateur in Model.GetCatalogue()) {
             <div class="utilisateur">
                 <p>Pseudo: @utilisateur.Pseudo</p>
                 <p>Role: @utilisateur.Role</p>
                 <p>Prénom: @utilisateur.Prenom</p>
                 <p>Nom: @utilisateur.Nom</p>
-                <button id="btnSupprimer_@utilisateur.Pseudo" onclick="confirmation('@utilisateur.Pseudo')">Supprimer</button>
+                <a class="btn" asp-action="ConfirmerDelete" asp-controller="admin" asp-route-username="@utilisateur.Pseudo">Supprimer</a>
             </div>
         }
     </div>
 </div>
-@section adminScript{
-    <script src="~/js/admin.js" async="true" asp-append-version="true"></script>
-}
+

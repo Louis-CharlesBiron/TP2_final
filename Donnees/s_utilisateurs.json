@@ -1,7 +1,7 @@
 [
   {
-    "Pseudo": "Belix Manchelle",
-    "MotDePasse": "abc123%asdasdas12",
+    "Pseudo": "pseudoDefaut",
+    "MotDePasse": "mot_de_passe_default",
     "Nom": "Blanchette",
     "Prenom": "Félix",
     "Role": 0
@@ -26,12 +26,5 @@
     "Nom": "Istrator",
     "Prenom": "Admin",
     "Role": 1
-  },
-  {
-    "Pseudo": "Utilisateur1",
-    "MotDePasse": "!Soleil01",
-    "Nom": "supprimeMoi",
-    "Prenom": "supprimeMoi",
-    "Role": 0
   }
 ]
