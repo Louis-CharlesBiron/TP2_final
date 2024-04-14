@@ -4,7 +4,6 @@ messages d'erreur de connection
 messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
 
 - User -
-pouvoir ajouter favoris
 pouvoir enlever favoris 
 
 - Admin -
@@ -12,6 +11,4 @@ backend supprimer user
 confirmation supprimer user
 
 - Autres - 
-faire en sorte qu'un user puissent pas aller dans Admin ??
 faire une vue partielle quelque part la dedans tse en men donne
-routes

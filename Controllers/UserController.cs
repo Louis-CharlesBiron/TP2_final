@@ -28,8 +28,9 @@ namespace TP2_final.Controllers
 
             favMed = new FavorisMediaViewModel
             {
-                Favoris = catalogueFavoris.GetCatalogue(),
-                Medias = catalogue.GetCatalogue()
+                Favoris = catalogueFavoris,
+                Medias = catalogue,
+                Users = catalogueUtilisateur
             };
         }
 
@@ -61,8 +62,7 @@ namespace TP2_final.Controllers
 
         public IActionResult AjouterFavoris(string nomMedia)
         {
-            //ViewData["idMedia"] = idMedia;
-            Favoris fav = new Favoris(catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]), catalogue.GetMediaByNom(nomMedia));
+            Favoris fav = new Favoris((string)TempData["username"], nomMedia);
             catalogueFavoris.Ajouter(fav);
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             return RedirectToAction("Favoris");

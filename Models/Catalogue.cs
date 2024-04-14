@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using System.Collections;
+using Newtonsoft.Json;
 
 namespace TP2_final.Models
 {
@@ -8,7 +9,7 @@ namespace TP2_final.Models
     public class Catalogue
     {
 
-        private static List<Media> catalogue;
+        private static List<Media> catalogue = new List<Media>();
 
         
 
@@ -107,7 +108,7 @@ namespace TP2_final.Models
         }
 
 
-        public List<Media>? GetCatalogue() { return catalogue; }
+        public List<Media> GetCatalogue() { return catalogue; }
 
 
 
