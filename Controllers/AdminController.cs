@@ -28,21 +28,25 @@ namespace TP2_final.Controllers
         {
             TempData.Keep("user_id");
             TempData.Keep("username");
-            return View();
+            
+            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
+            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
         }
 
         public IActionResult GestionUtilisateurs()
         {
             TempData.Keep("user_id");
             TempData.Keep("username");
-            return View(catalogueUtilisateur);
+            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
+            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
         }
 
         public IActionResult Catalogue()
         {
             TempData.Keep("user_id");
             TempData.Keep("username");
-            return View();
+            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
+            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
         }
 
         public IActionResult Deco()

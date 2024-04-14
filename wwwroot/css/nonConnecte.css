@@ -48,7 +48,7 @@ p {
 }
 
 label, input {
-    font-size: 165%
+    font-size: 2vh;
 }
 
 .btn {
