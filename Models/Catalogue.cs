@@ -122,6 +122,12 @@ namespace TP2_final.Models
             return list.Count > 0 ? list[0] : null;
         }
 
+        public Media? GetMediaByNom(string nom)
+        {
+            List<Media> list = catalogue.Where(x => x.Nom == nom).ToList();
+            return list.Count > 0 ? list[0] : null;
+        }
+
     }
 
 
