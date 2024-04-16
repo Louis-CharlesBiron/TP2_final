@@ -28,6 +28,11 @@ namespace TP2_final.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Filtre et valide le pseudo passé en paramètre
+        /// </summary>
+        /// <param name="pseudo"></param>
+        /// <returns>le pseudo valide ou string vide ("")</returns>
         private string ValidationPseudo(string pseudo)
         {
             pseudo = Filtrage(pseudo);
