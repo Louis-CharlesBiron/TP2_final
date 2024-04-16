@@ -69,6 +69,10 @@ namespace TP2_final.Controllers
             //return NoContent();
         }
 
+        public IActionResult RetirerFavoris(string nomMedia) {
+            
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

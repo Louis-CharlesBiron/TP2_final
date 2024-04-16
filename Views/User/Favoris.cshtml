@@ -8,15 +8,20 @@
     <h1 class="display-4">Favoris</h1>
 
     <div id="Test">
-        @foreach (Favoris fav in Model.Favoris.GetCatalogue()) {// i swear this is poopp 😭
-            if (fav.UserName == (string)TempData["username"]) {
-                foreach (Media media in Model.Medias.GetCatalogue()) {
-                    if (media.Nom == fav.MediaName) {
+        @foreach (Favoris fav in Model.Favoris.GetCatalogue())
+        {// i swear this is poopp 😭 might be poop but its poop that works!! 😜
+        if (fav.UserName == (string)TempData["username"])
+            {
+                foreach (Media media in Model.Medias.GetCatalogue())
+                {
+                    if (media.Nom == fav.MediaName)
+                    {
                         <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@media.Nom">
                             <img src="@Url.Content("~/" + media.Image)" alt="Image @media.Nom" class="miniatureCatalogue"></img>
                             <span class="fw-bold">@media.Nom</span>
                             <span>@media.Auteur</span>
                             <span>@Utilitaire.getDateFormat(media.Duree)</span>
+                            <span><a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nom="@media.Nom">Retirer des favoris</a></span>
                         </a>
                     }
                 }
