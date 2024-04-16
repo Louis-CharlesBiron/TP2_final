@@ -1,19 +1,18 @@
 ﻿const SEP = "\n"
 
 /**
- * 
- * @param conditions
- * @param errs
- * @param errSeparator
- * @returns
+ * @param conditions: un array de boolean ex: [1==1, 2==3]
+ * @param errs: un array de message d'erreur ex: ["condition 1 invalide", "condition 2 invalide"]
+ * @param errSeparator: string qui sépare les messages d'erreur ex: "condition 1 invalide" + errSeparator
+ * @returns un Object contenant {m:les messages concatené par errSeparator et c:le nombre d'erreurs}
  */
-function validate(conditions, errs, errSeparator = '') {// [if true then error], [error msg]   (same length)
+function validate(conditions, errs, errSeparator = '') {// [if true then error], [error msg]
     return {m:errs.reduce((a, b, i) => (a[i] &&= errSeparator + b, a), conditions.map(x => x || '')).join('').slice(errSeparator.length), c:conditions.reduce((a, b)=>a+Boolean(b))}
 }
 
 /**
- * 
- * @returns
+ * effectue la validation sur les champs du pseudo et du mot de passe lors de la connection
+ * @return un object contenant {message: le total des messages d'erreur du pseudo et du mot de passe, count:le compte d'erreur de chaque champs et leur total}
  */
 function validateConnectionForm() {
     let pseudo = connPseudo.value, password = connMdp.value,
@@ -30,8 +29,8 @@ function validateConnectionForm() {
 }
          
 /**
- * 
- * @returns
+ * effectue la validation sur les champs du prénom, du nom de famille, du pseudo et du mot de passe lors de l'inscription
+ * @return un object contenant {message: le total des messages d'erreur du prénom, du nom de famille, du pseudo et du mot de passe, count:le compte d'erreur de chaque champs et leur total}
  */
 function validateInscriptionForm() {
     let pseudo = insPseudo.value, password = insMdp.value, nom = insNomFamille.value, prenom = insPrenom.value,
@@ -56,11 +55,11 @@ function validateInscriptionForm() {
 
 }
 
-// CONNECTION
+
 /**
- * 
- * @param v
- * @param isConnection
+ * affiche les erreurs sur la page
+ * @param v: l'object d'erreur fournit par validateConnectionForm ou validateInscriptionForm
+ * @param isConnection si l'object d'erreur fournit provient d'une tentative de connexion ou d'inscription
  */
 function displayError(v, isConnection=0) {
     errorHeader.textContent = v.count.TOTAL ? 
@@ -71,29 +70,32 @@ function displayError(v, isConnection=0) {
 }
 
 /**
- * 
- * @param e
+ * exécute la validation des champs pour la connexion lors d'une tentative de connexion et empêche le submit si des erreurs sont présentes, ensuite fait la vérification lors de chaque keypress
  */
+// CONNECTION
+let connControls = connForm.querySelectorAll(".conn-control")
 connForm.onsubmit = (e) => {
     let v = validateConnectionForm()
     if (v.message.trim()) {
         e.preventDefault()
         displayError(v, 1)
     }
-    connForm.querySelectorAll(".conn-control").forEach(el=>el.oninput=()=>{displayError(validateConnectionForm(), 1)})
+    //vérificaiton des champs à chaque keypress
+    connControls.forEach(el=>el.oninput=()=>{displayError(validateConnectionForm(), 1)})
 }
 
-// INSCRIPTION
 /**
- * 
- * @param e
+ * exécute la validation des champs pour l'inscription lors d'une tentative d'inscription et empêche le submit si des erreurs sont présentes, ensuite fait la vérification lors de chaque keypress
  */
+// INSCRIPTION
+let insControl = insForm.querySelectorAll(".ins-control")
 insForm.onsubmit = (e) => {
     let v = validateInscriptionForm()
         if (v.message.trim()) {
         e.preventDefault()
         displayError(v)
     }
-    insForm.querySelectorAll(".ins-control").forEach(el=>el.oninput=()=>{displayError(validateInscriptionForm())})
+    //vérificaiton des champs à chaque keypress
+    insControl.forEach(el=>el.oninput=()=>{displayError(validateInscriptionForm())})
 }
 
