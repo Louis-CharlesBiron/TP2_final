@@ -6,7 +6,7 @@
 affichage plus responsive (6)
 
 - User -
-affichage favoris(2)
+affichage favoris
 affichage fiche complete
 
 - Admin -

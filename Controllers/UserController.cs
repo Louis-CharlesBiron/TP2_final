@@ -66,14 +66,13 @@ namespace TP2_final.Controllers
             catalogueFavoris.Ajouter(fav);
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             return RedirectToAction("Favoris");
-            //return NoContent();
         }
 
         public IActionResult RetirerFavoris(string nomMedia)
         {
-            Console.WriteLine("nommedia: "+nomMedia);
             catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
-            return RedirectToAction("Favoris");
+            catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial)
+            return RedirectToAction("Favoris", "User");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
