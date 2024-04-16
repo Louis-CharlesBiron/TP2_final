@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Text.Json.Serialization;
 
 namespace TP2_final.Models {
-    public class Favoris {//
+    public class Favoris {
 
         private string userName;
         private string mediaName;
