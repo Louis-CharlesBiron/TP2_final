@@ -2,12 +2,11 @@
     ViewData["Title"] = "Liste utilisateurs";
 }
 
-<div class="text-center">
+<div class="text-center"> 
+    <h1 class="display-4">Liste Utilisateurs</h1>
     @if ((string)TempData["isConfirmation"] == "true") {
         <partial name="VuePartielleConfirmation"/>
     }
-        
-    <h1 class="display-4">Liste Utilisateurs</h1>
     <div id="users">
         @foreach (Utilisateur utilisateur in Model.GetCatalogue()) {
             <div class="utilisateur">
@@ -16,7 +15,9 @@
                 <p>Prénom: @utilisateur.Prenom</p>
                 <p>Nom: @utilisateur.Nom</p>
                 @if (utilisateur.Pseudo != (string)TempData["username"]) {
-                    <a class="btn" asp-action="ConfirmerDelete" asp-controller="admin" asp-route-username="@utilisateur.Pseudo">Supprimer</a>
+                    <button>
+                        <a class="btn" asp-action="ConfirmerDelete" asp-controller="admin" asp-route-username="@utilisateur.Pseudo">Supprimer</a>
+                    </button>
                 }
             </div>
         }

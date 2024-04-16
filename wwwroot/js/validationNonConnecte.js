@@ -1,7 +1,7 @@
 ﻿const SEP = "\n"
 
 function validate(conditions, errs, errSeparator = '') {// [if true then error], [error msg]   (same length)
-    return {m:errs.reduce((a, b, i) => (a[i] &&= errSeparator + b, a), conditions.map(x => x || '')).join('').slice(errSeparator.length), c:conditions.reduce((a, b)=>{console.log(a, b);return a+Boolean(b)})}
+    return {m:errs.reduce((a, b, i) => (a[i] &&= errSeparator + b, a), conditions.map(x => x || '')).join('').slice(errSeparator.length), c:conditions.reduce((a, b)=>a+Boolean(b))}
 }
 
 function validateConnectionForm() {
@@ -44,9 +44,8 @@ function validateInscriptionForm() {
 
 // CONNECTION
 
-function displayError(v, isConnection=0) {console.log(v.count.TOTAL)
-    errorHeader.textContent = 
-    v.count.TOTAL ? 
+function displayError(v, isConnection=0) {
+    errorHeader.textContent = v.count.TOTAL ? 
     isConnection ? `Erreurs présentes dans: ${v.count.pseudo?`Pseudo (${v.count.pseudo}), `:""} ${v.count.password?`Mot de passe (${v.count.password})`:""}`
     : `Erreurs présentes dans: ${v.count.prenom?`Prenom (${v.count.prenom}), `:""} ${v.count.nom?`Nom de famille (${v.count.nom}), `:""} ${v.count.pseudo?`Pseudo (${v.count.pseudo}), `:""} ${v.count.password?`Mot de passe (${v.count.password})`:""}`
     : ""
