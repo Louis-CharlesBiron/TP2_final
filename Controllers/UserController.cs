@@ -70,7 +70,7 @@ namespace TP2_final.Controllers
         }
 
         public IActionResult RetirerFavoris(string nomMedia) {
-            
+            return NoContent();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
