@@ -19,6 +19,8 @@ namespace TP2_final.Controllers
         public NonConnecteController(ILogger<NonConnecteController> logger)
         {
             _logger = logger;
+
+            // Déserialisation
             catalogueUtilisateur = new CatalogueUtilisateur();
             catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
         }
@@ -28,6 +30,11 @@ namespace TP2_final.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Filtre et valide le pseudo passé en paramètre
+        /// </summary>
+        /// <param name="pseudo"></param>
+        /// <returns>le pseudo valide ou string vide ("")</returns>
         private string ValidationPseudo(string pseudo)
         {
             pseudo = Filtrage(pseudo);
@@ -37,6 +44,7 @@ namespace TP2_final.Controllers
                new Regex("[0-9]+").IsMatch(pseudo) &&
                !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo)) ? "" : pseudo;
         }
+
 
         private string ValidationPassword(string pw)
         {

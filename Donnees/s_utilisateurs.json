@@ -14,17 +14,10 @@
     "Role": 0
   },
   {
-    "Pseudo": "pseudoDefaut",
+    "Pseudo": "Belix Manchelle 2",
     "MotDePasse": "!Soleil01",
     "Nom": "Felix",
     "Prenom": "Blanchette",
     "Role": 0
-  },
-  {
-    "Pseudo": "Admin1",
-    "MotDePasse": "Abcde!1",
-    "Nom": "Istrator",
-    "Prenom": "Admin",
-    "Role": 1
   }
 ]
