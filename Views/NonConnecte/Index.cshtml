@@ -44,13 +44,15 @@
         </form>
     </div>
     <div class="container-fluid errorDiv">
-       <span id="errorHeader"></span>
-       <ul id="errors"></span>
-    </div>
-    <div class="">
-        @{
-            await Html.RenderPartialAsync("VuePartielleErreur"); //TODO
+        <div class="errorCS">
+        @if ((string)TempData["isErreurs"] == "true") {
+            <partial name="VuePartielleErreur"/>
         }
+        </div>
+        <div class="errorJS">
+            <span id="errorHeader"></span>
+            <ul id="errors"></span>
+        </div>
     </div>
 </div>
 

@@ -16,6 +16,7 @@
     font-size: 1.3em;
     overflow: scroll;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 #errorHeader {
@@ -93,4 +94,14 @@ label, input {
 
 *::-webkit-scrollbar-thumb:hover {
     background: rgb(60 110 104 / 40%);
+}
+
+.errorJS, .errorCS {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#errors {
+    font-size: 0.9em;
 }
