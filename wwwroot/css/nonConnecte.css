@@ -61,8 +61,8 @@ label, input {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-between;
-    width: 70%;
+    justify-content: space-evenly;
+    width: 100%;
     height: 70%;
 }
 
@@ -103,9 +103,18 @@ label, input {
     .errorDiv {
         margin-top: 17%;
     }
+
+    label, input {
+        font-size: 120%;
+    }
+
+    .btn{
+        font-size: 1em !important;
+    }
 }
 
 @media screen and (max-width: 459px) {
     p {
         font-size: 16px;
+    }
 }
