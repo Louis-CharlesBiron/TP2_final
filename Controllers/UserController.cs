@@ -70,6 +70,7 @@ namespace TP2_final.Controllers
         }
 
         public IActionResult RetirerFavoris(string nomMedia) {
+            catalogueFavoris.Supprimer();
             return NoContent();
         }
 
