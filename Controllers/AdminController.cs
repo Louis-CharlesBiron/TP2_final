@@ -22,7 +22,7 @@ namespace TP2_final.Controllers
         public IActionResult Index()
         {
             TempData.Keep("username");
-            
+
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
             return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
         }
@@ -53,7 +53,8 @@ namespace TP2_final.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult ConfirmerDelete(string username) {
+        public IActionResult ConfirmerDelete(string username)
+        {
             //afficher message confirmation
 
             TempData["isConfirmation"] = "true";
@@ -62,12 +63,12 @@ namespace TP2_final.Controllers
             return RedirectToAction("gestionUtilisateurs", "admin");
         }
 
-        public IActionResult DeleteUser(string username) {
+        public IActionResult DeleteUser(string username)
+        {
             catalogueUtilisateur.Supprimer(catalogueUtilisateur.GetUtilisateurByPseudo(username));
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs, pathDossierSerial);
 
             return RedirectToAction("gestionUtilisateurs", "admin");
         }
-
     }
 }
