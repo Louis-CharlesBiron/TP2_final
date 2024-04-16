@@ -56,7 +56,7 @@ namespace TP2_final.Controllers
         {
             TempData.Keep("username");
             ViewData["nomMedia"] = nom;
-            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);;
+            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed);;
         }
 
 

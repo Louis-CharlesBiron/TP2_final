@@ -2,7 +2,7 @@
 @{
     String? nom = ViewData["nomMedia"]?.ToString() ?? "";
     Media? media = null;
-    if (!String.IsNullOrEmpty(nom)) media = Model.GetMediaByNom(nom);
+    if (!String.IsNullOrEmpty(nom)) media = Model.Medias.GetMediaByNom(nom);
     ViewData["Title"] = "Fiche " + media?.Nom ?? "Invalide";
 }
 
@@ -41,7 +41,7 @@
                 </div>
             </div>
             <div>
-                @if (true) {// si pas favoris, va prob falloir FavMed ici
+                @if (Model.Favoris.GetFavori(Model.Users.Get)) {// si pas favoris, va prob falloir FavMed ici
                     <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-nomMedia="@media.Nom">Ajouter comme favoris ❤</a>
                 } else {// si favoris
                     <a class="btn" asp-controller="User" asp-action="SupprimerFavoris" asp-route-nomMedia="@media.Nom">Supprimer des favoris ♡</a>

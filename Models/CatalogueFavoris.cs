@@ -85,6 +85,10 @@ namespace TP2_final.Models
             return listeFav.Remove(fav);
         }
 
+        public Favoris? GetFavoris(string username, string mediaName) {
+            List<Favoris> list = listeFav.Where(fav=>fav.UserName==username && fav.MediaName==mediaName).ToList();
+            return list.Count > 0 ? list[0] : null;
+        }
 
         public List<Favoris> GetFavoris(Media media)
         {
