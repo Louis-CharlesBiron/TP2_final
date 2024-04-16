@@ -78,41 +78,32 @@ namespace TP2_final.Controllers
         [HttpPost]
         public IActionResult Inscrire()
         {
-            // TODO CHECK IF ALL INPUTS ARE GOOD
-            // TODO CHECK IF USER ALREADY EXISTS
-            if (false/*TODO*/)
-            {
-                Console.WriteLine($"TODO, ERREUR INSCRIPTION, inputs invalides:{"'TODO'"}, user existe deja:{"'TODO'"}");
-            }
-            else
-            {
-                Utilisateur newUser = new Utilisateur(Request.Form["insPseudo"], Request.Form["insMdp"], Request.Form["insNomFamille"], Request.Form["insPrenom"], Utilisateur.ROLE_DEFAULT);
-                //chek si le user existe pas
-                String pseudo = Request.Form["insPseudo"];
+            string prenom = ValidationPseudo(Request.Form["insPrenom"]);
+            string nom = ValidationPassword(Request.Form["insNomFamille"]);
+            string pseudo = ValidationPseudo(Request.Form["insPseudo"]);
+            string mdp = ValidationPassword(Request.Form["insMdp"]);
 
-                Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
-                if (user is not null) {
-                    return RedirectToAction("Erreur", "NonConnecte", "Un utilisateur ayant le même pseudo existe déja");
-                }
-                else
-                {
-                    // TODO SERIALISATION
-                    //TODO CHECK IF DESERIALISATION EST PAS CHIÉE PAR LES STATICS _x
-                    Console.WriteLine($"no verification, New user: {newUser.ToString()}");
+            // si champs sont valides
+            if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le pseudo est invalide"});
+            if (string.IsNullOrEmpty(mdp)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le mot de passe est invalide"});
+            if (string.IsNullOrEmpty(prenom)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le prénom est invalide"});
+            if (string.IsNullOrEmpty(nom)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le nom de famille est invalide"});
 
-                    TempData.Clear();
-                    TempData["username"] = newUser.Pseudo;
-                    TempData.Keep("username");
-
-                    return RedirectToAction("Index", newUser.Role.ToString().ToLower());
-                }
+            // si user existe déja
+            if (catalogueUtilisateur.GetUtilisateurByPseudo(pseudo) is not null)  return RedirectToAction("Erreur", "NonConnecte", "Un utilisateur ayant le même pseudo existe déja");
+            else {
+                Utilisateur newUser = new Utilisateur(pseudo, mdp, nom, prenom, Utilisateur.ROLE_DEFAULT);
+                catalogueUtilisateur.Ajouter(newUser);
+                catalogueUtilisateur.Sauvegarder(pathUtilisateurs, pathDossierSerial);
+                TempData.Clear();
+                TempData["username"] = newUser.Pseudo;
+                TempData.Keep("username");
+                return RedirectToAction("Index", newUser.Role.ToString().ToLower());
             }
         }
 
-        public IActionResult Erreur(string msg) {Console.WriteLine("EERRREUR "+msg);
-            // give partialViewErreur the error message
+        public IActionResult Erreur(string msg) {
             TempData["erreurs"] = msg;
-            TempData["isErreurs"] = "true";
 
             return RedirectToAction("Index", "NonConnecte");   
         }

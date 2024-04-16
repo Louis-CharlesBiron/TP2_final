@@ -44,7 +44,7 @@
     </div>
     <div class="container-fluid errorDiv">
         <div class="error">
-            <span id="errorHeader">@if((string)TempData["isErreurs"]=="true"){<partial name="VuePartielleErreur"/>}</span>
+            <span id="errorHeader">@if(!string.IsNullOrEmpty((string)TempData["erreurs"])){<partial name="VuePartielleErreur"/>}</span>
             <ul id="errors"></ul>
         </div>
     </div>
