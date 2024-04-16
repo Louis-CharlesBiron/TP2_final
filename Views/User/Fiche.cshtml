@@ -41,10 +41,10 @@
                 </div>
             </div>
             <div>
-                @if (Model.Favoris.GetFavori(Model.Users.Get)) {// si pas favoris, va prob falloir FavMed ici
+                @if (Model.Favoris.GetFavoris((string)TempData["username"], media.Nom) is null) {// si media pas en favoris
                     <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-nomMedia="@media.Nom">Ajouter comme favoris ❤</a>
-                } else {// si favoris
-                    <a class="btn" asp-controller="User" asp-action="SupprimerFavoris" asp-route-nomMedia="@media.Nom">Supprimer des favoris ♡</a>
+                } else {// si media en favoris
+                    <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">Supprimer des favoris ♡</a>
                 }
             </div>
         </div>
