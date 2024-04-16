@@ -39,15 +39,18 @@ namespace TP2_final.Controllers
         }
 
         private string ValidationPassword(String pw) {
+            //TODO
             return pw;
         }
 
         private string ValidationPrenom(String prenom) {
+            //TODO
             return prenom;
         }
 
 
         private string ValidationNom(String nom) {
+            //TODO
             return nom;
         }
 
