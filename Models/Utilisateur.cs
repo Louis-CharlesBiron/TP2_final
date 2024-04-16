@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 using System.Text.RegularExpressions;
 
 namespace TP2_final.Models
@@ -23,7 +24,9 @@ namespace TP2_final.Models
         [JsonIgnore]
         private string id;
 
+        [Required(ErrorMessage = "Le pseudo est requis")]
         private string pseudo;
+        [Required(ErrorMessage = "Le mot de passe est requis")]
         private string motDePasse;
         private string nom;
         private string prenom;
@@ -56,7 +59,8 @@ namespace TP2_final.Models
 
         //getters & setters
 
-        public string getId() {
+        public string getId()
+        {
             return this.id;
         }
 

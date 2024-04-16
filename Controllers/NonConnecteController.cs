@@ -25,33 +25,48 @@ namespace TP2_final.Controllers
             return View();
         }
 
-        private static string validationPseudo(String pseudo) {//TODO
+        private IActionResult ValidationPseudo(String pseudo)
+        {//TODO
             if (pseudo.Length >= 5 && pseudo.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(pseudo) && new Regex("[0-9]+").IsMatch(pseudo) && !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo))
-            return pseudo;
+                return Ok();
             else throw new Exception("hi");
 
         }
 
-        private static string validationPassword(String pw) {//TODO
+        private IActionResult ValidationPassword(String pw)
+        {//TODO
 
-            return pw;   
+            if (/*todo*/ true)
+            {
+                return Ok();
+            }
+            else return BadRequest(ModelState);
         }
 
-        private static string validationPrenom(String prenom) {//TODO
+        private IActionResult ValidationPrenom(String prenom)
+        {//TODO
+            if (true)
+            {
+                return Ok();
+            }
 
-            return prenom;
+            else return BadRequest(ModelState);
         }
 
-        private static string validationNom(String nom) {//TODO
 
-            return nom; 
+        private IActionResult ValidationNom(String nom)
+        {//TODO
+            if (true)
+            {
+                return Ok();
+            }
         }
 
         [HttpPost]
         public IActionResult Connecte()
         {
-            string pseudo = validationPseudo(Request.Form["connPseudo"]);
-            string mdp = validationPassword(Request.Form["connMdp"]);
+            string pseudo = ValidationPseudo(Request.Form["connPseudo"]);
+            string mdp = ValidationPassword(Request.Form["connMdp"]);
 
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
             if (user is null || user.MotDePasse != mdp)
