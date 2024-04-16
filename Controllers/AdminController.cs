@@ -73,12 +73,18 @@ namespace TP2_final.Controllers
         {
             Utilisateur user = catalogueUtilisateur.GetUtilisateur(pseudo);
             /*
-             *catalogueUtilisateur.Supprimer(user); 
+             * catalogueUtilisateur.Supprimer(user);
              */
 
 
-            Console.WriteLine("\nUtilisateur: " + user.Pseudo + "; supprimé\n");
-
+            if(catalogueUtilisateur.Supprimer(user))
+            {
+                Console.WriteLine("\nUtilisateur: " + user.Pseudo + "; supprimé\n");
+            }
+            else
+            {
+                Console.WriteLine("Ça chie dans pelle !! J'arrive pas à supprimer ton user : " + pseudo);
+            }
             return RedirectToAction("GestionUtilisateurs");
         }
     }
