@@ -1,6 +1,5 @@
-﻿@{
+﻿@{// version 7.0.18 c#
     ViewData["Title"] = "Index";
-    ViewData["error"] = "erreure lors de la connexion ou inscription";
 }
 
 
@@ -44,16 +43,13 @@
         </form>
     </div>
     <div class="container-fluid errorDiv">
-       <span id="errorHeader"></span>
-       <ul id="errors"></span>
-    </div>
-    <div class="">
-        @{
-            await Html.RenderPartialAsync("VuePartielleErreur"); //TODO
-        }
+        <div class="error">
+            <span id="errorHeader">@if(!string.IsNullOrEmpty((string)TempData["erreurs"])){<partial name="VuePartielleErreur"/>}</span>
+            <ul id="errors"></ul>
+        </div>
     </div>
 </div>
 
-@section validationScript {
+@* @section validationScript {
     <script async src="~/js/validationNonConnecte.js"></script>
-}
+} *@

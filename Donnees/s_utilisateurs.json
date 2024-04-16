@@ -1,12 +1,5 @@
 [
   {
-    "Pseudo": "pseudoDefaut",
-    "MotDePasse": "mot_de_passe_default",
-    "Nom": "Blanchette",
-    "Prenom": "Félix",
-    "Role": 0
-  },
-  {
     "Pseudo": "LCBPhobos100",
     "MotDePasse": "I_Beat_Phobos_in_38354_attempts",
     "Nom": "Biron",
@@ -18,6 +11,13 @@
     "MotDePasse": "!Soleil01",
     "Nom": "Lorman",
     "Prenom": "Maëk",
+    "Role": 0
+  },
+  {
+    "Pseudo": "Bellix Manchelle 2",
+    "MotDePasse": "!Soleil01",
+    "Nom": "Felix",
+    "Prenom": "Blanchette",
     "Role": 0
   },
   {

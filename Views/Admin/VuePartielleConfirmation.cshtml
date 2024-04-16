@@ -1,14 +1,4 @@
-@{
-    ViewBag.Title = "VuePartielleConfirmation";
-}
-
 <div class="confirmPopup">
     @TempData["usernameToDelete"]
     <a asp-action="DeleteUser" asp-controller="admin" asp-route-username="@TempData["usernameToDelete"]">Delete @TempData["usernameToDelete"]</a>
 </div>
-
-@* 
-Html.Partial()
-Html.RenderPartial()
-Html.RenderAction()
- *@

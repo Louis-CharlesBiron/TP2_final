@@ -25,93 +25,89 @@ namespace TP2_final.Controllers
             return View();
         }
 
-        private static string validationPseudo(String pseudo) {//TODO
-            if (pseudo.Length >= 5 && pseudo.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(pseudo) && new Regex("[0-9]+").IsMatch(pseudo) && !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo))
-            return pseudo;
-            else throw new Exception("hi");
+        private string ValidationPseudo(String pseudo) {
+            //TODO, vérification && // filtrage
 
+            return !(pseudo.Length >= 5 &&
+               pseudo.Length <= 50 &&
+               new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(pseudo) &&
+               new Regex("[0-9]+").IsMatch(pseudo) &&
+               !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo)
+               )
+               ? ""
+               : pseudo;
         }
 
-        private static string validationPassword(String pw) {//TODO
-
-            return pw;   
+        private string ValidationPassword(String pw) {
+            return pw;
         }
 
-        private static string validationPrenom(String prenom) {//TODO
-
+        private string ValidationPrenom(String prenom) {
             return prenom;
         }
 
-        private static string validationNom(String nom) {//TODO
 
-            return nom; 
+        private string ValidationNom(String nom) {
+            return nom;
         }
 
         [HttpPost]
         public IActionResult Connecte()
         {
-            string pseudo = validationPseudo(Request.Form["connPseudo"]);
-            string mdp = validationPassword(Request.Form["connMdp"]);
+            string pseudo = ValidationPseudo(Request.Form["connPseudo"]);
+            string mdp = ValidationPassword(Request.Form["connMdp"]);
+            Utilisateur? user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
 
-            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
-            if (user is null || user.MotDePasse != mdp)
-            {
-                Console.WriteLine($"ERREUR DE CONN, user existe pas:{user is null} | mauvais pw: {(user?.MotDePasse != mdp)}");
-                return View("MARCHE PAS, JAR SA EXPLOSE C SUR");
-            }
-            else
-            {
+            //Validation champs
+            if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le pseudo est invalide"});
+            if (string.IsNullOrEmpty(mdp)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le mot de passe est invalide"});
+
+            //Validation connection
+            if (user is null) return RedirectToAction("Erreur", "NonConnecte", new {msg="L'utilisateur n'existe pas"});
+            else if (user.MotDePasse != mdp) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le mot de passe est invalide"});  
+            else {
                 Console.WriteLine($"CONN pseudo:{pseudo}, mdp:{mdp}, id:{user.getId()}");
                 TempData.Clear();
                 TempData["username"] = user.Pseudo;
                 TempData.Keep();
 
-                return RedirectToAction("Index", user.Role.ToString().ToLower()/*, catalogueUtilisateur*/);
+                return RedirectToAction("Index", user.Role.ToString().ToLower());
             }
         }
 
         [HttpPost]
         public IActionResult Inscrire()
         {
-            // TODO CHECK IF ALL INPUTS ARE GOOD
-            // TODO CHECK IF USER ALREADY EXISTS
-            if (false/*TODO*/)
-            {
-                Console.WriteLine($"TODO, ERREUR INSCRIPTION, inputs invalides:{"'TODO'"}, user existe deja:{"'TODO'"}");
-            }
-            else
-            {
-                Utilisateur newUser = new Utilisateur(Request.Form["insPseudo"], Request.Form["insMdp"], Request.Form["insNomFamille"], Request.Form["insPrenom"], Utilisateur.ROLE_DEFAULT);
-                //chek si le user existe pas
-                String pseudo = Request.Form["insPseudo"];
+            string prenom = ValidationPrenom(Request.Form["insPrenom"]);
+            string nom = ValidationNom(Request.Form["insNomFamille"]);
+            string pseudo = ValidationPseudo(Request.Form["insPseudo"]);
+            string mdp = ValidationPassword(Request.Form["insMdp"]);
 
-                Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
-                if (user is not null)
-                {
-                    Console.WriteLine($"ERREUR DE CONN, user existe déjà:{user is not null}");
-                    return View("Index");
-                }
-                else
-                {
-                    // TODO SERIALISATION
-                    //TODO CHECK IF DESERIALISATION EST PAS CHIÉE PAR LES STATICS _x
-                    Console.WriteLine($"no verification, New user: {newUser.ToString()}");
+            // si champs sont valides
+            if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le pseudo est invalide"});
+            if (string.IsNullOrEmpty(mdp)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le mot de passe est invalide"});
+            if (string.IsNullOrEmpty(prenom)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le prénom est invalide"});
+            if (string.IsNullOrEmpty(nom)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le nom de famille est invalide"});
 
-                    TempData.Clear();
-                    TempData["username"] = newUser.Pseudo;
-                    TempData.Keep("username");
-
-                    return RedirectToAction("Index", newUser.Role.ToString().ToLower(), catalogueUtilisateur);
-                }
+            // si user existe déja
+            if (catalogueUtilisateur.GetUtilisateurByPseudo(pseudo) is not null)  return RedirectToAction("Erreur", "NonConnecte", "Un utilisateur ayant le même pseudo existe déja");
+            else {
+                //Création new user avec données d'inscription
+                Utilisateur newUser = new Utilisateur(pseudo, mdp, nom, prenom, Utilisateur.ROLE_DEFAULT);
+                catalogueUtilisateur.Ajouter(newUser);
+                catalogueUtilisateur.Sauvegarder(pathUtilisateurs, pathDossierSerial);
+                TempData.Clear();
+                TempData["username"] = newUser.Pseudo;
+                TempData.Keep("username");
+                return RedirectToAction("Index", newUser.Role.ToString().ToLower());
             }
         }
 
-        /* Todo: -> à enlever
-                public IActionResult VuePartielleErreur()
-                {
-                    return View("VuePartielleErreur");
-                }
-        */
+        public IActionResult Erreur(string msg) {
+            TempData["erreurs"] = msg;
+
+            return RedirectToAction("Index", "NonConnecte");   
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
