@@ -71,7 +71,7 @@ namespace TP2_final.Controllers
         public IActionResult RetirerFavoris(string nomMedia)
         {
             catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
-            catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial)
+            catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             return RedirectToAction("Favoris", "User");
         }
 
