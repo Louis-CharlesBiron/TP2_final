@@ -12,7 +12,7 @@ namespace TP2_final
         public static string getDureeFormat(int duree) 
         {
             int secs = duree % 60,
-                 mins = duree / 60;
+                mins = duree / 60;
 
             return $"{pad0(mins)}:{pad0(secs)}";
         }
@@ -22,7 +22,7 @@ namespace TP2_final
 
         public static string getDateFormat(long dateMs)
         {
-            DateTime date = (new DateTime(1970, 1, 1)).AddMilliseconds(dateMs);
+            DateTime date = new DateTime(1970, 1, 1).AddMilliseconds(dateMs);
             return $"{date.Year}-{pad0(date.Month)}-{pad0(date.Day)}";
         }
     }

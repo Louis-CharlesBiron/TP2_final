@@ -41,7 +41,11 @@
                 </div>
             </div>
             <div>
-                <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-nomMedia="@media.Nom">Ajouter comme favoris ❤</a>
+                @if (true) {// si pas favoris, va prob falloir FavMed ici
+                    <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-nomMedia="@media.Nom">Ajouter comme favoris ❤</a>
+                } else {// si favoris
+                    <a class="btn" asp-controller="User" asp-action="SupprimerFavoris" asp-route-nomMedia="@media.Nom">Supprimer des favoris ♡</a>
+                }
             </div>
         </div>
     }
