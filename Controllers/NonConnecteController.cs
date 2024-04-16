@@ -28,7 +28,7 @@ namespace TP2_final.Controllers
             return View();
         }
 
-        private string ValidationPseudo(String pseudo)
+        private string ValidationPseudo(string pseudo)
         {
             pseudo = Filtrage(pseudo);
             return !(pseudo.Length >= 5 &&
@@ -38,7 +38,7 @@ namespace TP2_final.Controllers
                !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo)) ? "" : pseudo;
         }
 
-        private string ValidationPassword(String pw)
+        private string ValidationPassword(string pw)
         {
             pw = Filtrage(pw);
             return !(pw.Length >= 5 && pw.Length <= 100 &&
@@ -47,19 +47,19 @@ namespace TP2_final.Controllers
                 new Regex("[A-Z]").IsMatch(pw) &&
                 new Regex("[^a-zA-Z0-9\\&><]+").IsMatch(pw)) ? "" : pw;
         }
-        private string ValidationPrenom(String prenom)
+        private string ValidationPrenom(string prenom)
         {
             prenom = Filtrage(prenom);
             return !(prenom.Length > 1 && prenom.Length <= 50 &&
                 new Regex("[a-z -]", RegexOptions.IgnoreCase)
-                .IsMatch(prenom)) ? prenom : "";
+                .IsMatch(prenom)) ? "" : prenom;
         }
-        private string ValidationNom(String nom)
+        private string ValidationNom(string nom)
         {
             nom = Filtrage(nom);
             return !(nom.Length > 1 && nom.Length <= 50 &&
                 new Regex("[a-z -]", RegexOptions.IgnoreCase)
-                .IsMatch(nom)) ? nom : "";
+                .IsMatch(nom)) ? "" : nom;
         }
 
         [HttpPost]
@@ -70,8 +70,10 @@ namespace TP2_final.Controllers
             Utilisateur? user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
 
             //Validation champs
-            if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new { msg = "Le pseudo est invalide" });
-            if (string.IsNullOrEmpty(mdp)) return RedirectToAction("Erreur", "NonConnecte", new { msg = "Le mot de passe est invalide" });
+            string erreurs = "";
+            if (string.IsNullOrEmpty(pseudo)) erreurs += "\nLe pseudo est invalide";
+            if (string.IsNullOrEmpty(mdp)) erreurs += "\nLe mot de passe est invalide";
+            if (!string.IsNullOrEmpty(erreurs)) return RedirectToAction("Erreur", "NonConnecte", new { msg = erreurs });
 
             //Validation connection
             if (user is null) return RedirectToAction("Erreur", "NonConnecte", new { msg = "L'utilisateur n'existe pas" });
@@ -95,11 +97,13 @@ namespace TP2_final.Controllers
             string pseudo = ValidationPseudo((string)(TempData["temp_iPseudo"] = (string)Request.Form["insPseudo"]));
             string mdp = ValidationPassword((string)(TempData["temp_iMdp"] = (string)Request.Form["insMdp"]));
 
+            string erreurs = "";
             // si champs sont valides
-            if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new { msg = "Le pseudo est invalide" });
-            if (string.IsNullOrEmpty(mdp)) return RedirectToAction("Erreur", "NonConnecte", new { msg = "Le mot de passe est invalide" });
-            if (string.IsNullOrEmpty(prenom)) return RedirectToAction("Erreur", "NonConnecte", new { msg = "Le prénom est invalide" });
-            if (string.IsNullOrEmpty(nom)) return RedirectToAction("Erreur", "NonConnecte", new { msg = "Le nom de famille est invalide" });
+            if (string.IsNullOrEmpty(pseudo)) erreurs += "\nLe pseudo est invalide";
+            if (string.IsNullOrEmpty(mdp)) erreurs += "\nLe mot de passe est invalide";
+            if (string.IsNullOrEmpty(prenom)) erreurs += "\nLe prénom est invalide";
+            if (string.IsNullOrEmpty(nom)) erreurs += "\nLe nom de famille est invalide";
+            if (!string.IsNullOrEmpty(erreurs)) return RedirectToAction("Erreur", "NonConnecte", new { msg = erreurs });
 
             // si user existe déja
             if (catalogueUtilisateur.GetUtilisateurByPseudo(pseudo) is not null) return RedirectToAction("Erreur", "NonConnecte", "Un utilisateur ayant le même pseudo existe déja");
