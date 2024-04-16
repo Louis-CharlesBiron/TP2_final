@@ -7,6 +7,7 @@ affichage plus responsive (6)
 
 - User -
 affichage favoris(2)
+affichage fiche complete
 
 - Admin -
 l'affichage pour la vue partielle (3)
