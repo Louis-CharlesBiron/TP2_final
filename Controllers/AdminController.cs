@@ -61,11 +61,5 @@ namespace TP2_final.Controllers
 
             return RedirectToAction("gestionUtilisateurs", "admin");
         }
-
-            Console.WriteLine("\nUtilisateur: " + user.Pseudo + "; supprimé\n");
-
-            return RedirectToAction("GestionUtilisateurs");
-        }
-
     }
 }
