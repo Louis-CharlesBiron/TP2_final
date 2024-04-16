@@ -25,41 +25,30 @@ namespace TP2_final.Controllers
             return View();
         }
 
-        private IActionResult ValidationPseudo(String pseudo)
-        {//TODO
-            if (pseudo.Length >= 5 && pseudo.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(pseudo) && new Regex("[0-9]+").IsMatch(pseudo) && !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo))
-                return Ok();
-            else throw new Exception("hi");
+        private string ValidationPseudo(String pseudo) {
+            //TODO, vérification && // filtrage
 
+            return !(pseudo.Length >= 5 &&
+               pseudo.Length <= 50 &&
+               new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(pseudo) &&
+               new Regex("[0-9]+").IsMatch(pseudo) &&
+               !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo)
+               )
+               ? pseudo
+               : "";
         }
 
-        private IActionResult ValidationPassword(String pw)
-        {//TODO
-
-            if (/*todo*/ true)
-            {
-                return Ok();
-            }
-            else return BadRequest(ModelState);
+        private string ValidationPassword(String pw) {
+            return "!Soleil01";
         }
 
-        private IActionResult ValidationPrenom(String prenom)
-        {//TODO
-            if (true)
-            {
-                return Ok();
-            }
-
-            else return BadRequest(ModelState);
+        private string ValidationPrenom(String prenom) {
+            return prenom;
         }
 
 
-        private IActionResult ValidationNom(String nom)
-        {//TODO
-            if (true)
-            {
-                return Ok();
-            }
+        private string ValidationNom(String nom) {
+            return nom;
         }
 
         [HttpPost]
@@ -67,21 +56,22 @@ namespace TP2_final.Controllers
         {
             string pseudo = ValidationPseudo(Request.Form["connPseudo"]);
             string mdp = ValidationPassword(Request.Form["connMdp"]);
+            //Validation champs
+            if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le pseudo est invalide"});
+            if (string.IsNullOrEmpty(mdp)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le mot de passe est invalide"});
 
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
-            if (user is null || user.MotDePasse != mdp)
-            {
-                Console.WriteLine($"ERREUR DE CONN, user existe pas:{user is null} | mauvais pw: {(user?.MotDePasse != mdp)}");
-                return View("MARCHE PAS, JAR SA EXPLOSE C SUR");
-            }
-            else
-            {
+
+            //Validation connection
+            if (user is null) return RedirectToAction("Erreur", "NonConnecte", new {msg="L'utilisateur n'existe pas"});
+            else if (user.MotDePasse != mdp) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le mot de passe est invalide"});  
+            else {
                 Console.WriteLine($"CONN pseudo:{pseudo}, mdp:{mdp}, id:{user.getId()}");
                 TempData.Clear();
                 TempData["username"] = user.Pseudo;
                 TempData.Keep();
 
-                return RedirectToAction("Index", user.Role.ToString().ToLower()/*, catalogueUtilisateur*/);
+                return RedirectToAction("Index", user.Role.ToString().ToLower());
             }
         }
 
@@ -101,10 +91,8 @@ namespace TP2_final.Controllers
                 String pseudo = Request.Form["insPseudo"];
 
                 Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
-                if (user is not null)
-                {
-                    Console.WriteLine($"ERREUR DE CONN, user existe déjà:{user is not null}");
-                    return View("Index");
+                if (user is not null) {
+                    return RedirectToAction("Erreur", "NonConnecte", "Un utilisateur ayant le même pseudo existe déja");
                 }
                 else
                 {
@@ -121,9 +109,9 @@ namespace TP2_final.Controllers
             }
         }
 
-        public IActionResult Erreur() {
+        public IActionResult Erreur(string msg) {Console.WriteLine("EERRREUR "+msg);
             // give partialViewErreur the error message
-            TempData["erreurs"] = "TODO";
+            TempData["erreurs"] = msg;
             TempData["isErreurs"] = "true";
 
             return RedirectToAction("Index", "NonConnecte");   

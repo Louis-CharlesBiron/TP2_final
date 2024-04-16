@@ -1,6 +1,5 @@
-﻿@{
+﻿@{// version 7.0.18 c#
     ViewData["Title"] = "Index";
-    ViewData["error"] = "erreure lors de la connexion ou inscription";
 }
 
 
@@ -44,18 +43,13 @@
         </form>
     </div>
     <div class="container-fluid errorDiv">
-        <div class="errorCS">
-        @if ((string)TempData["isErreurs"] == "true") {
-            <partial name="VuePartielleErreur"/>
-        }
-        </div>
-        <div class="errorJS">
-            <span id="errorHeader"></span>
-            <ul id="errors"></span>
+        <div class="error">
+            <span id="errorHeader">@if((string)TempData["isErreurs"]=="true"){<partial name="VuePartielleErreur"/>}</span>
+            <ul id="errors"></ul>
         </div>
     </div>
 </div>
 
-@section validationScript {
+@* @section validationScript {
     <script async src="~/js/validationNonConnecte.js"></script>
-}
+} *@

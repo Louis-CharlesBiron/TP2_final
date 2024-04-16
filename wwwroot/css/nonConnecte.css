@@ -1,4 +1,4 @@
-﻿html, body {
+﻿﻿html, body {
     width: 100%;
     height: 100%;
     background-image: url("../images/bg_img.png");
@@ -16,7 +16,6 @@
     font-size: 1.3em;
     overflow: scroll;
     flex-direction: column;
-    justify-content: space-between;
 }
 
 #errorHeader {
@@ -49,7 +48,7 @@ p {
 }
 
 label, input {
-    font-size: 2vh;
+    font-size: 165%
 }
 
 .btn {
@@ -94,14 +93,4 @@ label, input {
 
 *::-webkit-scrollbar-thumb:hover {
     background: rgb(60 110 104 / 40%);
-}
-
-.errorJS, .errorCS {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-#errors {
-    font-size: 0.9em;
 }

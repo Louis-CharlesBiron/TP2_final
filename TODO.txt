@@ -1,6 +1,7 @@
 1=free / 10=silent 
 
 - Non Connecte -
+keep input value when conn/insc error
     messages d'erreur de connection (5)
     messages d'erreur d'inscription (5)
 affichage plus responsive (6)
