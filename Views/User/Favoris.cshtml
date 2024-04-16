@@ -7,9 +7,10 @@
 
     <h1 class="display-4">Favoris</h1>
 
-    <div id="Test">
+    <div>
+        <!-- afficher des favoris-->
         @foreach (Favoris fav in Model.Favoris.GetCatalogue())
-        {// i swear this is poopp 😭 might be poop but its poop that works!! 😜
+        {
             if (fav.UserName == (string)TempData["username"])
             {
                 foreach (Media media in Model.Medias.GetCatalogue())

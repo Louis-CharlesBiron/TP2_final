@@ -4,10 +4,9 @@
 }
 
 <div class="text-center h-100">
-    <!--Todo -> faut afficher les medias-->
     <h1 class="display-4">Catalogue</h1>
     <div class="top_catalogue">
-
+        <!-- afficher les medias-->
         @foreach (Media media in Model.GetCatalogue())
         {
             <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@media.Nom">

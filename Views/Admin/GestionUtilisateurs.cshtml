@@ -8,6 +8,7 @@
         <partial name="VuePartielleConfirmation"/>
     }
     <div id="users">
+        <!-- afficher les users et admins-->
         @foreach (Utilisateur utilisateur in Model.GetCatalogue()) {
             <div class="utilisateur">
                 <p>Pseudo: @utilisateur.Pseudo</p>
