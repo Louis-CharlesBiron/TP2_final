@@ -30,7 +30,6 @@ namespace TP2_final.Controllers
 
         private string ValidationPseudo(String pseudo)
         {
-            //TODO, vérification && // filtrage
             pseudo = Filtrage(pseudo);
             return !(pseudo.Length >= 5 &&
                pseudo.Length <= 50 &&
@@ -41,7 +40,6 @@ namespace TP2_final.Controllers
 
         private string ValidationPassword(String pw)
         {
-            //TODO
             pw = Filtrage(pw);
             return !(pw.Length >= 5 && pw.Length <= 100 &&
                 new Regex("[0-9]+").IsMatch(pw) &&
@@ -51,8 +49,10 @@ namespace TP2_final.Controllers
         }
         private string ValidationPrenom(String prenom)
         {
-            //TODO
-            return prenom;
+            prenom = Filtrage(prenom);
+            return !(prenom.Length > 1 && prenom.Length <= 50 &&
+                new Regex("[a-z -]", RegexOptions.IgnoreCase)
+                .IsMatch(prenom)) ? prenom : "";
         }
         private string ValidationNom(String nom)
         {
