@@ -21,7 +21,7 @@
                             <span class="fw-bold">@media.Nom</span>
                             <span>@media.Auteur</span>
                             <span>@Utilitaire.getDateFormat(media.Duree)</span>
-                            <span><a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nom="@media.Nom">Retirer des favoris</a></span>
+                            <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nom="@media.Nom">Retirer des favoris</a>
                         </a>
                     }
                 }
