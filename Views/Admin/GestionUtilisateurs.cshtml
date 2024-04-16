@@ -15,7 +15,9 @@
                 <p>Role: @utilisateur.Role</p>
                 <p>Prénom: @utilisateur.Prenom</p>
                 <p>Nom: @utilisateur.Nom</p>
-                <a class="btn" asp-action="ConfirmerDelete" asp-controller="admin" asp-route-username="@utilisateur.Pseudo">Supprimer</a>
+                @if (utilisateur.Pseudo != (string)TempData["username"]) {
+                    <a class="btn" asp-action="ConfirmerDelete" asp-controller="admin" asp-route-username="@utilisateur.Pseudo">Supprimer</a>
+                }
             </div>
         }
     </div>
