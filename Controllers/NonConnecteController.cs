@@ -56,8 +56,10 @@ namespace TP2_final.Controllers
         }
         private string ValidationNom(String nom)
         {
-            //TODO
-            return nom;
+            nom = Filtrage(nom);
+            return !(nom.Length > 1 && nom.Length <= 50 &&
+                new Regex("[a-z -]", RegexOptions.IgnoreCase)
+                .IsMatch(nom)) ? nom : "";
         }
 
         [HttpPost]
