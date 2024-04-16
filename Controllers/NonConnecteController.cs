@@ -4,6 +4,7 @@ using TP2_final.Models;
 using System.Text.RegularExpressions;
 using System.Text.Encodings.Web;
 using System.Web;
+using Newtonsoft.Json.Linq;
 
 namespace TP2_final.Controllers
 {
@@ -35,27 +36,24 @@ namespace TP2_final.Controllers
                pseudo.Length <= 50 &&
                new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(pseudo) &&
                new Regex("[0-9]+").IsMatch(pseudo) &&
-               !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo)
-               )
-               ? ""
-               : pseudo;
+               !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo)) ? "" : pseudo;
         }
 
         private string ValidationPassword(String pw)
         {
             //TODO
             pw = Filtrage(pw);
-
-            return pw;
+            return !(pw.Length >= 5 && pw.Length <= 100 &&
+                new Regex("[0-9]+").IsMatch(pw) &&
+                new Regex("[a-z]").IsMatch(pw) &&
+                new Regex("[A-Z]").IsMatch(pw) &&
+                new Regex("[^a-zA-Z0-9\\&><]+").IsMatch(pw)) ? "" : pw;
         }
-
         private string ValidationPrenom(String prenom)
         {
             //TODO
             return prenom;
         }
-
-
         private string ValidationNom(String nom)
         {
             //TODO
@@ -65,8 +63,8 @@ namespace TP2_final.Controllers
         [HttpPost]
         public IActionResult Connecte()
         {
-            string pseudo = ValidationPseudo((string)(TempData["temp_cPseudo"]=(string)Request.Form["connPseudo"]));
-            string mdp = ValidationPassword((string)(TempData["temp_cMdp"]=(string)Request.Form["connMdp"]));
+            string pseudo = ValidationPseudo((string)(TempData["temp_cPseudo"] = (string)Request.Form["connPseudo"]));
+            string mdp = ValidationPassword((string)(TempData["temp_cMdp"] = (string)Request.Form["connMdp"]));
             Utilisateur? user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
 
             //Validation champs
@@ -90,10 +88,10 @@ namespace TP2_final.Controllers
         [HttpPost]
         public IActionResult Inscrire()
         {
-            string prenom = ValidationPrenom((string)(TempData["temp_iPrenom"]=(string)Request.Form["insPrenom"]));
-            string nom = ValidationNom((string)(TempData["temp_iNomFamille"]=(string)Request.Form["insNomFamille"]));
-            string pseudo = ValidationPseudo((string)(TempData["temp_iPseudo"]=(string)Request.Form["insPseudo"]));
-            string mdp = ValidationPassword((string)(TempData["temp_iMdp"]=(string)Request.Form["insMdp"]));
+            string prenom = ValidationPrenom((string)(TempData["temp_iPrenom"] = (string)Request.Form["insPrenom"]));
+            string nom = ValidationNom((string)(TempData["temp_iNomFamille"] = (string)Request.Form["insNomFamille"]));
+            string pseudo = ValidationPseudo((string)(TempData["temp_iPseudo"] = (string)Request.Form["insPseudo"]));
+            string mdp = ValidationPassword((string)(TempData["temp_iMdp"] = (string)Request.Form["insMdp"]));
 
             // si champs sont valides
             if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new { msg = "Le pseudo est invalide" });
