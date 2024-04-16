@@ -116,17 +116,18 @@ namespace TP2_final.Controllers
                     TempData["username"] = newUser.Pseudo;
                     TempData.Keep("username");
 
-                    return RedirectToAction("Index", newUser.Role.ToString().ToLower(), catalogueUtilisateur);
+                    return RedirectToAction("Index", newUser.Role.ToString().ToLower());
                 }
             }
         }
 
-        /* Todo: -> à enlever
-                public IActionResult VuePartielleErreur()
-                {
-                    return View("VuePartielleErreur");
-                }
-        */
+        public IActionResult Erreur() {
+            // give partialViewErreur the error message
+            TempData["erreurs"] = "TODO";
+            TempData["isErreurs"] = "true";
+
+            return RedirectToAction("Index", "NonConnecte");   
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
