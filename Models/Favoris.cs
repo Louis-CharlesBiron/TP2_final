@@ -3,23 +3,18 @@ using System.Globalization;
 using System.Text.Json.Serialization;
 
 namespace TP2_final.Models {
-    public class Favoris {//
-
-        [JsonIgnore]
-        private Utilisateur user;
-        [JsonIgnore]
-        private Media media;
+    public class Favoris {
 
         private string userName;
         private string mediaName;
 
-        public Favoris(Utilisateur user2, Media media2)
+        public Favoris(string username, string mediaName)
         {
-            UserName = (user=user2).Nom;
-            MediaName = (media=media2).Nom;
+            UserName = username;
+            MediaName = mediaName;
         }
 
-        public Favoris() : this(new Utilisateur(), new Media())
+        public Favoris() : this("", "")
         {
 
         }
@@ -36,13 +31,6 @@ namespace TP2_final.Models {
             set {mediaName = value;}
         }
 
-        public string getMediaId() {
-            return media.getId();
-        }
-
-        public string getUserId() {
-            return user.getId();
-        }
 
         public override string ToString() {
             return $"evaluation: {UserName}, mediaId: {MediaName}";

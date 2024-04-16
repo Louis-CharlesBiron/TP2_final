@@ -13,18 +13,11 @@ namespace TP2_final.Controllers
         private static string pathDossierSerial = @$"{Environment.CurrentDirectory}\Donnees";
 
         private CatalogueUtilisateur catalogueUtilisateur;
-        private bool isSerializationToDo = true;
-
         public NonConnecteController(ILogger<NonConnecteController> logger)
         {
             _logger = logger;
-            if (isSerializationToDo)
-            {
-                isSerializationToDo = false;
-                catalogueUtilisateur = new CatalogueUtilisateur();
-
-                catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            }
+            catalogueUtilisateur = new CatalogueUtilisateur();
+            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
         }
 
         public IActionResult Index()
@@ -70,7 +63,6 @@ namespace TP2_final.Controllers
             {
                 Console.WriteLine($"CONN pseudo:{pseudo}, mdp:{mdp}, id:{user.getId()}");
                 TempData.Clear();
-                TempData["user_id"] = user.getId();
                 TempData["username"] = user.Pseudo;
                 TempData.Keep();
 
@@ -106,9 +98,7 @@ namespace TP2_final.Controllers
                     Console.WriteLine($"no verification, New user: {newUser.ToString()}");
 
                     TempData.Clear();
-                    TempData["user_id"] = newUser.getId();
                     TempData["username"] = newUser.Pseudo;
-                    TempData.Keep("user_id");
                     TempData.Keep("username");
 
                     return RedirectToAction("Index", newUser.Role.ToString().ToLower(), catalogueUtilisateur);

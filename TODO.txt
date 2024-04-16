@@ -1,17 +1,50 @@
+1=free / 10=silent 
+
 - Non Connecte -
-trouver moyen de faire afficher les erreur
-messages d'erreur de connection
-messages d'erreur d'inscription AHHHHHHHHHHHHHHHHH :()
+    messages d'erreur de connection (5)
+    messages d'erreur d'inscription (5)
+affichage plus responsive (6)
 
 - User -
-pouvoir ajouter favoris
-pouvoir enlever favoris 
+affichage favoris
+affichage fiche complete
 
 - Admin -
-backend supprimer user
-confirmation supprimer user
+l'affichage pour la vue partielle (3)
+l'affichage de la ligne de l'admin connecté (3)
 
 - Autres - 
-faire en sorte qu'un user puissent pas aller dans Admin ??
-faire une vue partielle quelque part la dedans tse en men donne
-routes
+TEST UNITAIRES (4-6)
+renommer FavMed pour dequoi de mieux
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+peut-être pas fuck les id???? (mais peut-être que oui aussi) (9.5)

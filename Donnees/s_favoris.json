@@ -1,22 +1,26 @@
 [
   {
-    "UserId": "Belix Manchelle",
-    "MediaId": "Soulless 5"
+    "UserName": "Belix Manchelle",
+    "MediaName": "Soulless 5"
   },
   {
-    "UserId": "CRAZY3",
-    "MediaId": "Moonligth Sonata"
+    "UserName": "CRAZY3",
+    "MediaName": "Moonligth Sonata"
   },
   {
-    "UserId": "Belix Manchelle",
-    "MediaId": "You Will Find Your Way Home Safely"
+    "UserName": "Belix Manchelle",
+    "MediaName": "You Will Find Your Way Home Safely"
   },
   {
-    "UserId": "CRAZY3",
-    "MediaId": "Apricot Special"
+    "UserName": "CRAZY3",
+    "MediaName": "Apricot Special"
   },
   {
-    "UserId": "CRAZY3",
-    "MediaId": "Megalodon"
+    "UserName": "CRAZY3",
+    "MediaName": "Megalodon"
+  },
+  {
+    "UserName": "CRAZY3",
+    "MediaName": "Soulless 5"
   }
 ]

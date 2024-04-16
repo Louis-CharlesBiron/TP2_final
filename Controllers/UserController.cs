@@ -14,29 +14,24 @@ namespace TP2_final.Controllers
         private static CatalogueUtilisateur catalogueUtilisateur;
         private static CatalogueFavoris catalogueFavoris;
         private static FavorisMediaViewModel favMed;
-        private bool isSerializationToDo = true;
 
         public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
+            catalogue = new Catalogue();
+            catalogueUtilisateur = new CatalogueUtilisateur();
+            catalogueFavoris = new CatalogueFavoris();
 
-            if (isSerializationToDo)
+            catalogue.Ajouter(pathMedias, pathDossierSerial);
+            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
+            catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+
+            favMed = new FavorisMediaViewModel
             {
-                isSerializationToDo = false;
-                catalogue = new Catalogue();
-                catalogueUtilisateur = new CatalogueUtilisateur();
-                catalogueFavoris = new CatalogueFavoris();
-
-                catalogue.Ajouter(pathMedias, pathDossierSerial);
-                catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-                catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
-
-                favMed = new FavorisMediaViewModel
-                {
-                    Favoris = catalogueFavoris.GetCatalogue(),
-                    Medias = catalogue.GetCatalogue()
-                };
-            }
+                Favoris = catalogueFavoris,
+                Medias = catalogue,
+                Users = catalogueUtilisateur
+            };
         }
 
         public IActionResult Deco()
@@ -47,35 +42,37 @@ namespace TP2_final.Controllers
 
         public IActionResult Index()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);
         }
 
         public IActionResult Favoris()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed);
         }
 
         public IActionResult Fiche(string nom)
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             ViewData["nomMedia"] = nom;
-            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);;
+            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed); ;
         }
 
 
-        public IActionResult AjouterFavoris(string idMedia)
+        public IActionResult AjouterFavoris(string nomMedia)
         {
-            ViewData["idMedia"] = idMedia;
-            Favoris fav = new Favoris(catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]), catalogue.GetMedia(idMedia));
+            Favoris fav = new Favoris((string)TempData["username"], nomMedia);
             catalogueFavoris.Ajouter(fav);
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             return RedirectToAction("Favoris");
-            //return NoContent();
+        }
+
+        public IActionResult RetirerFavoris(string nomMedia)
+        {
+            catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
+            catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
+            return RedirectToAction("Favoris", "User");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

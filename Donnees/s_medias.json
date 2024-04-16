@@ -44,15 +44,15 @@
     "Image": "ressources/imagesMedia/Apricot Special.png"
   },
   {
-    "Nom": "...",
+    "Nom": "The Angel, Pt. 5",
     "Type": 8,
     "DateRealisation": 1601956800000,
-    "Duree": 1200,
+    "Duree": 1110,
     "Auteur": "Cacola",
     "Producteur": "Cacola",
-    "Extrait": "ressources/extraits/....mp3",
-    "Complet": "ressources/complets/....mp3",
-    "Image": "ressources/imagesMedia/....png"
+    "Extrait": "ressources/extraits/The Angel, Pt. 5.mp3",
+    "Complet": "ressources/complets/The Angel, Pt. 5.mp3",
+    "Image": "ressources/imagesMedia/The Angel, Pt. 5.png"
   },
 
   {

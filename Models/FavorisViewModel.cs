@@ -2,8 +2,10 @@
 {
     public class FavorisMediaViewModel
     {
-        public List<Favoris> Favoris { get; set; }
-        public List<Media> Medias { get; set; }
+        public CatalogueFavoris Favoris { get; set; }
+        public Catalogue Medias { get; set; }
+        public CatalogueUtilisateur Users { get; set; }
 
     }
 }
+ 

@@ -11,22 +11,16 @@ namespace TP2_final.Controllers
         private static string pathDossierSerial = @$"{Environment.CurrentDirectory}\Donnees";
 
         private CatalogueUtilisateur catalogueUtilisateur;
-        private bool isSerializationToDo = true;
 
         public AdminController(ILogger<AdminController> logger)
         {
             _logger = logger;
-            if (isSerializationToDo) {
-                isSerializationToDo = false;
-                catalogueUtilisateur = new CatalogueUtilisateur();
-
-                catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            }
+            catalogueUtilisateur = new CatalogueUtilisateur();
+            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
         }
 
         public IActionResult Index()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
@@ -35,15 +29,13 @@ namespace TP2_final.Controllers
 
         public IActionResult GestionUtilisateurs()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
-            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
+            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View(catalogueUtilisateur);
         }
 
         public IActionResult Catalogue()
         {
-            TempData.Keep("user_id");
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]); // sketchy
             return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
@@ -55,37 +47,25 @@ namespace TP2_final.Controllers
             return RedirectToAction("Index", "NonConnecte");
         }
 
-
-
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        public IActionResult confirmationSupprimer(String idk)
-        {
-            Console.WriteLine("fonction confirmationSupprimer appelé " + idk);
-            return GestionUtilisateurs();
+        public IActionResult ConfirmerDelete(string username) {
+            //afficher message confirmation
+
+            TempData["isConfirmation"] = "true";
+            TempData["usernameToDelete"] = username;
+
+            return RedirectToAction("gestionUtilisateurs", "admin");
         }
 
-        public ActionResult supprimer(String pseudo)
-        {
-            Utilisateur user = catalogueUtilisateur.GetUtilisateur(pseudo);
-            /*
-             * catalogueUtilisateur.Supprimer(user);
-             */
+            Console.WriteLine("\nUtilisateur: " + user.Pseudo + "; supprimé\n");
 
-
-            if(catalogueUtilisateur.Supprimer(user))
-            {
-                Console.WriteLine("\nUtilisateur: " + user.Pseudo + "; supprimé\n");
-            }
-            else
-            {
-                Console.WriteLine("Ça chie dans pelle !! J'arrive pas à supprimer ton user : " + pseudo);
-            }
             return RedirectToAction("GestionUtilisateurs");
         }
+
     }
 }

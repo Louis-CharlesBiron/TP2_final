@@ -98,7 +98,7 @@ namespace TP2_final.Models
         public string Nom
         {
             get { return nom; }
-            set { nom = value.Length > 0 && value.Length <= 100 && !(new Regex("[^a-z._ 0-9]", RegexOptions.IgnoreCase).IsMatch(value)) ? value : NOM_DEFAULT; }
+            set { nom = value.Length > 0 && value.Length <= 100 && !(new Regex("[^a-z.,_ 0-9-]", RegexOptions.IgnoreCase).IsMatch(value)) ? value : NOM_DEFAULT; }
         }
         public Types Type
         {
