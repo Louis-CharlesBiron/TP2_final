@@ -6,13 +6,13 @@
     ViewData["Title"] = "Fiche " + media?.Nom ?? "Invalide";
 }
 
-<div class="text-center">
+<div class="text-center h-100">
     @if (!(media is null))
     {
         <h1 class="display-4">Fiche complète de "@media.Nom"</h1>
         <div class="fiche">
             <div class="fiche-header">
-                <img src="@Url.Content("~/"+media.Image)" alt="Miniature de @media.Nom" class="img-fiche" />
+                <img src="@Url.Content("~/"+media.Image)" alt="Miniature de @media.Nom" class="miniatureCatalogue" />
                 <div class="header-nom">
                     <span>Nom:</span>
                     <h2>@media.Nom</h2>
@@ -42,9 +42,13 @@
             </div>
             <div>
                 @if (Model.Favoris.GetFavoris((string)TempData["username"], media.Nom) is null) {// si media pas en favoris
-                    <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-nomMedia="@media.Nom">Ajouter comme favoris ❤</a>
+                    <button class="favBtn">
+                        <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-nomMedia="@media.Nom">Ajouter comme favoris ❤</a>
+                    </button>
                 } else {// si media en favoris
-                    <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">Supprimer des favoris ♡</a>
+                    <button class="favBtn">
+                        <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">Supprimer des favoris ♡</a>
+                    </button>
                 }
             </div>
         </div>
@@ -55,6 +59,6 @@
     }
 
     @section Css {
-        <link href="~/css/fiche.css" rel="stylesheet" type="text/css" />
+        <link href="~/css/fiche.css" rel="stylesheet" type="text/css" asp-append-version="true"/>
     }
 </div>

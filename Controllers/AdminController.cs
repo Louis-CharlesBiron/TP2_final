@@ -70,5 +70,10 @@ namespace TP2_final.Controllers
 
             return RedirectToAction("gestionUtilisateurs", "admin");
         }
+
+        public IActionResult AnnulerDeleteUser()
+        {
+            return RedirectToAction("gestionUtilisateurs", "admin");
+        }
     }
 }

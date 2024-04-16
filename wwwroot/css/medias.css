@@ -45,6 +45,28 @@
 }
 
 .miniatureCatalogue {
-    width: 11%;
-    
+    width: 13vh;
+}
+
+.mediaInfo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    color: black;
+    text-decoration: none;
+}
+
+.mediaInfo > span, .media > span {
+    width: 18%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.favBtn {
+    background-color: #ffe7c6;
+}
+.favBtn > a {
+    font-weight: bold;
 }

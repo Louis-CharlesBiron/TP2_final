@@ -100,10 +100,6 @@ label, input {
         flex-direction: column;
     }
 
-    .errorDiv {
-        margin-top: 17%;
-    }
-
     label, input {
         font-size: 120%;
     }

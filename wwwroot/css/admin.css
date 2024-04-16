@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-button {
+button, .aConfirmation {
     background-color: #2196f3;
     border: 2px solid #1b6ec2;
     margin: 5px 10px;
@@ -50,3 +50,31 @@ body {
     justify-content: space-between;
 }
 
+.confirmPopup {
+    padding: 1%;
+    background-color: #eee3d0;
+    border: 2px solid black;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2%;
+}
+
+.utilisateur > p {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 0;
+    padding: 1.5% 0%;
+}
+
+.aConfirmation {
+    color: black;
+    text-decoration: none;
+}
+
+.aConfirmation:hover {
+    color: white;
+}
