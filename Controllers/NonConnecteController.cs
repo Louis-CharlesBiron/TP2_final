@@ -34,12 +34,12 @@ namespace TP2_final.Controllers
                new Regex("[0-9]+").IsMatch(pseudo) &&
                !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo)
                )
-               ? pseudo
-               : "";
+               ? ""
+               : pseudo;
         }
 
         private string ValidationPassword(String pw) {
-            return "!Soleil01";
+            return pw;
         }
 
         private string ValidationPrenom(String prenom) {
@@ -56,11 +56,11 @@ namespace TP2_final.Controllers
         {
             string pseudo = ValidationPseudo(Request.Form["connPseudo"]);
             string mdp = ValidationPassword(Request.Form["connMdp"]);
+            Utilisateur? user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
+
             //Validation champs
             if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le pseudo est invalide"});
             if (string.IsNullOrEmpty(mdp)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le mot de passe est invalide"});
-
-            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
 
             //Validation connection
             if (user is null) return RedirectToAction("Erreur", "NonConnecte", new {msg="L'utilisateur n'existe pas"});
@@ -78,8 +78,8 @@ namespace TP2_final.Controllers
         [HttpPost]
         public IActionResult Inscrire()
         {
-            string prenom = ValidationPseudo(Request.Form["insPrenom"]);
-            string nom = ValidationPassword(Request.Form["insNomFamille"]);
+            string prenom = ValidationPrenom(Request.Form["insPrenom"]);
+            string nom = ValidationNom(Request.Form["insNomFamille"]);
             string pseudo = ValidationPseudo(Request.Form["insPseudo"]);
             string mdp = ValidationPassword(Request.Form["insMdp"]);
 
@@ -92,6 +92,7 @@ namespace TP2_final.Controllers
             // si user existe déja
             if (catalogueUtilisateur.GetUtilisateurByPseudo(pseudo) is not null)  return RedirectToAction("Erreur", "NonConnecte", "Un utilisateur ayant le même pseudo existe déja");
             else {
+                //Création new user avec données d'inscription
                 Utilisateur newUser = new Utilisateur(pseudo, mdp, nom, prenom, Utilisateur.ROLE_DEFAULT);
                 catalogueUtilisateur.Ajouter(newUser);
                 catalogueUtilisateur.Sauvegarder(pathUtilisateurs, pathDossierSerial);

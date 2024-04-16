@@ -65,7 +65,7 @@ namespace TP2_final.Models
         {
             get { return pseudo; }
             // Pseudo doit contenir seulement des chiffres et des lettres et doit avoir une longueur minimale de 5 caractères et une longueur maximale de 50 caractère
-            set { pseudo = value.Length >= 5 && value.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) && new Regex("[0-9]+").IsMatch(value) && !new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PSEUDO_DEFAULT; }
+            set { pseudo = value.Length >= 5 && value.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) && new Regex("[0-9]").IsMatch(value) && !new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PSEUDO_DEFAULT; }
         }
 
         public string MotDePasse
