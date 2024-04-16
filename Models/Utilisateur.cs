@@ -23,10 +23,7 @@ namespace TP2_final.Models
         //attributs
         [JsonIgnore]
         private string id;
-
-        [Required(ErrorMessage = "Le pseudo est requis")]
         private string pseudo;
-        [Required(ErrorMessage = "Le mot de passe est requis")]
         private string motDePasse;
         private string nom;
         private string prenom;
