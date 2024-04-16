@@ -3,7 +3,6 @@
 - Non Connecte -
     messages d'erreur de connection (5)
     messages d'erreur d'inscription (5)
-affichage plus responsive (6)
 
 - User -
 affichage favoris
