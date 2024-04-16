@@ -3,13 +3,14 @@
 - Non Connecte -
     messages d'erreur de connection (5)
     messages d'erreur d'inscription (5)
-affiche plus responsive (6)
+affichage plus responsive (6)
 
 - User -
-    pouvoir enlever favoris (2)
+affichage favoris(2)
 
 - Admin -
-l'affichage (3)
+l'affichage pour la vue partielle (3)
+l'affichage de la ligne de l'admin connecté (3)
 
 - Autres - 
 TEST UNITAIRES (4-6)
