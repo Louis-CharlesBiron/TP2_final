@@ -33,7 +33,10 @@ namespace TP2_final.Controllers
                 Users = catalogueUtilisateur
             };
         }
-
+        /**
+         * déconnecte l'utilisateur
+         * @return -> la page NonConnecte
+         */
         public IActionResult Deco()
         {
             TempData.Clear();
@@ -46,12 +49,20 @@ namespace TP2_final.Controllers
             return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);
         }
 
+        /**
+         * @return -> la page des favoris si retrouve l'utilisateur, sinon retourne la page non connecté
+         */
         public IActionResult Favoris()
         {
             TempData.Keep("username");
             return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogues);
         }
 
+        /**
+         * affiche la fiche complète du média choisi
+         * @param nom -> le nom du média que l'on veux voir la fiche complète
+         * @return -> la fiche complète du média choisi
+         */
         public IActionResult Fiche(string nom)
         {
             TempData.Keep("username");
@@ -59,7 +70,10 @@ namespace TP2_final.Controllers
             return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogues); ;
         }
 
-
+        /**
+         * @param nomMedia -> le nom du média à ajouter aux favoris
+         * @return -> la page favoris
+         */
         public IActionResult AjouterFavoris(string nomMedia)
         {
             Favoris fav = new Favoris((string)TempData["username"], nomMedia);
@@ -68,6 +82,10 @@ namespace TP2_final.Controllers
             return RedirectToAction("Favoris");
         }
 
+        /**
+         * @param nomMedia -> le nom du média à retirer des favoris
+         * @return -> la page favoris
+         */
         public IActionResult RetirerFavoris(string nomMedia)
         {
             catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
