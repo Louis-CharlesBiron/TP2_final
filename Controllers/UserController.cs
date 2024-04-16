@@ -56,7 +56,7 @@ namespace TP2_final.Controllers
         {
             TempData.Keep("username");
             ViewData["nomMedia"] = nom;
-            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed);;
+            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed); ;
         }
 
 
@@ -69,9 +69,10 @@ namespace TP2_final.Controllers
             //return NoContent();
         }
 
-        public IActionResult RetirerFavoris(string nomMedia) {
-            catalogueFavoris.Supprimer();
-            return NoContent();
+        public IActionResult RetirerFavoris(string nomMedia)
+        {
+            catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
+            return RedirectToAction("Favoris");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
