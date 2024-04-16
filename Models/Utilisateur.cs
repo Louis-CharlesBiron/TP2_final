@@ -74,7 +74,7 @@ namespace TP2_final.Models
             set
             {
                 //doit avoir lettres et chiffres, minimum 5 de long, au moins un maj, un char non alphanumérique
-                motDePasse = value.Length >= 5 && value.Length <= 100 && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
+                motDePasse = value.Length >= 5 && value.Length <= 100 && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9\\&><]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
             }
         }
         public string Nom
