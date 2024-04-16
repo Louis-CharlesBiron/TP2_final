@@ -13,7 +13,7 @@ namespace TP2_final.Controllers
         private static Catalogue catalogue;
         private static CatalogueUtilisateur catalogueUtilisateur;
         private static CatalogueFavoris catalogueFavoris;
-        private static FavorisMediaViewModel favMed;
+        private static Catalogues catalogues;
 
         public UserController(ILogger<UserController> logger)
         {
@@ -26,7 +26,7 @@ namespace TP2_final.Controllers
             catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
             catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
 
-            favMed = new FavorisMediaViewModel
+            catalogues = new Catalogues
             {
                 Favoris = catalogueFavoris,
                 Medias = catalogue,
@@ -49,14 +49,14 @@ namespace TP2_final.Controllers
         public IActionResult Favoris()
         {
             TempData.Keep("username");
-            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed);
+            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogues);
         }
 
         public IActionResult Fiche(string nom)
         {
             TempData.Keep("username");
             ViewData["nomMedia"] = nom;
-            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(favMed); ;
+            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogues); ;
         }
 
 
