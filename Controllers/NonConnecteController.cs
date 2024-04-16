@@ -39,23 +39,26 @@ namespace TP2_final.Controllers
         }
 
         private string ValidationPassword(String pw) {
+            //TODO
             return pw;
         }
 
         private string ValidationPrenom(String prenom) {
+            //TODO
             return prenom;
         }
 
 
         private string ValidationNom(String nom) {
+            //TODO
             return nom;
         }
 
         [HttpPost]
         public IActionResult Connecte()
         {
-            string pseudo = ValidationPseudo(Request.Form["connPseudo"]);
-            string mdp = ValidationPassword(Request.Form["connMdp"]);
+            string pseudo = ValidationPseudo((string)(TempData["temp_cPseudo"]=(string)Request.Form["connPseudo"]));
+            string mdp = ValidationPassword((string)(TempData["temp_cMdp"]=(string)Request.Form["connMdp"]));
             Utilisateur? user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
 
             //Validation champs
@@ -78,10 +81,10 @@ namespace TP2_final.Controllers
         [HttpPost]
         public IActionResult Inscrire()
         {
-            string prenom = ValidationPrenom(Request.Form["insPrenom"]);
-            string nom = ValidationNom(Request.Form["insNomFamille"]);
-            string pseudo = ValidationPseudo(Request.Form["insPseudo"]);
-            string mdp = ValidationPassword(Request.Form["insMdp"]);
+            string prenom = ValidationPrenom((string)(TempData["temp_iPrenom"]=(string)Request.Form["insPrenom"]));
+            string nom = ValidationNom((string)(TempData["temp_iNomFamille"]=(string)Request.Form["insNomFamille"]));
+            string pseudo = ValidationPseudo((string)(TempData["temp_iPseudo"]=(string)Request.Form["insPseudo"]));
+            string mdp = ValidationPassword((string)(TempData["temp_iMdp"]=(string)Request.Form["insMdp"]));
 
             // si champs sont valides
             if (string.IsNullOrEmpty(pseudo)) return RedirectToAction("Erreur", "NonConnecte", new {msg="Le pseudo est invalide"});

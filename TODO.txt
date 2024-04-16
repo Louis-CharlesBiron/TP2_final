@@ -1,9 +1,7 @@
 1=free / 10=silent 
 
 - Non Connecte -
-keep input value when conn/insc error
-    messages d'erreur de connection (5)
-    messages d'erreur d'inscription (5)
+fonctions validation
 
 - User -
 affichage favoris
@@ -15,7 +13,6 @@ l'affichage de la ligne de l'admin connecté (3)
 
 - Autres - 
 TEST UNITAIRES (4-6)
-renommer FavMed pour dequoi de mieux
 
 
 
