@@ -4,7 +4,7 @@
     align-items: center;
 }
 
-button {
+button, .aConfirmation {
     background-color: #2196f3;
     border: 2px solid #1b6ec2;
     margin: 5px 10px;
@@ -68,4 +68,13 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 1.5% 0%;
+}
+
+.aConfirmation {
+    color: black;
+    text-decoration: none;
+}
+
+.aConfirmation:hover {
+    color: white;
 }

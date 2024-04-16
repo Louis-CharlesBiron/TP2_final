@@ -1,4 +1,5 @@
 <div class="confirmPopup">
     <span>Voulez-vous bel et bien supprimer l'utilisateur: "@TempData["usernameToDelete"]"?</span>
-    <a asp-action="DeleteUser" asp-controller="admin" asp-route-username="@TempData["usernameToDelete"]">Supprimer @TempData["usernameToDelete"]</a>
+    <a class="aConfirmation" asp-action="DeleteUser" asp-controller="admin" asp-route-username="@TempData["usernameToDelete"]">Supprimer @TempData["usernameToDelete"]</a>
+    <a class="aConfirmation" asp-action="AnnulerDeleteUser" asp-controller="admin">Annuler</a>
 </div>
