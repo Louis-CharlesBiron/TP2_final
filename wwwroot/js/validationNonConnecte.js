@@ -1,9 +1,20 @@
 ﻿const SEP = "\n"
 
+/**
+ * 
+ * @param conditions
+ * @param errs
+ * @param errSeparator
+ * @returns
+ */
 function validate(conditions, errs, errSeparator = '') {// [if true then error], [error msg]   (same length)
     return {m:errs.reduce((a, b, i) => (a[i] &&= errSeparator + b, a), conditions.map(x => x || '')).join('').slice(errSeparator.length), c:conditions.reduce((a, b)=>a+Boolean(b))}
 }
 
+/**
+ * 
+ * @returns
+ */
 function validateConnectionForm() {
     let pseudo = connPseudo.value, password = connMdp.value,
         mPseudo = validate(//pseudo
@@ -18,7 +29,10 @@ function validateConnectionForm() {
     return { message: mPseudo.m+SEP+mPw.m, count:{ pseudo: mPseudo.c, password:mPw.c, TOTAL:mPseudo.c+mPw.c}}
 }
          
-
+/**
+ * 
+ * @returns
+ */
 function validateInscriptionForm() {
     let pseudo = insPseudo.value, password = insMdp.value, nom = insNomFamille.value, prenom = insPrenom.value,
         mPrenom = validate(//prénom
@@ -43,7 +57,11 @@ function validateInscriptionForm() {
 }
 
 // CONNECTION
-
+/**
+ * 
+ * @param v
+ * @param isConnection
+ */
 function displayError(v, isConnection=0) {
     errorHeader.textContent = v.count.TOTAL ? 
     isConnection ? `Erreurs présentes dans: ${v.count.pseudo?`Pseudo (${v.count.pseudo}), `:""} ${v.count.password?`Mot de passe (${v.count.password})`:""}`
@@ -52,6 +70,10 @@ function displayError(v, isConnection=0) {
     errors.textContent = v.message.trimLeft()
 }
 
+/**
+ * 
+ * @param e
+ */
 connForm.onsubmit = (e) => {
     let v = validateConnectionForm()
     if (v.message.trim()) {
@@ -62,6 +84,10 @@ connForm.onsubmit = (e) => {
 }
 
 // INSCRIPTION
+/**
+ * 
+ * @param e
+ */
 insForm.onsubmit = (e) => {
     let v = validateInscriptionForm()
         if (v.message.trim()) {
