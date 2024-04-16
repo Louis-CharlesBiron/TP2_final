@@ -9,8 +9,7 @@ affiche plus responsive (6)
     pouvoir enlever favoris (2)
 
 - Admin -
-    empêcher l'admin de s'auto delete (3)
-l'affichage (1)
+l'affichage (3)
 
 - Autres - 
 TEST UNITAIRES (4-6)
