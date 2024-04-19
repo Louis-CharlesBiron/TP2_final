@@ -109,6 +109,39 @@
     "Extrait": "ressources/extraits/Unconsciousness.mp3",
     "Complet": "ressources/complets/Unconsciousness.mp3",
     "Image": "ressources/imagesMedia/Unconsciousness.png"
+  },
+  {
+    "Nom": "Crazy Train",
+    "Type": 3,
+    "DateRealisation": 337579200000,
+    "Duree": 294,
+    "Auteur": "Ozzy Osbourn",
+    "Producteur": "Ozzy Osbourn",
+    "Extrait": "ressources/extraits/.mp3",
+    "Complet": "ressources/complet/crazyTrain.mp3",
+    "Image": "ressources/imagesMedia/crazyTrain.png"
+  },
+  {
+    "Nom": "One",
+    "Type": 3,
+    "DateRealisation": 600411600000,
+    "Duree": 447,
+    "Auteur": "Metallica",
+    "Producteur": "James Hetfield",
+    "Extrait": "ressources/extraits/.mp3",
+    "Complet": "ressources/complet/one.mp3",
+    "Image": "ressources/imagesMedia/one.png"
+  },
+  {
+    "Nom": "Egoless",
+    "Type": 7,
+    "DateRealisation": 0,
+    "Duree": 3661,
+    "Auteur": "",
+    "Producteur": "",
+    "Extrait": "ressources/extraits/You Will Find Your Way Home Safely.mp3",
+    "Complet": "ressources/complets/You Will Find Your Way Home Safely.mp3",
+    "Image": "ressources/imagesMedia/You Will Find Your Way Home Safely.png"
   }
 
 ]
