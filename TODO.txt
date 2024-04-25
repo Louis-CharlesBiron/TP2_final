@@ -47,5 +47,4 @@ MEAK:
 - affichage pareil meme si pas bouton
 
 FLIX:
-- differrentes .ext dans array
 - indiquer rien dans favoris
