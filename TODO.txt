@@ -7,12 +7,12 @@ pas redirect dans favoris
 bouton favoris dans liste media
 message favoris retirer
 jamais destruction info sans confirmation
-
-si pas pareil => kickout
 message suppression User
 affichage pareil meme si pas bouton
 
+
 vue partielle fiche ou liste media + favoris
+vue partielle = réutilisation code plusieurs endroits
 
 
 ++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++
@@ -22,8 +22,6 @@ maigrir css / maybe disparaitre
 utiliser bootstrap pour uniformiser browser
 tres carré
 
-vue partielle = réutilisation code plusieurs endroits
-
 changer nom methode ajouter (deserialisation)
 
 pas tout donner vue favoris
@@ -32,7 +30,7 @@ pas tout donner vue favoris
 
 
 LOUIS-CHARLSESSS: 
-tout le temps verifier ki connecté + droits
+tout le temps verifier ki connecté + droits == si pas pareil => kickout
 accueil admin = liste utilisateur
 Longueur chaines caractères dans une constante
 
