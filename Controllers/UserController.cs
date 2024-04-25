@@ -22,9 +22,9 @@ namespace TP2_final.Controllers
             catalogueUtilisateur = new CatalogueUtilisateur();
             catalogueFavoris = new CatalogueFavoris();
 
-            catalogue.Ajouter(pathMedias, pathDossierSerial);
-            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+            catalogue.Deserialiser(pathMedias, pathDossierSerial);
+            catalogueUtilisateur.Deserialiser(pathUtilisateurs, pathDossierSerial);
+            catalogueFavoris.Deserialiser(pathFavoris, pathDossierSerial);
 
             catalogues = new Catalogues
             {

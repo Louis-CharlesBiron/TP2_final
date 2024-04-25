@@ -62,7 +62,7 @@ namespace TP2_final.Models
         /// </summary>
         /// <param name="nomFichierSauvegarde">Le chemin du fichier JSON</param>
         /// <returns>Le catalogue rempli d'objet média</returns>
-        public bool Ajouter(string nomFichierSauvegarde, string pathSource)
+        public bool Deserialiser(string nomFichierSauvegarde, string pathSource)
         {
             bool ok = true;
             try {
