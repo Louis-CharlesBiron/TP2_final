@@ -1,36 +1,17 @@
-path paramétrisé class media
-inclure tout dans les tests
-
-pas se rendre compte verfication serveur vs client
-filtration + validation champs dans utilitaire
-indiquer rien dans favoris
-
-
-
-
-
-si pas pareil => kickout
-
-
-
-
-vue partielle fiche ou liste media + favoris
-vue partielle = réutilisation code plusieurs endroits
-
-
-++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++
-
-
-maigrir css / maybe disparaitre
-utiliser bootstrap pour uniformiser browser
-tres carré
-
-changer nom methode ajouter (deserialisation)
-
-pas tout donner vue favoris
-
-
-
+- path paramétrisé class media
+- inclure tout dans les tests
+- pas se rendre compte verfication serveur vs client
+- filtration + validation champs dans utilitaire
+- indiquer rien dans favoris
+- si pas pareil => kickout
+- vue partielle fiche ou liste media + favoris
+- vue partielle = réutilisation code plusieurs endroits
+- ++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++
+- maigrir css / maybe disparaitre
+- utiliser bootstrap pour uniformiser browser
+- tres carré
+- changer nom methode ajouter (deserialisation)
+- pas tout donner vue favoris
 
 LOUIS-CHARLSESSS: 
 - tout le temps verifier ki connecté + droits == si pas pareil => kickout
