@@ -72,14 +72,14 @@ namespace TP2_final.Controllers
 
         /**
          * @param nomMedia -> le nom du média à ajouter aux favoris
-         * @return -> la page favoris
+         * @return -> la page index
          */
         public IActionResult AjouterFavoris(string nomMedia)
         {
             Favoris fav = new Favoris((string)TempData["username"], nomMedia);
             catalogueFavoris.Ajouter(fav);
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
-            return RedirectToAction("Favoris");
+            return RedirectToAction("index");
         }
 
         /**
