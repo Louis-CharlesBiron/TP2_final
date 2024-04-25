@@ -3,12 +3,15 @@ inclure tout dans les tests
 
 pas se rendre compte verfication serveur vs client
 filtration + validation champs dans utilitaire
-pas redirect dans favoris
-bouton favoris dans liste media
-message favoris retirer
-jamais destruction info sans confirmation
-message suppression User
-affichage pareil meme si pas bouton
+indiquer rien dans favoris
+
+
+
+
+
+si pas pareil => kickout
+
+
 
 
 vue partielle fiche ou liste media + favoris
@@ -36,9 +39,12 @@ Longueur chaines caractères dans une constante
 
 MEAK:
 
-lol lol
-
-
+- pas redirect dans favoris
+- message favoris retirer
+- message suppression User
+- bouton favoris dans liste media
+- jamais destruction info sans confirmation
+- affichage pareil meme si pas bouton
 
 FLIX:
 - Longueur chaines caractères dans une constante
