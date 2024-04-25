@@ -93,6 +93,20 @@ namespace TP2_final.Controllers
             return RedirectToAction("Favoris", "User");
         }
 
+        /**
+         * rafraichie la page des medias avec une confirmation de suppression du media choisi
+         * @param media -> media à supprimer eds favoris
+         * @return -> la page user/medias
+         */
+        public IActionResult ConfirmerDelete(string media)
+        {
+            // Affiche message de confirmation de suppression d'utilisateur
+            TempData["isConfirmation"] = "true";
+            TempData["usernameToDelete"] = media;
+
+            return RedirectToAction("index", "utilisateur");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
