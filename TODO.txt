@@ -47,6 +47,5 @@ MEAK:
 - affichage pareil meme si pas bouton
 
 FLIX:
-- Longueur chaines caractères dans une constante
 - differrentes .ext dans array
 - indiquer rien dans favoris
