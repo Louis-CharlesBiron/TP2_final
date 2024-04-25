@@ -18,7 +18,9 @@ message suppression User
 affichage pareil meme si pas bouton
 
 vue partielle fiche ou liste media + favoris
-++++!!!+++\\||===documentation===||//+++!!!++++
+
+
+++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++
 
 maigrir css / maybe disparaitre
 utiliser bootstrap pour uniformiser browser
