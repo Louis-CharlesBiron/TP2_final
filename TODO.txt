@@ -11,9 +11,7 @@ bouton favoris dans liste media
 message favoris retirer
 jamais destruction info sans confirmation
 
-tout le temps verifier ki connecté + droits
 si pas pareil => kickout
-accueil admin = liste utilisateur
 message suppression User
 affichage pareil meme si pas bouton
 
@@ -33,8 +31,11 @@ changer nom methode ajouter (deserialisation)
 pas tout donner vue favoris
 
 LOUIS-CHARLSESSS: 
-
+tout le temps verifier ki connecté + droits
+accueil admin = liste utilisateur
 
 
 MEAK:
+
+
 
