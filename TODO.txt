@@ -33,9 +33,9 @@ pas tout donner vue favoris
 
 
 LOUIS-CHARLSESSS: 
-tout le temps verifier ki connecté + droits == si pas pareil => kickout
-accueil admin = liste utilisateur
-Longueur chaines caractères dans une constante
+- tout le temps verifier ki connecté + droits == si pas pareil => kickout
+- accueil admin = liste utilisateur
+- Longueur chaines caractères dans une constante
 
 MEAK:
 
