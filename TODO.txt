@@ -1,4 +1,3 @@
-Longueur chaines caractères dans une constante
 differrentes .ext dans array
 path paramétrisé class media
 inclure tout dans les tests
@@ -34,7 +33,7 @@ pas tout donner vue favoris
 LOUIS-CHARLSESSS: 
 tout le temps verifier ki connecté + droits
 accueil admin = liste utilisateur
-
+Longueur chaines caractères dans une constante
 
 MEAK:
 
