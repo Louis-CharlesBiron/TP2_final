@@ -19,6 +19,7 @@ namespace TP2_final
         CONCEPTUALSYNTH,
         PARTY,
         CLASSIQUE,
-        OST
+        OST,
+        GRUNDGE
     }
 }
