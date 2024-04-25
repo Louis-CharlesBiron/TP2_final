@@ -20,6 +20,7 @@ vue partielle fiche ou liste media + favoris
 
 ++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++
 
+
 maigrir css / maybe disparaitre
 utiliser bootstrap pour uniformiser browser
 tres carré
@@ -40,3 +41,5 @@ MEAK:
 lol lol
 
 
+
+FLIX:

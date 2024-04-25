@@ -7,17 +7,17 @@
     "Role": 1
   },
   {
-    "Pseudo": "CRAZY3",
-    "MotDePasse": "!Soleil01",
-    "Nom": "Lorman",
-    "Prenom": "Maëk",
-    "Role": 0
-  },
-  {
-    "Pseudo": "Belix Manchelle 2",
+    "Pseudo": "pseudoDefaut1",
     "MotDePasse": "!Soleil01",
     "Nom": "Felix",
     "Prenom": "Blanchette",
     "Role": 0
+  },
+  {
+    "Pseudo": "Jojo4",
+    "MotDePasse": "Jojojojo4$",
+    "Nom": "Goulet",
+    "Prenom": "Jocelyn",
+    "Role": 1
   }
 ]
