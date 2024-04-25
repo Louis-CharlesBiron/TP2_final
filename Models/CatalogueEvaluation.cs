@@ -57,7 +57,7 @@ namespace TP2_final.Models
         /// </summary>
         /// <param name="nomFichierSauvegarde"><Le nom du fichier à lire/param>
         /// <returns>Une liste d'évaluations</returns>
-        public bool Ajouter(string nomFichierSauvegarde, string pathSource)
+        public bool Deserialiser(string nomFichierSauvegarde, string pathSource)
         {
             bool ok = true;
             try
