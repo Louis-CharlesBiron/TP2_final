@@ -1,11 +1,8 @@
-Longueur chaines caractères dans une constante
-differrentes .ext dans array
 path paramétrisé class media
 inclure tout dans les tests
 
 pas se rendre compte verfication serveur vs client
 filtration + validation champs dans utilitaire
-indiquer rien dans favoris
 pas redirect dans favoris
 bouton favoris dans liste media
 message favoris retirer
@@ -46,3 +43,6 @@ lol lol
 
 
 FLIX:
+- Longueur chaines caractères dans une constante
+- differrentes .ext dans array
+- indiquer rien dans favoris
