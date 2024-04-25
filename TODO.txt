@@ -42,7 +42,6 @@ MEAK:
 - quand ajouter favo, redirect vers la page qu'On est deja
 - message favoris retirer
 - message suppression User
-- bouton favoris dans liste media
 - jamais destruction info sans confirmation
 - affichage pareil meme si pas bouton
 
