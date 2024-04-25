@@ -34,7 +34,7 @@ namespace TP2_final.Models
         /// <returns>Une liste d'objet userId</returns>
         /// <exception cref="FileNotFoundException"> Lancée lorsque le fichier n'est pas trouvé</exception>
         /// <exception cref="Exception"> Lancée en cas d'erreur inattendue </exception>
-        public bool Ajouter(string nomFichierSauvegarde, string pathSource)
+        public bool Deserialiser(string nomFichierSauvegarde, string pathSource)
         {
             bool ok = true;
             try

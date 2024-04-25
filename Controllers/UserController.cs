@@ -22,9 +22,9 @@ namespace TP2_final.Controllers
             catalogueUtilisateur = new CatalogueUtilisateur();
             catalogueFavoris = new CatalogueFavoris();
 
-            catalogue.Ajouter(pathMedias, pathDossierSerial);
-            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+            catalogue.Deserialiser(pathMedias, pathDossierSerial);
+            catalogueUtilisateur.Deserialiser(pathUtilisateurs, pathDossierSerial);
+            catalogueFavoris.Deserialiser(pathFavoris, pathDossierSerial);
 
             catalogues = new Catalogues
             {
@@ -91,6 +91,20 @@ namespace TP2_final.Controllers
             catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             return RedirectToAction("Favoris", "User");
+        }
+
+        /**
+         * rafraichie la page des medias avec une confirmation de suppression du media choisi
+         * @param media -> media à supprimer eds favoris
+         * @return -> la page user/medias
+         */
+        public IActionResult ConfirmerDelete(string media)
+        {
+            // Affiche message de confirmation de suppression d'utilisateur
+            TempData["isConfirmation"] = "true";
+            TempData["usernameToDelete"] = media;
+
+            return RedirectToAction("index", "utilisateur");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

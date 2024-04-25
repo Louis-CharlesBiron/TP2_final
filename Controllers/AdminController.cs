@@ -18,7 +18,7 @@ namespace TP2_final.Controllers
 
             // Déserialisation
             catalogueUtilisateur = new CatalogueUtilisateur();
-            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
+            catalogueUtilisateur.Deserialiser(pathUtilisateurs, pathDossierSerial);
         }
 
         public IActionResult Index()

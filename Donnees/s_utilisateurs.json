@@ -7,17 +7,31 @@
     "Role": 1
   },
   {
-    "Pseudo": "CRAZY3",
-    "MotDePasse": "!Soleil01",
-    "Nom": "Lorman",
-    "Prenom": "Maëk",
-    "Role": 0
-  },
-  {
-    "Pseudo": "pseudoDefaut",
+    "Pseudo": "pseudoDefaut1",
     "MotDePasse": "!Soleil01",
     "Nom": "Felix",
     "Prenom": "Blanchette",
+    "Role": 0
+  },
+  {
+    "Pseudo": "CRAZY3",
+    "MotDePasse": "!Soleil01",
+    "Nom": "test",
+    "Prenom": "test",
+    "Role": 0
+  },
+  {
+    "Pseudo": "Admin1",
+    "MotDePasse": "!Soleil01",
+    "Nom": "Test",
+    "Prenom": "Admin",
+    "Role": 1
+  },
+  {
+    "Pseudo": "QDacier9",
+    "MotDePasse": "!Soleil01",
+    "Nom": "lorman",
+    "Prenom": "maek",
     "Role": 0
   }
 ]

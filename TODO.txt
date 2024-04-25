@@ -1,41 +1,50 @@
-1=free / 10=silent 
+path paramétrisé class media
+inclure tout dans les tests
 
-- Non Connecte -
-- User -
-- Admin -
-- Autres - 
-
-TEST UNITAIRES (4-6)
-menage partout
+pas se rendre compte verfication serveur vs client
+filtration + validation champs dans utilitaire
+indiquer rien dans favoris
 
 
 
 
 
+si pas pareil => kickout
 
 
 
 
+vue partielle fiche ou liste media + favoris
+vue partielle = réutilisation code plusieurs endroits
+
+
+++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++
+
+
+maigrir css / maybe disparaitre
+utiliser bootstrap pour uniformiser browser
+tres carré
+
+changer nom methode ajouter (deserialisation)
+
+pas tout donner vue favoris
 
 
 
 
+LOUIS-CHARLSESSS: 
+- tout le temps verifier ki connecté + droits == si pas pareil => kickout
+- accueil admin = liste utilisateur
+- Longueur chaines caractères dans une constante
 
+MEAK:
 
+- pas redirect dans favoris
+- message favoris retirer
+- message suppression User
+- bouton favoris dans liste media
+- jamais destruction info sans confirmation
+- affichage pareil meme si pas bouton
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-peut-être pas fuck les id???? (mais peut-être que oui aussi) (9.5)
+FLIX:
+- indiquer rien dans favoris
