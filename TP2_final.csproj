@@ -17,4 +17,8 @@
     <PackageReference Include="NUnit" Version="3.13.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\ressources\mediaComlpet\" />
+  </ItemGroup>
+
 </Project>
