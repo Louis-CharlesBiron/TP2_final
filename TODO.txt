@@ -40,9 +40,7 @@ LOUIS-CHARLSESSS:
 MEAK:
 
 - quand ajouter favo, redirect vers la page qu'on est deja
-- message favoris retirer
-- message suppression User
-- jamais destruction info sans confirmation
+- faire la confirmation de suppression de favori
 - affichage pareil meme si pas bouton
 
 FLIX:
