@@ -39,7 +39,7 @@ LOUIS-CHARLSESSS:
 
 MEAK:
 
-- pas redirect dans favoris
+- quand ajouter favo, redirect vers la page qu'On est deja
 - message favoris retirer
 - message suppression User
 - bouton favoris dans liste media
