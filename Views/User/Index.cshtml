@@ -1,10 +1,17 @@
 ﻿@using static TP2_final.Utilitaire;
 @{
     ViewData["Title"] = "Home Page";
+    ViewData["mediaRemove"] = "Nom de media";
 }
 
 <div class="text-center h-100">
     <h1 class="display-4">Catalogue</h1>
+    <div id="message">
+        <p>Message (Ajout de media dasn ses favoris)</p>
+    </div>
+    <div id="confrimation">
+        <p>Êtes vous sûr que vous voulez supprimer @ViewData["mediaRemove"] de vos favoris ?</p>
+    </div>
     <div class="top_catalogue">
         <!-- afficher les medias-->
         @foreach (Media media in Model.GetCatalogue())

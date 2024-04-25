@@ -39,7 +39,7 @@ LOUIS-CHARLSESSS:
 
 MEAK:
 
-- quand ajouter favo, redirect vers la page qu'On est deja
+- quand ajouter favo, redirect vers la page qu'on est deja
 - message favoris retirer
 - message suppression User
 - jamais destruction info sans confirmation
