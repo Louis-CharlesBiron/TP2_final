@@ -23,18 +23,10 @@ namespace TP2_final.Controllers
 
         public IActionResult Index()
         {
-            // Redirection vers la View index et vérificaiton des la validité des informations d'identification
+            // Redirection vers la View Index avec le model catalogueUtilisateur et vérificaiton des la validité des informations d'identification
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
-            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
-        }
-
-        public IActionResult GestionUtilisateurs()
-        {
-            // Redirection vers la View GestionUtilisateurs avec le model catalogueUtilisateur et vérificaiton des la validité des informations d'identification
-            TempData.Keep("username");
-            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
-            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View(catalogueUtilisateur);
+            return user is null || user.Role != Role.ADMIN ? RedirectToAction("Index", "NonConnecte") : View(catalogueUtilisateur);
         }
 
         public IActionResult Catalogue()
@@ -42,7 +34,7 @@ namespace TP2_final.Controllers
             // Redirection vers la View Catalogue et vérificaiton des la validité des informations d'identification
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
-            return user is null ? RedirectToAction("Index", "NonConnecte") : user.Role != Role.ADMIN ? RedirectToAction("Index", "User") : View();
+            return user is null || user.Role != Role.ADMIN ? RedirectToAction("Index", "NonConnecte") : View();
         }
 
         /**

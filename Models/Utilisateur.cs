@@ -16,6 +16,10 @@ namespace TP2_final.Models
         public const string PRENOM_DEFAULT = "prenomDefaut";
         [JsonIgnore]
         public const Role ROLE_DEFAULT = Role.USER;
+        [JsonIgnore]
+        public const int MAXLENGTH = 100;
+        [JsonIgnore]
+        public const int MINLENGTH = 3;
 
         [JsonIgnore]
         private static int nombreIncremente = 0;
@@ -65,7 +69,7 @@ namespace TP2_final.Models
         {
             get { return pseudo; }
             // Pseudo doit contenir seulement des chiffres et des lettres et doit avoir une longueur minimale de 5 caractères et une longueur maximale de 50 caractère
-            set { pseudo = value.Length >= 5 && value.Length <= 50 && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) && new Regex("[0-9]").IsMatch(value) && !new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PSEUDO_DEFAULT; }
+            set { pseudo = value.Length >= MINLENGTH && value.Length <= MAXLENGTH && new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(value) && new Regex("[0-9]").IsMatch(value) && !new Regex("[^a-zA-Z0-9]+").IsMatch(value) ? value : PSEUDO_DEFAULT; }
         }
 
         public string MotDePasse
@@ -74,19 +78,19 @@ namespace TP2_final.Models
             set
             {
                 //doit avoir lettres et chiffres, minimum 5 de long, au moins un maj, un char non alphanumérique
-                motDePasse = value.Length >= 5 && value.Length <= 100 && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9\\&><]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
+                motDePasse = value.Length >= MINLENGTH && value.Length <= MAXLENGTH && new Regex("[0-9]+").IsMatch(value) && new Regex("[a-z]").IsMatch(value) && new Regex("[A-Z]").IsMatch(value) && new Regex("[^a-zA-Z0-9\\&><]+").IsMatch(value) ? value : PASSWORD_PAR_DEFAUT_PAS_BON;
             }
         }
         public string Nom
         {
             get { return nom; }
-            set { nom = value.Length > 1 && value.Length <= 50 && new Regex("[a-z -]", RegexOptions.IgnoreCase).IsMatch(value) ? value : NOM_DEFAULT; }
+            set { nom = value.Length > MINLENGTH && value.Length <= MAXLENGTH && new Regex("[a-z -]", RegexOptions.IgnoreCase).IsMatch(value) ? value : NOM_DEFAULT; }
         }
 
         public string Prenom
         {
             get { return prenom; }
-            set { prenom = value.Length > 1 && value.Length <= 50 && new Regex("[a-z -]", RegexOptions.IgnoreCase).IsMatch(value) ? value : PRENOM_DEFAULT; }
+            set { prenom = value.Length > MINLENGTH && value.Length <= MAXLENGTH && new Regex("[a-z -]", RegexOptions.IgnoreCase).IsMatch(value) ? value : PRENOM_DEFAULT; }
         }
 
         public Role Role

@@ -34,7 +34,6 @@ pas tout donner vue favoris
 
 
 LOUIS-CHARLSESSS: 
-tout le temps verifier ki connecté + droits
 accueil admin = liste utilisateur
 Longueur chaines caractères dans une constante
 
