@@ -39,12 +39,12 @@ Longueur chaines caractères dans une constante
 
 MEAK:
 
-pas redirect dans favoris
-message favoris retirer
-message suppression User
-bouton favoris dans liste media
-jamais destruction info sans confirmation
-affichage pareil meme si pas bouton
+- pas redirect dans favoris
+- message favoris retirer
+- message suppression User
+- bouton favoris dans liste media
+- jamais destruction info sans confirmation
+- affichage pareil meme si pas bouton
 
 FLIX:
 - Longueur chaines caractères dans une constante
