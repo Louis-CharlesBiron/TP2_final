@@ -1,41 +1,31 @@
-1=free / 10=silent 
+Longueur chaines caractères dans une constante
+differrentes .ext dans array
+path paramétrisé class media
+inclure tout dans les tests
 
-- Non Connecte -
-- User -
-- Admin -
-- Autres - 
+pas se rendre compte verfication serveur vs client
+filtration + validation champs dans utilitaire
+indiquer rien dans favoris
+pas redirect dans favoris
+bouton favoris dans liste media
+message favoris retirer
+jamais destruction info sans confirmation
 
-TEST UNITAIRES (4-6)
-menage partout
+tout le temps verifier ki connecté + droits
+si pas pareil => kickout
+accueil admin = liste utilisateur
+message suppression User
+affichage pareil meme si pas bouton
 
+vue partielle fiche ou liste media + favoris
+++++!!!+++\\||===documentation===||//+++!!!++++
 
+maigrir css / maybe disparaitre
+utiliser bootstrap pour uniformiser browser
+tres carré
 
+vue partielle = réutilisation code plusieurs endroits
 
+changer nom methode ajouter (deserialisation)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-peut-être pas fuck les id???? (mais peut-être que oui aussi) (9.5)
+pas tout donner vue favoris
