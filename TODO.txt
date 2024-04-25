@@ -48,3 +48,4 @@ MEAK:
 
 FLIX:
 - indiquer rien dans favoris
+- cheker dans user/index quand media deja favo bouton supprimer et quand media pas favo bouton ajouter
