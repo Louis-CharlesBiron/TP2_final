@@ -25,13 +25,16 @@ namespace TP2_final.Models
         public const string COMPLET_DEFAULT = "ressources/complets/default.mp3";
         [JsonIgnore]
         public const string IMAGE_DEFAULT = "ressources/images/default.png";
-
+        [JsonIgnore]
+        public const int LONGUEUR_MIN_CHAINE = 0;
+        [JsonIgnore]
+        public const int LONGUEUR_MAX_CHAINE = 50;
         [JsonIgnore]
         private static int nombreIncremente = 0;
 
+
         [JsonIgnore]
         private string id;
-
         private string nom;
         private Types type;
         private long dateRealisation;
@@ -47,7 +50,7 @@ namespace TP2_final.Models
         public Media(string nom, Types type, long dateRealisation, int duree, string auteur, string producteur, string extrait, string complet, string image)
         {
             Nom = nom;
-            Type = type; 
+            Type = type;
             DateRealisation = dateRealisation;
             Duree = duree;
             Auteur = auteur;
@@ -98,7 +101,7 @@ namespace TP2_final.Models
         public string Nom
         {
             get { return nom; }
-            set { nom = value.Length > 0 && value.Length <= 100 && !(new Regex("[^a-z.,_ 0-9-]", RegexOptions.IgnoreCase).IsMatch(value)) ? value : NOM_DEFAULT; }
+            set { nom = value.Length > LONGUEUR_MIN_CHAINE && value.Length <= LONGUEUR_MAX_CHAINE && !(new Regex("[^a-z.,_ 0-9-]", RegexOptions.IgnoreCase).IsMatch(value)) ? value : NOM_DEFAULT; }
         }
         public Types Type
         {
@@ -109,7 +112,8 @@ namespace TP2_final.Models
         public long DateRealisation
         {
             get { return dateRealisation; }
-            set {
+            set
+            {
                 this.dateRealisation = value < DateTimeOffset.Now.ToUnixTimeMilliseconds() ? value : DATE_DEFAULT;
             }
         }
@@ -117,37 +121,37 @@ namespace TP2_final.Models
         public int Duree
         {
             get { return duree; }
-            set { this.duree = value>0 ? value : DUREE_DEFAULT; }
+            set { this.duree = value > 0 ? value : DUREE_DEFAULT; }
         }
 
         public string Auteur
         {
             get { return auteur; }
-            set { this.auteur = value!="" && value.Length<50 ? value : AUTEUR_DEFAULT; }
+            set { this.auteur = value != "" && value.Length < LONGUEUR_MAX_CHAINE ? value : AUTEUR_DEFAULT; }
         }
 
         public string Producteur
         {
             get { return producteur; }
-            set { this.producteur = value != "" && value.Length < 50 ? value : PRODUCTEUR_DEFAULT; }
+            set { this.producteur = value != "" && value.Length < LONGUEUR_MAX_CHAINE ? value : PRODUCTEUR_DEFAULT; }
         }
 
         public string Extrait
         {
             get { return extrait; }
-            set { this.extrait = value.IndexOf(".mp3") >= 0 ? value : EXTRAIT_DEFAULT;}
+            set { this.extrait = value.IndexOf(".mp3") >= LONGUEUR_MIN_CHAINE ? value : EXTRAIT_DEFAULT; }
         }
 
         public string Complet
         {
             get { return complet; }
-            set {this.complet = value.IndexOf(".mp3") >= 0 ? value : COMPLET_DEFAULT; }
+            set { this.complet = value.IndexOf(".mp3") >= LONGUEUR_MIN_CHAINE ? value : COMPLET_DEFAULT; }
         }
 
         public string Image
         {
             get { return image; }
-            set { this.image = value.IndexOf(".png") >= 0 ? value : IMAGE_DEFAULT;}
+            set { this.image = value.IndexOf(".png") >= LONGUEUR_MIN_CHAINE ? value : IMAGE_DEFAULT; }
         }
 
 
