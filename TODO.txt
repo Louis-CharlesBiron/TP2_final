@@ -13,6 +13,7 @@ LOUIS-CHARLSESSS:
 MEAK:
 - quand ajouter favo, redirect vers la page qu'on est deja
 - affichage pareil meme si pas bouton supprimer (gestionUtilisateur)
+- ajouter confirmation dasn page fiche complete pour supprimer favo
 
 FLIX:
 
