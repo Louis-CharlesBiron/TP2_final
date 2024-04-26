@@ -26,6 +26,6 @@ avec annotation
 - check controller + view (request)
 - ajuster doc
 - ajuster test
-- new shits
+- new shits:
 	- fiche complete admin
 	- catalogue media admin
