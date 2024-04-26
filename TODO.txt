@@ -16,4 +16,3 @@ MEAK:
 - affichage pareil meme si pas bouton supprimer (gestionUtilisateur)
 
 FLIX:
-- indiquer rien dans favoris
