@@ -38,8 +38,13 @@
                     <span>@getDureeFormat(media.Duree)</span>
                 </a>
                 <div class="logo">
-                    <a class="btn" asp-action="ajouterFavo" asp-controller="User" asp-route-username="@media.Nom">❤️</a>
-                    <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-username="@media.Nom">🤍</a>
+                    @if(){
+                        <a class="btn" asp-action="ajouterFavo" asp-controller="User" asp-route-username="@media.Nom">❤️</a>
+                    }
+                    else{
+                        <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-username="@media.Nom">🤍</a>
+                    }
+                    
                 </div>
             </div>
         }
