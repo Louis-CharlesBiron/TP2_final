@@ -8,7 +8,8 @@
     <h1 class="display-4">Favoris</h1>
 
     <div>
-        <!-- afficher des favoris-->
+@*
+        <!-- afficher les favoris-->
         @foreach (Favoris fav in Model.Favoris.GetCatalogue())
         {
             if (fav.UserName == (string)TempData["username"])
@@ -25,14 +26,23 @@
                                 <span>@Utilitaire.getDureeFormat(media.Duree)</span>
                             </a>
                             <button class="favBtn">
-                                <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">Retirer des favoris</a>
+                                <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">Retirer
+                                    des favoris</a>
                             </button>
-                            
+
                         </div>
 
                     }
                 }
             }
+        }
+*@
+
+        @{
+            List<Favoris> listFav = Model.Favoris.GetFavoris((string)TempData["username"]);
+            listFav.ForEach((Favoris m) => {
+                Console.WriteLine(m);
+            });
         }
     </div>
 </div>
