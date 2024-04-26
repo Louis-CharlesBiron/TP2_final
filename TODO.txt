@@ -15,7 +15,7 @@ MEAK:
 
 - quand ajouter favo, redirect vers la page qu'on est deja
 - appeler la methode supprimer favo dans la confirmation
-- affichage pareil meme si pas bouton
+- affichage pareil meme si pas bouton supprimer (gestionUtilisateur)
 
 FLIX:
 - indiquer rien dans favoris
