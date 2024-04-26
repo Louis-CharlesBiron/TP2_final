@@ -46,7 +46,8 @@ namespace TP2_final.Controllers
         public IActionResult Index()
         {
             TempData.Keep("username");
-            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogue);
+            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
+            return user is null || user.Role != Role.USER ? RedirectToAction("Index", "NonConnecte") : View(catalogue);
         }
 
         /**
@@ -55,7 +56,8 @@ namespace TP2_final.Controllers
         public IActionResult Favoris()
         {
             TempData.Keep("username");
-            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogues);
+            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
+            return user is null || user.Role != Role.USER ? RedirectToAction("Index", "NonConnecte") : View(catalogues);
         }
 
         /**
@@ -67,7 +69,8 @@ namespace TP2_final.Controllers
         {
             TempData.Keep("username");
             ViewData["nomMedia"] = nom;
-            return catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]) is null ? RedirectToAction("Index", "NonConnecte") : View(catalogues); ;
+            Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
+            return user is null || user.Role != Role.USER ? RedirectToAction("Index", "NonConnecte") : View(catalogues);
         }
 
         /**

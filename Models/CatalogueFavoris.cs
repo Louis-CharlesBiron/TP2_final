@@ -1,7 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Json.Serialization;
 
 namespace TP2_final.Models
 {
@@ -24,7 +21,7 @@ namespace TP2_final.Models
             {
                 listeFav = JsonConvert.DeserializeObject<List<Favoris>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 ok = false;
             }
@@ -45,7 +42,7 @@ namespace TP2_final.Models
                 File.WriteAllText(@$"{pathSource}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeFav, Formatting.Indented));
             }
             
-            catch (Exception err)
+            catch (Exception)
             {
                 ok = false;
             }

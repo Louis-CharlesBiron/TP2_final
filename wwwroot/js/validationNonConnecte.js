@@ -1,4 +1,5 @@
-﻿const SEP = "\n"
+﻿'use strict'
+const SEP = "\n", MAXLENGTH = 100, MINLENGTH = 3
 
 /**
  * @param conditions: un array de boolean ex: [1==1, 2==3]
@@ -17,12 +18,12 @@ function validate(conditions, errs, errSeparator = '') {// [if true then error],
 function validateConnectionForm() {
     let pseudo = connPseudo.value, password = connMdp.value,
         mPseudo = validate(//pseudo
-            [pseudo.length < 5, pseudo.match(/[^a-z0-9]/gi), pseudo.length > 50],
-            ["Le pseudo doit être au moins 5 charactères", "Le pseudo ne doit contenir que des charatères alphanumériques", "Le pseudo doit conetenir moins de 50 charactères"],
+            [pseudo.length < MINLENGTH, pseudo.match(/[^a-z0-9]/gi), pseudo.length > MAXLENGTH],
+            ["Le pseudo doit être au moins " + MINLENGTH +" charactères", "Le pseudo ne doit contenir que des charatères alphanumériques", "Le pseudo doit conetenir moins de " + MAXLENGTH +" charactères"],
             SEP),
         mPw = validate(//pw
-            [password.length < 5, password.length > 100, !password.match(/[a-z]/g), !password.match(/[A-Z]/g), !password.match(/[0-9]/g), !password.match(/[^0-9a-z]/gi)],
-            ["Le mot de passe doit être au moins 5 charactères", "Le mot de passe doit conetenir moins de 50 charactères", "Le mot de passe doit contenir au moins une lettre minuscule", "Le mot de passe doit contenir au moins une lettre majuscule", "Le mot de passe doit contenir au moins un chiffre", "Le mot de passe doit contenir au moins un charatère spécial"],
+            [password.length < MINLENGTH, password.length > MAXLENGTH, !password.match(/[a-z]/g), !password.match(/[A-Z]/g), !password.match(/[0-9]/g), !password.match(/[^0-9a-z]/gi)],
+            ["Le mot de passe doit être au moins " + MINLENGTH +" charactères", "Le mot de passe doit conetenir moins de " + MAXLENGTH +" charactères", "Le mot de passe doit contenir au moins une lettre minuscule", "Le mot de passe doit contenir au moins une lettre majuscule", "Le mot de passe doit contenir au moins un chiffre", "Le mot de passe doit contenir au moins un charatère spécial"],
             SEP)
 
     return { message: mPseudo.m+SEP+mPw.m, count:{ pseudo: mPseudo.c, password:mPw.c, TOTAL:mPseudo.c+mPw.c}}
@@ -35,20 +36,20 @@ function validateConnectionForm() {
 function validateInscriptionForm() {
     let pseudo = insPseudo.value, password = insMdp.value, nom = insNomFamille.value, prenom = insPrenom.value,
         mPrenom = validate(//prénom
-            [prenom.length < 2, prenom.match(/[^a-z -]/gi), prenom.length > 50],
-            ["Le prénom doit être au moins 1 charactère", "Le prénom ne doit contenir que des charatères lettres, espaces ou '-'", "Le prénom doit conetenir moins de 50 charactères"],
+            [prenom.length < MINLENGTH, prenom.match(/[^a-z -]/gi), prenom.length > MAXLENGTH],
+            ["Le prénom doit être au moins " + MINLENGTH +" charactère", "Le prénom ne doit contenir que des charatères lettres, espaces ou '-'", "Le prénom doit conetenir moins de " + MAXLENGTH +" charactères"],
             SEP),
         mNom = validate(//nom famille
-            [nom.length < 2, nom.match(/[^a-z -]/gi), nom.length > 50],
-            ["Le nom de famille doit être au moins 1 charactère", "Le nom de famille ne doit contenir que des charatères lettres, espaces ou '-'", "Le nom de famille doit conetenir moins de 50 charactères"],
+            [nom.length < MINLENGTH, nom.match(/[^a-z -]/gi), nom.length > MAXLENGTH],
+            ["Le nom de famille doit être au moins " + MINLENGTH +" charactère", "Le nom de famille ne doit contenir que des charatères lettres, espaces ou '-'", "Le nom de famille doit conetenir moins de "+MAXLENGTH+" charactères"],
             SEP),
         mPseudo = validate(//pseudo
-            [pseudo.length < 5, pseudo.match(/[^a-z0-9]/gi), pseudo.length > 50],
-            ["Le pseudo doit être au moins 5 charactères", "Le pseudo ne doit contenir que des charatères alphanumériques", "Le pseudo doit conetenir moins de 50 charactères"],
+            [pseudo.length < MINLENGTH, pseudo.match(/[^a-z0-9]/gi), pseudo.length > MAXLENGTH],
+            ["Le pseudo doit être au moins " + MINLENGTH +" charactères", "Le pseudo ne doit contenir que des charatères alphanumériques", "Le pseudo doit conetenir moins de " + MAXLENGTH +" charactères"],
             SEP),
         mPw = validate(//pw
-            [password.length < 5, password.length > 100, !password.match(/[a-z]/g), !password.match(/[A-Z]/g), !password.match(/[0-9]/g), !password.match(/[^0-9a-z]/gi)],
-            ["Le mot de passe doit être au moins 5 charactères", "Le mot de passe doit conetenir moins de 50 charactères", "Le mot de passe doit contenir au moins une lettre minuscule", "Le mot de passe doit contenir au moins une lettre majuscule", "Le mot de passe doit contenir au moins un chiffre", "Le mot de passe doit contenir au moins un charatère spécial"],
+            [password.length < MINLENGTH, password.length > MAXLENGTH, !password.match(/[a-z]/g), !password.match(/[A-Z]/g), !password.match(/[0-9]/g), !password.match(/[^0-9a-z]/gi)],
+            ["Le mot de passe doit être au moins " + MINLENGTH +" charactères", "Le mot de passe doit conetenir moins de " + MAXLENGTH +" charactères", "Le mot de passe doit contenir au moins une lettre minuscule", "Le mot de passe doit contenir au moins une lettre majuscule", "Le mot de passe doit contenir au moins un chiffre", "Le mot de passe doit contenir au moins un charatère spécial"],
             SEP)
 
     return {message: mPrenom.m+SEP+mNom.m+SEP+mPseudo.m+SEP+mPw.m, count: { pseudo: mPseudo.c, password: mPw.c, prenom:mPrenom.c, nom:mNom.c , TOTAL:mPseudo.c+mPw.c+mPrenom.c+mNom.c}}

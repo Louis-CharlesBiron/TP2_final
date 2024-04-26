@@ -30,51 +30,12 @@ namespace TP2_final.Controllers
             return View();
         }
 
-        /// <summary>
-        /// Filtre et valide le pseudo passé en paramètre
-        /// </summary>
-        /// <param name="pseudo"></param>
-        /// <returns>le pseudo valide ou string vide ("")</returns>
-        private string ValidationPseudo(string pseudo)
-        {
-            pseudo = Filtrage(pseudo);
-            return !(pseudo.Length >= 5 &&
-               pseudo.Length <= 50 &&
-               new Regex("[a-z]", RegexOptions.IgnoreCase).IsMatch(pseudo) &&
-               new Regex("[0-9]+").IsMatch(pseudo) &&
-               !new Regex("[^a-zA-Z0-9]+").IsMatch(pseudo)) ? "" : pseudo;
-        }
-
-
-        private string ValidationPassword(string pw)
-        {
-            pw = Filtrage(pw);
-            return !(pw.Length >= 5 && pw.Length <= 100 &&
-                new Regex("[0-9]+").IsMatch(pw) &&
-                new Regex("[a-z]").IsMatch(pw) &&
-                new Regex("[A-Z]").IsMatch(pw) &&
-                new Regex("[^a-zA-Z0-9\\&><]+").IsMatch(pw)) ? "" : pw;
-        }
-        private string ValidationPrenom(string prenom)
-        {
-            prenom = Filtrage(prenom);
-            return !(prenom.Length > 1 && prenom.Length <= 50 &&
-                new Regex("[a-z -]", RegexOptions.IgnoreCase)
-                .IsMatch(prenom)) ? "" : prenom;
-        }
-        private string ValidationNom(string nom)
-        {
-            nom = Filtrage(nom);
-            return !(nom.Length > 1 && nom.Length <= 50 &&
-                new Regex("[a-z -]", RegexOptions.IgnoreCase)
-                .IsMatch(nom)) ? "" : nom;
-        }
 
         [HttpPost]
         public IActionResult Connecte()
         {
-            string pseudo = ValidationPseudo((string)(TempData["temp_cPseudo"] = (string)Request.Form["connPseudo"]));
-            string mdp = ValidationPassword((string)(TempData["temp_cMdp"] = (string)Request.Form["connMdp"]));
+            string pseudo = Utilitaire.ValidationPseudo((string)(TempData["temp_cPseudo"] = (string)Request.Form["connPseudo"]));
+            string mdp = Utilitaire.ValidationPassword((string)(TempData["temp_cMdp"] = (string)Request.Form["connMdp"]));
             Utilisateur? user = catalogueUtilisateur.GetUtilisateurByPseudo(pseudo);
 
             //Validation champs
@@ -100,10 +61,10 @@ namespace TP2_final.Controllers
         [HttpPost]
         public IActionResult Inscrire()
         {
-            string prenom = ValidationPrenom((string)(TempData["temp_iPrenom"] = (string)Request.Form["insPrenom"]));
-            string nom = ValidationNom((string)(TempData["temp_iNomFamille"] = (string)Request.Form["insNomFamille"]));
-            string pseudo = ValidationPseudo((string)(TempData["temp_iPseudo"] = (string)Request.Form["insPseudo"]));
-            string mdp = ValidationPassword((string)(TempData["temp_iMdp"] = (string)Request.Form["insMdp"]));
+            string prenom = Utilitaire.ValidationPrenom((string)(TempData["temp_iPrenom"] = (string)Request.Form["insPrenom"]));
+            string nom = Utilitaire.ValidationNom((string)(TempData["temp_iNomFamille"] = (string)Request.Form["insNomFamille"]));
+            string pseudo = Utilitaire.ValidationPseudo((string)(TempData["temp_iPseudo"] = (string)Request.Form["insPseudo"]));
+            string mdp = Utilitaire.ValidationPassword((string)(TempData["temp_iMdp"] = (string)Request.Form["insMdp"]));
 
             string erreurs = "";
             // si champs sont valides
@@ -139,16 +100,6 @@ namespace TP2_final.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
-        public string Filtrage(string input)
-        {
-            /*
-             * conversion entité html
-             * enlever les echappements
-             * enlever les espaces blancs avant et apres
-             */
-            return HttpUtility.HtmlEncode(Regex.Unescape(input.Trim()));
         }
     }
 }

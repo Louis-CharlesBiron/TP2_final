@@ -8,7 +8,7 @@ namespace TP2_final.Models
     public class Media
     {
         [JsonIgnore]
-        public const string NOM_DEFAULT = "nom default";
+        public const string NOM_DEFAULT = "nomDefault";
         [JsonIgnore]
         public const Types TYPE_DEFAULT = Types.JAZZ;
         [JsonIgnore]
@@ -20,22 +20,26 @@ namespace TP2_final.Models
         [JsonIgnore]
         public const string PRODUCTEUR_DEFAULT = "Productueur default";
         [JsonIgnore]
-        public const string EXTRAIT_DEFAULT = "ressources/extraits/default.mp3";
+        public const string SRC = "ressources";
         [JsonIgnore]
-        public const string COMPLET_DEFAULT = "ressources/complets/default.mp3";
+        public const string EXTRAIT_DEFAULT = $"{SRC}/extraits/default.mp3";
         [JsonIgnore]
-        public const string IMAGE_DEFAULT = "ressources/images/default.png";
+        public const string COMPLET_DEFAULT = $"{SRC}/complets/default.mp3";
+        [JsonIgnore]
+        public const string IMAGE_DEFAULT = $"{SRC}/images/default.png";
         [JsonIgnore]
         public const int LONGUEUR_MIN_CHAINE = 0;
         [JsonIgnore]
-        public const int LONGUEUR_MAX_CHAINE = 50;
+        public const int LONGUEUR_MAX_CHAINE = 100;
+        [JsonIgnore]
         public readonly string[] EXTENSION_IMAGES = { "png", "jpg", "jpeg" };
-        public const string extAudio = "mp3";
+        [JsonIgnore]
+        public const string EXTENSION_AUDIO = "mp3";
         [JsonIgnore]
         private static int nombreIncremente = 0;
 
 
-        [JsonIgnore]
+        [JsonIgnore] // 💀
         private string id;
         private string nom;
         private Types type;
@@ -141,19 +145,19 @@ namespace TP2_final.Models
         public string Extrait
         {
             get { return extrait; }
-            set { this.extrait = value.IndexOf(".mp3") >= LONGUEUR_MIN_CHAINE ? value : EXTRAIT_DEFAULT; }
+            set { this.extrait = value.EndsWith(".mp3") ? value : EXTRAIT_DEFAULT; }
         }
 
         public string Complet
         {
             get { return complet; }
-            set { this.complet = value.IndexOf(".mp3") >= LONGUEUR_MIN_CHAINE ? value : COMPLET_DEFAULT; }
+            set { this.complet = value.EndsWith(".mp3") ? value : COMPLET_DEFAULT; }
         }
 
         public string Image
         {
             get { return image; }
-            set { this.image = value.IndexOf(".png") >= LONGUEUR_MIN_CHAINE ? value : IMAGE_DEFAULT; }
+            set { this.image = EXTENSION_IMAGES.Any(ext => value.EndsWith(ext)) ? value : IMAGE_DEFAULT; }
         }
 
 
