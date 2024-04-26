@@ -6,7 +6,6 @@
 - ++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++ (+)
 - réduire css, utiliser bootstrap (+?)
 - tres carré (+)
-- changer nom methode ajouter (deserialisation) (+)
 - pas tout donner vue favoris ()??
 
 LOUIS-CHARLSESSS: 
@@ -16,3 +15,16 @@ MEAK:
 - affichage pareil meme si pas bouton supprimer (gestionUtilisateur)
 
 FLIX:
+
+
+TP3:
+avec annotation
+
+- ajuster models
+- script migration
+- check controller + view (request)
+- ajuster doc
+- ajuster test
+- new shits
+	- fiche complete admin
+	- catalogue media admin
