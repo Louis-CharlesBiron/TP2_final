@@ -28,7 +28,7 @@
     }   
     <div class="top_catalogue">
         <!-- afficher les medias-->
-        @foreach (Media media in Model.GetCatalogue())
+        @foreach (Media media in Model.Medias.GetCatalogue())
         {
             <div class="mediaNLogo">
                 <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@media.Nom">
@@ -38,7 +38,10 @@
                     <span>@getDureeFormat(media.Duree)</span>
                 </a>
                 <div class="logo">
-                    @if(){
+                    @{
+                        List<Favoris> list = Model.Favoris.GetFavoris((string)TempData["username"]);
+                    }
+                    @if(list.Any(f=>f.MediaName == media.Nom)){
                         <a class="btn" asp-action="ajouterFavo" asp-controller="User" asp-route-username="@media.Nom">❤️</a>
                     }
                     else{
