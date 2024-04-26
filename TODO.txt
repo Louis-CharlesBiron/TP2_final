@@ -28,3 +28,4 @@ avec annotation
 - new shits:
 	- fiche complete admin
 	- catalogue media admin
+	

@@ -9,7 +9,7 @@ const SEP = "\n", MAXLENGTH = 100, MINLENGTH = 3
  */
 function validate(conditions, errs, errSeparator = '') {// [if true then error], [error msg]
     return {m:errs.reduce((a, b, i) => (a[i] &&= errSeparator + b, a), conditions.map(x => x || '')).join('').slice(errSeparator.length), c:conditions.reduce((a, b)=>a+Boolean(b))}
-}
+};
 
 /**
  * effectue la validation sur les champs du pseudo et du mot de passe lors de la connection
