@@ -33,16 +33,19 @@ namespace TP2_final.Controllers
                 Users = catalogueUtilisateur
             };
         }
-        /**
-         * déconnecte l'utilisateur
-         * @return -> la page NonConnecte
-         */
+   
+        /// <summary>
+        /// déconnecte l'utilisateur et supprime ses données de session
+        /// </summary>
         public IActionResult Deco()
         {
             TempData.Clear();
             return RedirectToAction("Index", "NonConnecte");
         }
 
+        /// <summary>
+        /// Aller à la page index
+        /// </summary>
         public IActionResult Index()
         {
             TempData.Keep("username");

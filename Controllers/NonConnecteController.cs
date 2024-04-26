@@ -25,12 +25,18 @@ namespace TP2_final.Controllers
             catalogueUtilisateur.Deserialiser(pathUtilisateurs, pathDossierSerial);
         }
 
+        /// <summary>
+        /// Aller à la page index
+        /// </summary>
         public IActionResult Index()
         {
             return View();
         }
 
-
+        /// <summary>
+        /// Tentative de connection, vérifie si le pseudo et mot de passe sont valides.
+        /// Affiche les erreurs ou connecte l'utilisateur
+        /// </summary>
         [HttpPost]
         public IActionResult Connecte()
         {
@@ -58,6 +64,10 @@ namespace TP2_final.Controllers
             }
         }
 
+        /// <summary>
+        /// Tentative de connection, vérifie si le prenom, le nom, le pseudo et mot de passe sont valides.
+        /// Affiche les erreurs ou crée et connecte l'utilisateur
+        /// </summary>
         [HttpPost]
         public IActionResult Inscrire()
         {
@@ -89,10 +99,13 @@ namespace TP2_final.Controllers
             }
         }
 
+        /// <summary>
+        /// Affiche les messages d'erreurs détecté sur les champs, par le serveur
+        /// </summary>
+        /// <param name="msg"></param>
         public IActionResult Erreur(string msg)
         {
             TempData["erreurs"] = msg;
-
             return RedirectToAction("Index", "NonConnecte");
         }
 

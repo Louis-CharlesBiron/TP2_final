@@ -21,26 +21,29 @@ namespace TP2_final.Controllers
             catalogueUtilisateur.Deserialiser(pathUtilisateurs, pathDossierSerial);
         }
 
+        /// <summary>
+        /// Redirection vers la View Index avec le model catalogueUtilisateur et vérificaiton des la validité des informations d'identification
+        /// </summary>
         public IActionResult Index()
         {
-            // Redirection vers la View Index avec le model catalogueUtilisateur et vérificaiton des la validité des informations d'identification
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
             return user is null || user.Role != Role.ADMIN ? RedirectToAction("Index", "NonConnecte") : View(catalogueUtilisateur);
         }
 
+        /// <summary>
+        /// Redirection vers la View Catalogue et vérificaiton des la validité des informations d'identification
+        /// </summary>
         public IActionResult Catalogue()
         {
-            // Redirection vers la View Catalogue et vérificaiton des la validité des informations d'identification
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
             return user is null || user.Role != Role.ADMIN ? RedirectToAction("Index", "NonConnecte") : View();
         }
 
-        /**
-         * déconnecte l'administrateur
-         * @return -> la page NonConnecte
-         */
+        /// <summary>
+        /// déconnecte l'administrateur et supprime les données de session
+        /// </summary>
         public IActionResult Deco()
         {
             // Déconnecte l'utilisateur et le renvoit à la page de connexion
@@ -48,11 +51,10 @@ namespace TP2_final.Controllers
             return RedirectToAction("Index", "NonConnecte");
         }
 
-        /**
-         * rafraichie la page gestion des utilisateurs avec une confirmation de suppression de l'utilisateur choisi
-         * @param username -> le pseudo de l'utilisateur à supprimer
-         * @return -> la page admin/gestionUtilisateurs
-         */
+        /// <summary>
+        /// rafraichie la page gestion des utilisateurs avec une confirmation de suppression de l'utilisateur choisi
+        /// </summary>
+        /// <param name="username">le pseudo de l'utilisateur à supprimer</param>
         public IActionResult ConfirmerDelete(string username)
         {
             // Affiche message de confirmation de suppression d'utilisateur
@@ -62,11 +64,11 @@ namespace TP2_final.Controllers
             return RedirectToAction("gestionUtilisateurs", "admin");
         }
 
-        /**
-         * rafraichie la page gestion des utilisateurs après avoir supprimer l'utilisateur choisi
-         * @param username -> le pseudo de l'utilisateur à supprimer
-         * @return -> la page admin/gestionUtilisateurs
-         */
+        /// <summary>
+        /// rafraichie la page gestion des utilisateurs après avoir supprimer l'utilisateur choisi
+        /// </summary>
+        /// <param name="username">username -> le pseudo de l'utilisateur à supprimer</param>
+        /// <returns></returns>
         public IActionResult DeleteUser(string username)
         {
             // Suppression d'utilisateur à la suite de la confirmation
@@ -75,11 +77,10 @@ namespace TP2_final.Controllers
 
             return RedirectToAction("gestionUtilisateurs", "admin");
         }
-
-        /**
-         * rafraichie la page gestion des utilisateurs pour annuler une suppression d'utilisateur
-         * @return -> la page admin/gestionUtilisateurs
-         */
+   
+        /// <summary>
+        /// rafraichie la page gestion des utilisateurs pour annuler une suppression d'utilisateur
+        /// </summary>
         public IActionResult AnnulerDeleteUser()
         {
             // Fermer la boite de confirmation de suppression d'utilisateur
