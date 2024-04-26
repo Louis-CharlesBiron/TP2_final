@@ -10,20 +10,20 @@
         <div id="message">
         @if ((string)TempData["add"] == "true")
         {
-                <p>Le média (nom du media) a été ajouté aux favoris</p>
+                <p>Le média <b>@TempData["favoAdd"]</b> a été ajouté aux favoris</p>
         }
         @if ((string)TempData["remove"] == "true")
         {
-                <p>Le média (nom du media) a été retiré des favoris</p>
+                <p>Le média <b>@TempData["favoRemove"]</b> a été retiré des favoris</p>
         }
         </div>
     }
     @if ((string)TempData["isConfirmation"] == "true")
     {
         <div id="confrimation">
-            <p>Êtes vous sûr que vous voulez supprimer @TempData["favoToDelete"] de vos favoris ?</p>
-            <a class="aConfirmation" asp-action="DeleteUser" asp-controller="admin" asp-route-username="@TempData["usernameToDelete"]">Supprimer @TempData["usernameToDelete"]</a>
-            <a class="aConfirmation" asp-action="AnnulerDeleteUser" asp-controller="admin">Annuler</a>
+            <p>Êtes vous sûr que vous voulez supprimer <b>@TempData["favoToDelete"]</b> de vos favoris ?</p>
+            <a class="aConfirmation" asp-action="RetirerFavoris" asp-controller="User" asp-route-nomMedia="@TempData["favoToDelete"]">Confirmer</a>
+            <a class="aConfirmation" asp-action="AnnulerDeleteUser" asp-controller="User">Annuler</a>
         </div>
     }   
     <div class="top_catalogue">
@@ -42,10 +42,10 @@
                         List<Favoris> list = Model.Favoris.GetFavoris((string)TempData["username"]);
                     }
                     @if(list.Any(f=>f.MediaName == media.Nom)){
-                        <a class="btn" asp-action="ajouterFavo" asp-controller="User" asp-route-username="@media.Nom">❤️</a>
+                        <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-NomMedia="@media.Nom">❤️</a>
                     }
                     else{
-                        <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-username="@media.Nom">🤍</a>
+                        <a class="btn" asp-action="AjouterFavoris" asp-controller="User" asp-route-NomMedia="@media.Nom">🤍</a>
                     }
                     
                 </div>

@@ -82,6 +82,9 @@ namespace TP2_final.Controllers
             Favoris fav = new Favoris((string)TempData["username"], nomMedia);
             catalogueFavoris.Ajouter(fav);
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
+            TempData["messageOn"] = "true";
+            TempData["add"] = "true";
+            TempData["favoAdd"] = nomMedia;
             return RedirectToAction("index");
         }
 
@@ -93,7 +96,10 @@ namespace TP2_final.Controllers
         {
             catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
-            return RedirectToAction("Favoris", "User");
+            TempData["messageOn"] = "true";
+            TempData["remove"] = "true";
+            TempData["favoRemove"] = nomMedia;
+            return RedirectToAction("index", "User");
         }
 
         /**
@@ -101,11 +107,11 @@ namespace TP2_final.Controllers
          * @param media -> media à supprimer eds favoris
          * @return -> la page user/medias
          */
-        public IActionResult ConfirmerDelete(string media)
+        public IActionResult ConfirmerDelete(string NomMedia)
         {
             // Affiche message de confirmation de suppression d'utilisateur
             TempData["isConfirmation"] = "true";
-            TempData["favoToDelete"] = media;
+            TempData["favoToDelete"] = NomMedia;
 
             return RedirectToAction("index", "User");
         }
