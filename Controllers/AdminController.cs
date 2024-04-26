@@ -61,7 +61,7 @@ namespace TP2_final.Controllers
             TempData["isConfirmation"] = "true";
             TempData["usernameToDelete"] = username;
 
-            return RedirectToAction("gestionUtilisateurs", "admin");
+            return RedirectToAction("Index", "admin");
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace TP2_final.Controllers
             catalogueUtilisateur.Supprimer(catalogueUtilisateur.GetUtilisateurByPseudo(username));
             catalogueUtilisateur.Sauvegarder(pathUtilisateurs, pathDossierSerial);
 
-            return RedirectToAction("gestionUtilisateurs", "admin");
+            return RedirectToAction("Index", "admin");
         }
    
         /// <summary>
@@ -84,7 +84,7 @@ namespace TP2_final.Controllers
         public IActionResult AnnulerDeleteUser()
         {
             // Fermer la boite de confirmation de suppression d'utilisateur
-            return RedirectToAction("gestionUtilisateurs", "admin");
+            return RedirectToAction("Index", "admin");
         }
 
  

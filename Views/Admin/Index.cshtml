@@ -20,6 +20,12 @@
                         <a class="btn" asp-action="ConfirmerDelete" asp-controller="admin" asp-route-username="@utilisateur.Pseudo">Supprimer</a>
                     </button>
                 }
+                else
+                {
+                    <button class="disable">
+                        <a class="btn disable">Supprimer</a>
+                    </button>
+                }
             </div>
         }
     </div>

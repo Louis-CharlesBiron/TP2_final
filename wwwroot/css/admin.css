@@ -78,3 +78,8 @@ body {
 .aConfirmation:hover {
     color: white;
 }
+
+.disable {
+    background-color: lightgray;
+    cursor: not-allowed !important;
+}
