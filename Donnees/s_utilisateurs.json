@@ -1,12 +1,5 @@
 [
   {
-    "Pseudo": "Admin1",
-    "MotDePasse": "Abcde!1",
-    "Nom": "Biron",
-    "Prenom": "Louis-charles",
-    "Role": 1
-  },
-  {
     "Pseudo": "pseudoDefaut1",
     "MotDePasse": "!Soleil01",
     "Nom": "Felix",
@@ -23,8 +16,8 @@
   {
     "Pseudo": "Admin1",
     "MotDePasse": "!Soleil01",
-    "Nom": "Test",
-    "Prenom": "Admin",
+    "Nom": "Biron",
+    "Prenom": "Louis-charles",
     "Role": 1
   },
   {

@@ -1,17 +1,31 @@
 ﻿@using static TP2_final.Utilitaire;
 @{
     ViewData["Title"] = "Home Page";
-    ViewData["mediaRemove"] = "Nom de media";
 }
 
 <div class="text-center h-100">
     <h1 class="display-4">Catalogue</h1>
-    <div id="message">
-        <p>Message (Ajout de media dasn ses favoris)</p>
-    </div>
-    <div id="confrimation">
-        <p>Êtes vous sûr que vous voulez supprimer @ViewData["mediaRemove"] de vos favoris ?</p>
-    </div>
+    @if ((string)TempData["messageOn"] == "true")
+    {
+        <div id="message">
+        @if ((string)TempData["add"] == "true")
+        {
+                <p>Le média (nom du media) a été ajouté aux favoris</p>
+        }
+        @if ((string)TempData["remove"] == "true")
+        {
+                <p>Le média (nom du media) a été retiré des favoris</p>
+        }
+        </div>
+    }
+    @if ((string)TempData["isConfirmation"] == "true")
+    {
+        <div id="confrimation">
+            <p>Êtes vous sûr que vous voulez supprimer @TempData["favoToDelete"] de vos favoris ?</p>
+            <a class="aConfirmation" asp-action="DeleteUser" asp-controller="admin" asp-route-username="@TempData["usernameToDelete"]">Supprimer @TempData["usernameToDelete"]</a>
+            <a class="aConfirmation" asp-action="AnnulerDeleteUser" asp-controller="admin">Annuler</a>
+        </div>
+    }   
     <div class="top_catalogue">
         <!-- afficher les medias-->
         @foreach (Media media in Model.GetCatalogue())
@@ -21,6 +35,8 @@
                 <span class="fw-bold">@media.Nom</span>
                 <span>@media.Auteur</span>
                 <span>@getDureeFormat(media.Duree)</span>
+                <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-username="@media.Nom">Supprimer favori❤️</a>
+                <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-username="@media.Nom">Ajouter aux favoris🤍</a>
                 <!--
                     <a class="btn" asp-controller="User" asp-action="" asp-route-nomMedia="@media.Nom">❤</a>
                 <a class="btn" asp-controller="User" asp-action="" asp-route-nomMedia="@media.Nom">♡</a>

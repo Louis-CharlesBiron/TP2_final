@@ -102,9 +102,19 @@ namespace TP2_final.Controllers
         {
             // Affiche message de confirmation de suppression d'utilisateur
             TempData["isConfirmation"] = "true";
-            TempData["usernameToDelete"] = media;
+            TempData["favoToDelete"] = media;
 
-            return RedirectToAction("index", "utilisateur");
+            return RedirectToAction("index", "User");
+        }
+
+        /**
+         * rafraichie la page des medias pour annuler une suppression de favori
+         * @return -> la page utilisateur/index
+         */
+        public IActionResult AnnulerDeleteUser()
+        {
+            // Fermer la boite de confirmation de suppression d'utilisateur
+            return RedirectToAction("index", "User");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
