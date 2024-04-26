@@ -30,7 +30,7 @@ namespace TP2_final.Models
         [JsonIgnore]
         public const int LONGUEUR_MAX_CHAINE = 50;
         public readonly string[] EXTENSION_IMAGES = { "png", "jpg", "jpeg" };
-        public const string extAudio = "mp3";
+        public const string EXTENSION_AUDIO = "mp3";
         [JsonIgnore]
         private static int nombreIncremente = 0;
 
