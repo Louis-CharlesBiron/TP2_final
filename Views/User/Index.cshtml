@@ -30,18 +30,18 @@
         <!-- afficher les medias-->
         @foreach (Media media in Model.GetCatalogue())
         {
-            <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@media.Nom">
-                <img src="@Url.Content("~/"+media.Image)" alt="Image @media.Nom" class="miniatureCatalogue"></img>
-                <span class="fw-bold">@media.Nom</span>
-                <span>@media.Auteur</span>
-                <span>@getDureeFormat(media.Duree)</span>
-                <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-username="@media.Nom">Supprimer favori❤️</a>
-                <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-username="@media.Nom">Ajouter aux favoris🤍</a>
-                <!--
-                    <a class="btn" asp-controller="User" asp-action="" asp-route-nomMedia="@media.Nom">❤</a>
-                <a class="btn" asp-controller="User" asp-action="" asp-route-nomMedia="@media.Nom">♡</a>
-                -->
-            </a>
+            <div class="mediaNLogo">
+                <a class="media" asp-controller="User" asp-action="Fiche" asp-route-nom="@media.Nom">
+                    <img src="@Url.Content("~/"+media.Image)" alt="Image @media.Nom" class="miniatureCatalogue"></img>
+                    <span class="fw-bold">@media.Nom</span>
+                    <span>@media.Auteur</span>
+                    <span>@getDureeFormat(media.Duree)</span>
+                </a>
+                <div class="logo">
+                    <a class="btn" asp-action="ajouterFavo" asp-controller="User" asp-route-username="@media.Nom">❤️</a>
+                    <a class="btn" asp-action="ConfirmerDelete" asp-controller="User" asp-route-username="@media.Nom">🤍</a>
+                </div>
+            </div>
         }
 
     </div>
