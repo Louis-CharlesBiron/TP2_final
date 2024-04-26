@@ -25,9 +25,8 @@
                             <span>@Utilitaire.getDureeFormat(media.Duree)</span>
                         </a>
                         <button class="favBtn">
-                            <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">
-                                Retirer
-                                des favoris
+                            <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom" asp-route-page="fav">
+                                Retirer des favoris
                             </a>
                         </button>
                     </div>

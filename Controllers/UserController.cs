@@ -95,14 +95,27 @@ namespace TP2_final.Controllers
          * @param nomMedia -> le nom du média à retirer des favoris
          * @return -> la page favoris
          */
-        public IActionResult RetirerFavoris(string nomMedia)
+        public IActionResult RetirerFavoris(string nomMedia, string page)
         {
             catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             TempData["messageOn"] = "true";
             TempData["remove"] = "true";
             TempData["favoRemove"] = nomMedia;
-            return RedirectToAction("index", "User");
+
+            if (page == "fav")
+            {
+                return RedirectToAction("Favoris", "User");
+            }
+            else if (page == "fiche")
+            {
+                return RedirectToAction("Fiche", "User");
+            }
+            else
+            {
+                return RedirectToAction("Index", "User");
+            }
+            
         }
 
         /**

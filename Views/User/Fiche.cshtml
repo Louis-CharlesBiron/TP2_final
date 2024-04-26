@@ -50,11 +50,11 @@
             <div>
                 @if (Model.Favoris.GetFavoris((string)TempData["username"], media.Nom) is null) {// si media pas en favoris
                     <button class="favBtn">
-                        <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-nomMedia="@media.Nom">Ajouter comme favoris ❤</a>
+                        <a class="btn" asp-controller="User" asp-action="AjouterFavoris" asp-route-nomMedia="@media.Nom">Ajouter comme favoris 🤍</a>
                     </button>
                 } else {// si media en favoris
                     <button class="favBtn">
-                        <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">Supprimer des favoris ♡</a>
+                        <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">Supprimer des favoris ❤️</a>
                     </button>
                 }
             </div>

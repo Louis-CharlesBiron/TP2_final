@@ -11,8 +11,8 @@
 LOUIS-CHARLSESSS: 
 
 MEAK:
-- quand ajouter favo, redirect vers la page qu'on est deja
-- ajouter confirmation dans page fiche complete pour supprimer favo
+- quand ajouter favo, redirect vers la page qu'on est deja (index et favoris fonctionne reste fiche complete)
+- ajouter confirmation dans page fiche complete (et favoris) pour supprimer favo
 
 FLIX:
 

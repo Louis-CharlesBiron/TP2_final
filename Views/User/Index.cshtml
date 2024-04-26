@@ -22,7 +22,7 @@
     {
         <div id="confrimation">
             <p>Êtes vous sûr que vous voulez supprimer <b>@TempData["favoToDelete"]</b> de vos favoris ?</p>
-            <a class="aConfirmation" asp-action="RetirerFavoris" asp-controller="User" asp-route-nomMedia="@TempData["favoToDelete"]">Confirmer</a>
+            <a class="aConfirmation" asp-action="RetirerFavoris" asp-controller="User" asp-route-nomMedia="@TempData["favoToDelete"]" asp-route-page="Index">Confirmer</a>
             <a class="aConfirmation" asp-action="AnnulerDeleteUser" asp-controller="User">Annuler</a>
         </div>
     }   
