@@ -12,7 +12,6 @@
 - pas tout donner vue favoris ()??
 
 LOUIS-CHARLSESSS: 
-- filtration + validation champs dans utilitaire (+)
 
 MEAK:
 
