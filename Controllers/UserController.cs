@@ -47,7 +47,7 @@ namespace TP2_final.Controllers
         {
             TempData.Keep("username");
             Utilisateur user = catalogueUtilisateur.GetUtilisateurByPseudo((string)TempData["username"]);
-            return user is null || user.Role != Role.USER ? RedirectToAction("Index", "NonConnecte") : View(catalogue);
+            return user is null || user.Role != Role.USER ? RedirectToAction("Index", "NonConnecte") : View(catalogues);
         }
 
         /**
