@@ -1,7 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Json.Serialization;
+
 
 namespace TP2_final.Models
 {
@@ -41,7 +39,7 @@ namespace TP2_final.Models
             {
                 listeUtilisateurs = JsonConvert.DeserializeObject<List<Utilisateur>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 ok = false;
             }
@@ -63,7 +61,7 @@ namespace TP2_final.Models
             {
                 File.WriteAllText(@$"{pathSource}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeUtilisateurs, Formatting.Indented));
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 isSauvegarde = false;
             }

@@ -26,5 +26,12 @@
     "Nom": "lorman",
     "Prenom": "maek",
     "Role": 0
+  },
+  {
+    "Pseudo": "fb1234",
+    "MotDePasse": "!Soleil01",
+    "Nom": "blanchette",
+    "Prenom": "felix",
+    "Role": 0
   }
 ]

@@ -1,7 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Json.Serialization;
 
 namespace TP2_final.Models
 {
@@ -24,7 +21,7 @@ namespace TP2_final.Models
             {
                 listeFav = JsonConvert.DeserializeObject<List<Favoris>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 ok = false;
             }
@@ -45,7 +42,7 @@ namespace TP2_final.Models
                 File.WriteAllText(@$"{pathSource}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeFav, Formatting.Indented));
             }
             
-            catch (Exception err)
+            catch (Exception)
             {
                 ok = false;
             }
@@ -90,15 +87,9 @@ namespace TP2_final.Models
             return list.Count > 0 ? list[0] : null;
         }
 
-        public List<Favoris> GetFavoris(Media media)
+        public List<Favoris> GetFavoris(string username)
         {
-            return listeFav.Where(x => x.UserName == media.Nom).ToList();
-        }
-
-
-        public List<Favoris> GetFavoris(Utilisateur user)
-        {
-            return listeFav.Where(x => x.UserName == user.Nom).ToList();
+            return listeFav.Where(x => x.UserName == username).ToList();
         }
     }
 }

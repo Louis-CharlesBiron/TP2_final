@@ -8,31 +8,30 @@
     <h1 class="display-4">Favoris</h1>
 
     <div>
-        <!-- afficher des favoris-->
-        @foreach (Favoris fav in Model.Favoris.GetCatalogue())
-        {
-            if (fav.UserName == (string)TempData["username"])
-            {
-                foreach (Media media in Model.Medias.GetCatalogue())
-                {
-                    if (media.Nom == fav.MediaName)
-                    {
-                        <div class="media">
-                            <a asp-controller="User" asp-action="Fiche" asp-route-nom="@media.Nom" class="mediaInfo">
-                                <img src="@Url.Content("~/" + media.Image)" alt="Image @media.Nom" class="miniatureCatalogue"></img>
-                                <span class="fw-bold">@media.Nom</span>
-                                <span>@media.Auteur</span>
-                                <span>@Utilitaire.getDureeFormat(media.Duree)</span>
-                            </a>
-                            <button class="favBtn">
-                                <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">Retirer des favoris</a>
-                            </button>
-                            
-                        </div>
 
-                    }
-                }
+        @{
+            List<Favoris> listFav = Model.Favoris.GetFavoris((string)TempData["username"]);
+            if (listFav.Count == 0)
+            {
+                <h3>Aucun favoris pour l'instant</h3>
             }
+            else foreach (Media media in listFav.Select(f => Model.Medias.GetMediaByNom(f.MediaName)).ToList())
+                {
+                    <div class="media">
+                        <a asp-controller="User" asp-action="Fiche" asp-route-nom="@media.Nom" class="mediaInfo">
+                            <img src="@Url.Content("~/" + media.Image)" alt="Image @media.Nom" class="miniatureCatalogue"></img>
+                            <span class="fw-bold">@media.Nom</span>
+                            <span>@media.Auteur</span>
+                            <span>@Utilitaire.getDureeFormat(media.Duree)</span>
+                        </a>
+                        <button class="favBtn">
+                            <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom">
+                                Retirer
+                                des favoris
+                            </a>
+                        </button>
+                    </div>
+                }
         }
     </div>
 </div>
