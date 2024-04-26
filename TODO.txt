@@ -1,37 +1,17 @@
-differrentes .ext dans array
-path paramétrisé class media
-inclure tout dans les tests
-
-pas se rendre compte verfication serveur vs client
-filtration + validation champs dans utilitaire
-indiquer rien dans favoris
-pas redirect dans favoris
-bouton favoris dans liste media
-message favoris retirer
-jamais destruction info sans confirmation
-
-si pas pareil => kickout
-message suppression User
-affichage pareil meme si pas bouton
-
-vue partielle fiche ou liste media + favoris
-
-
-++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++
-
-
-maigrir css / maybe disparaitre
-utiliser bootstrap pour uniformiser browser
-tres carré
-
-vue partielle = réutilisation code plusieurs endroits
-
-changer nom methode ajouter (deserialisation)
-
-pas tout donner vue favoris
-
-
-
+- path paramétrisé class media
+- inclure tout dans les tests
+- pas se rendre compte verfication serveur vs client
+- filtration + validation champs dans utilitaire
+- indiquer rien dans favoris
+- si pas pareil => kickout
+- vue partielle fiche ou liste media + favoris
+- vue partielle = réutilisation code plusieurs endroits
+- ++++!!!+++\\||===DOCUMENTATION===||//+++!!!++++
+- maigrir css / maybe disparaitre
+- utiliser bootstrap pour uniformiser browser
+- tres carré
+- changer nom methode ajouter (deserialisation)
+- pas tout donner vue favoris
 
 LOUIS-CHARLSESSS: 
 accueil admin = liste utilisateur
@@ -39,8 +19,10 @@ Longueur chaines caractères dans une constante
 
 MEAK:
 
-lol lol
-
-
+- quand ajouter favo, redirect vers la page qu'on est deja
+- faire la confirmation de suppression de favori
+- affichage pareil meme si pas bouton
+- cheker dans user/index quand media deja favo bouton supprimer et quand media pas favo bouton ajouter
 
 FLIX:
+- indiquer rien dans favoris

@@ -22,9 +22,9 @@ namespace TP2_final.Controllers
             catalogueUtilisateur = new CatalogueUtilisateur();
             catalogueFavoris = new CatalogueFavoris();
 
-            catalogue.Ajouter(pathMedias, pathDossierSerial);
-            catalogueUtilisateur.Ajouter(pathUtilisateurs, pathDossierSerial);
-            catalogueFavoris.Ajouter(pathFavoris, pathDossierSerial);
+            catalogue.Deserialiser(pathMedias, pathDossierSerial);
+            catalogueUtilisateur.Deserialiser(pathUtilisateurs, pathDossierSerial);
+            catalogueFavoris.Deserialiser(pathFavoris, pathDossierSerial);
 
             catalogues = new Catalogues
             {
@@ -75,14 +75,14 @@ namespace TP2_final.Controllers
 
         /**
          * @param nomMedia -> le nom du média à ajouter aux favoris
-         * @return -> la page favoris
+         * @return -> la page index
          */
         public IActionResult AjouterFavoris(string nomMedia)
         {
             Favoris fav = new Favoris((string)TempData["username"], nomMedia);
             catalogueFavoris.Ajouter(fav);
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
-            return RedirectToAction("Favoris");
+            return RedirectToAction("index");
         }
 
         /**
@@ -94,6 +94,30 @@ namespace TP2_final.Controllers
             catalogueFavoris.Supprimer(catalogueFavoris.GetFavoris((string)TempData["username"], nomMedia));
             catalogueFavoris.Sauvegarder(pathFavoris, pathDossierSerial);
             return RedirectToAction("Favoris", "User");
+        }
+
+        /**
+         * rafraichie la page des medias avec une confirmation de suppression du media choisi
+         * @param media -> media à supprimer eds favoris
+         * @return -> la page user/medias
+         */
+        public IActionResult ConfirmerDelete(string media)
+        {
+            // Affiche message de confirmation de suppression d'utilisateur
+            TempData["isConfirmation"] = "true";
+            TempData["favoToDelete"] = media;
+
+            return RedirectToAction("index", "User");
+        }
+
+        /**
+         * rafraichie la page des medias pour annuler une suppression de favori
+         * @return -> la page utilisateur/index
+         */
+        public IActionResult AnnulerDeleteUser()
+        {
+            // Fermer la boite de confirmation de suppression d'utilisateur
+            return RedirectToAction("index", "User");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

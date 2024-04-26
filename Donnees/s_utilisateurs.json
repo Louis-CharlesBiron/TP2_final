@@ -1,12 +1,5 @@
 [
   {
-    "Pseudo": "LCBPhobos100",
-    "MotDePasse": "I_Beat_Phobos_in_38354_attempts",
-    "Nom": "Biron",
-    "Prenom": "Louis-charles",
-    "Role": 1
-  },
-  {
     "Pseudo": "pseudoDefaut1",
     "MotDePasse": "!Soleil01",
     "Nom": "Felix",
@@ -14,10 +7,24 @@
     "Role": 0
   },
   {
-    "Pseudo": "Jojo4",
-    "MotDePasse": "Jojojojo4$",
-    "Nom": "Goulet",
-    "Prenom": "Jocelyn",
+    "Pseudo": "CRAZY3",
+    "MotDePasse": "!Soleil01",
+    "Nom": "test",
+    "Prenom": "test",
+    "Role": 0
+  },
+  {
+    "Pseudo": "Admin1",
+    "MotDePasse": "!Soleil01",
+    "Nom": "Biron",
+    "Prenom": "Louis-charles",
     "Role": 1
+  },
+  {
+    "Pseudo": "QDacier9",
+    "MotDePasse": "!Soleil01",
+    "Nom": "lorman",
+    "Prenom": "maek",
+    "Role": 0
   }
 ]

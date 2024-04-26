@@ -142,6 +142,28 @@
     "Extrait": "ressources/extraits/You Will Find Your Way Home Safely.mp3",
     "Complet": "ressources/complets/You Will Find Your Way Home Safely.mp3",
     "Image": "ressources/imagesMedia/You Will Find Your Way Home Safely.png"
+  },
+  {
+    "Nom": "Without me",
+    "Type": 0,
+    "DateRealisation": 1021262400000,
+    "Duree": 298,
+    "Auteur": "Eminem",
+    "Producteur": "Eminem",
+    "Extrait": "ressources/extraits/.mp3",
+    "Complet": "ressources/complet/withoutMe.mp3",
+    "Image": "ressources/imagesMedia/withoutMe.png"
+  },
+  {
+    "Nom": "Smells like  teen spirit",
+    "Type": 12,
+    "DateRealisation": 684475200000,
+    "Duree": 279,
+    "Auteur": "Nirvana",
+    "Producteur": "kurt Cobain",
+    "Extrait": "ressources/extraits/.mp3",
+    "Complet": "ressources/complet/smellsLikeTeenSpirit.mp3",
+    "Image": "ressources/imagesMedia/smellsLikeTeenSpirit.png"
   }
 
 ]
