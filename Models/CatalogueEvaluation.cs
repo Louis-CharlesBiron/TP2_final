@@ -64,7 +64,7 @@ namespace TP2_final.Models
             {
                 listeEvaluations = JsonConvert.DeserializeObject<List<Evaluation>>(File.ReadAllText(@$"{pathSource}\{nomFichierSauvegarde}"));
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 ok = false;
             }
@@ -84,7 +84,7 @@ namespace TP2_final.Models
             {
                 File.WriteAllText(@$"{pathSource}\{nomFichierSauvegarde}", JsonConvert.SerializeObject(listeEvaluations, Formatting.Indented));
             }
-            catch (Exception err)
+            catch (Exception)
             {
                 isSauvegarde = false;
             }

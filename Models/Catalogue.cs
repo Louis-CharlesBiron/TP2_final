@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace TP2_final.Models
 {
