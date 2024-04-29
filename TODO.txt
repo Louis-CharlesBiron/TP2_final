@@ -7,6 +7,7 @@
 - réduire css, utiliser bootstrap (+?)
 - tres carré (+)
 - pas tout donner vue favoris ()??
+- rajouter une scrollBar dans la page des favoris (et possiblement aussi pour la page Admin/Index) (+?)
 
 LOUIS-CHARLSESSS: 
 
