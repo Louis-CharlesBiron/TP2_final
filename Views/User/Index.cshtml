@@ -5,19 +5,23 @@
 
 <div class="text-center h-100">
     <h1 class="display-4">Catalogue</h1>
+    <!--Message d'ajout ou de suppression d'un favori-->
     @if ((string)TempData["messageOn"] == "true")
     {
         <div id="message">
+        <!--Message d'ajout d'un favori-->
         @if ((string)TempData["add"] == "true")
         {
                 <p>Le média <b>@TempData["favoAdd"]</b> a été ajouté aux favoris</p>
         }
+        <!--Message de suppression d'un favori-->
         @if ((string)TempData["remove"] == "true")
         {
                 <p>Le média <b>@TempData["favoRemove"]</b> a été retiré des favoris</p>
         }
         </div>
     }
+    <!--Message de confirmation de suppression d'un favori-->
     @if ((string)TempData["isConfirmation"] == "true")
     {
         <div id="confrimation">

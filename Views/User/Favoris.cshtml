@@ -6,7 +6,15 @@
 <div class="text-center">
 
     <h1 class="display-4">Favoris</h1>
-
+    <!--Message de confirmation de suppression d'un favori-->
+    @if ((string)TempData["isConfirmation"] == "true")
+    {
+        <div id="confrimation">
+            <p>Êtes vous sûr que vous voulez supprimer <b>@TempData["favoToDelete"]</b> de vos favoris ?</p>
+            <a class="aConfirmation" asp-action="RetirerFavoris" asp-controller="User" asp-route-nomMedia="@TempData["favoToDelete"]" asp-route-page="fav">Confirmer</a>
+            <a class="aConfirmation" asp-action="AnnulerDeleteUser" asp-controller="User">Annuler</a>
+        </div>
+    }
     <div>
 
         @{
@@ -25,7 +33,7 @@
                             <span>@Utilitaire.getDureeFormat(media.Duree)</span>
                         </a>
                         <button class="favBtn">
-                            <a class="btn" asp-controller="User" asp-action="RetirerFavoris" asp-route-nomMedia="@media.Nom" asp-route-page="fav">
+                            <a class="btn" asp-controller="User" asp-action="ConfirmerDelete" asp-route-nomMedia="@media.Nom" asp-route-page="fav">
                                 Retirer des favoris
                             </a>
                         </button>
